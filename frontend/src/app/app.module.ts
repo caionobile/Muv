@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TreinosComponent } from './treinos/treinos.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TreinosComponent,
-    WorkspaceComponent
+    WorkspaceComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule,
