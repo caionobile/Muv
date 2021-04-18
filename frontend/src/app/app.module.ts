@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TreinosComponent } from './treinos/treinos.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { ContatoComponent } from './contato/contato.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TreinosComponent,
     WorkspaceComponent,
-    CalculadoraComponent
+    CalculadoraComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,
