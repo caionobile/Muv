@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+
+a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-style: italic;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Quicksand;
+  background: black;
+  height: 10.1vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+  line-height: 10.1vh;
+  padding: 1vh;
+}
+
+.nav-list li:hover {
+  background-color: #fff;
+  a{
+    color: black;
+  }
+
+}
+
+.mobile-menu {
+  display: none; //Para esconder em dispositivos maiores (se quiser)
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 7px;
+}
+
+.line1{
+  transition: 0.3s;
+}
+input:checked nav{
+
+  background-color: gold;
+}
+
+@media (max-width: 1095px) {
+  .nav-list {
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    width: 40vw;
+    height: 89.9vh;
+    background: black;
+    flex-direction: column;
+    padding-left: 0;
+    align-items: left;
+    justify-content: space-around;
+    //transform: translateX(-100%);
+
+  }
+
+  .nav-list li {
+    outline-width: 2vw;
+    padding-left: 2vw;
+    margin-left: 0;
+    //opacity: 0;
+
+  }
+  .mobile-menu {
+    display: block;
+    left: 0;
+    margin-left: -15vw;
+  }
+}
+
+.nav-list.active{
+  transform: translateX(0);
+}
