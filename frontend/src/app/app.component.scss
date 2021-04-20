@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
-a {
+a,
+li > a {
   color: white;
   text-decoration: none;
   transition: 0.3s;
@@ -11,6 +12,10 @@ a {
   text-transform: uppercase;
   letter-spacing: 4px;
   font-style: italic;
+}
+
+.logo:hover {
+  color: #ccff00;
 }
 
 nav {
@@ -25,26 +30,40 @@ nav {
 .nav-list {
   list-style: none;
   display: flex;
-  //background: black;
+  margin-bottom: 0;
 }
-
 
 .nav-list li {
   letter-spacing: 3px;
   margin-left: 32px;
   line-height: 10.1vh;
-  padding: 1vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 
-.nav-list li:hover {
+.nav-list li:hover:not(.contato, .perlog) {
   background-color: #fff;
-  a{
+  a {
+    color: black;
+  }
+}
+
+.perlog {
+  background-color: #5e5eff;
+  a {
+    color: black;
+  }
+}
+
+.contato {
+  background-color: #ccff00;
+  a {
     color: black;
   }
 }
 
 .mobile-menu {
-  display: block; //Para esconder em dispositivos maiores (se quiser)
+  display: none; //Para esconder em dispositivos maiores (se quiser)
   cursor: pointer;
 }
 
@@ -55,41 +74,85 @@ nav {
   margin: 7px;
 }
 
-.line1{
+.line1 {
   transition: 0.3s;
 }
 
-/* .side{
-  background-color: black;
-} */
+.sidebar {
+  display: none;
+}
 
-@media (max-width: 1095px) {
+.sidebar li {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  letter-spacing: 1.5px;
+  line-height: 10.1vh;
+  padding: 1vh;
+  font-size: 12px;
+}
+
+@media (max-width: 1054px) {
   .nav-list {
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar {
+    font-family: Quicksand;
+    display: flex;
+    flex-direction: column;
     top: 8vh;
     left: 0;
     width: 40vw;
     height: 89.9vh;
     background: black;
-    flex-direction: column;
     padding-left: 0;
     align-items: left;
-    justify-content: space-around;
-    //transform: translateX(-100%);
+    margin-bottom: 0;
   }
+
+  .sidebar li {
+    font-size: 1.85vw;
+    transition: 0s 0.1s;
+  }
+
+  ul > .calc {
+    letter-spacing: -0.6px;
+  }
+  .sidebar li:hover:not(.contato, .perlog) {
+    background-color: #fff;
+    a {
+      color: black;
+    }
+  }
+  li:focus:not(.contato, .perlog) {
+    background-color: #fff;
+    transition: 0s;
+    a {
+      transition: 0s;
+      color: black;
+    }
+  }
+
+  li:active:not(.contato, .perlog) {
+    background-color: #fff;
+    transition: 0s;
+    a {
+      transition: 0s;
+      color: black;
+    }
+  }
+
   .nav-list li {
-    outline-width: 2vw;
-    padding-left: 2vw;
-    margin-left: 0;
-    //opacity: 0;
+    display: none;
   }
   .mobile-menu {
     display: block;
-    left: 0;
-    margin-left: -15vw;
   }
 }
 
-.nav-list.active{
-  transform: translateX(0);
+@media (max-width: 650px) {
+  .sidebar li {
+    font-size: 12px;
+  }
 }
