@@ -14,7 +14,7 @@ li > a {
   font-style: italic;
 }
 
-.logo:hover{
+.logo:hover {
   color: #ccff00;
 }
 
@@ -48,22 +48,19 @@ nav {
   }
 }
 
-
-.perlog{
+.perlog {
   background-color: #5e5eff;
-  a{
+  a {
     color: black;
   }
 }
 
-.contato{
+.contato {
   background-color: #ccff00;
-  a{
+  a {
     color: black;
   }
 }
-
-
 
 .mobile-menu {
   display: none; //Para esconder em dispositivos maiores (se quiser)
@@ -88,9 +85,12 @@ nav {
 @media (max-width: 1054px) {
   .nav-list {
     display: flex;
+    flex-direction: column;
   }
   .sidebar {
-    display: block;
+    font-family: Quicksand;
+    display: flex;
+    flex-direction: column;
     top: 8vh;
     left: 0;
     width: 35vw;
@@ -98,17 +98,21 @@ nav {
     background: black;
     padding-left: 0;
     align-items: left;
+    margin-bottom: 0;
   }
-  .sidebar li{
+  .sidebar li {
     align-items: center;
     display: flex;
     list-style: none;
     letter-spacing: 1.5px;
     line-height: 10.1vh;
     padding: 1vh;
+    font-size: 12px;
   }
-
-  .sidebar li:hover{
+  ul > .calc{
+    letter-spacing: -0.60px;
+  }
+  .sidebar li:hover:not(.contato, .perlog) {
     background-color: #fff;
     a {
       color: black;
