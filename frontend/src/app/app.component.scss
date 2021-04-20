@@ -25,8 +25,9 @@ nav {
 .nav-list {
   list-style: none;
   display: flex;
-
+  //background: black;
 }
+
 
 .nav-list li {
   letter-spacing: 3px;
@@ -40,11 +41,10 @@ nav {
   a{
     color: black;
   }
-
 }
 
 .mobile-menu {
-  display: none; //Para esconder em dispositivos maiores (se quiser)
+  display: block; //Para esconder em dispositivos maiores (se quiser)
   cursor: pointer;
 }
 
@@ -58,9 +58,9 @@ nav {
 .line1{
   transition: 0.3s;
 }
-input:checked nav{
 
-  background-color: gold;
+.side{
+  background-color: black;
 }
 
 @media (max-width: 1095px) {
@@ -76,15 +76,12 @@ input:checked nav{
     align-items: left;
     justify-content: space-around;
     //transform: translateX(-100%);
-
   }
-
   .nav-list li {
     outline-width: 2vw;
     padding-left: 2vw;
     margin-left: 0;
     //opacity: 0;
-
   }
   .mobile-menu {
     display: block;

@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { SidebarModule } from 'ng-sidebar';
 import {MatCardModule} from '@angular/material/card';
 import { ExerciciosComponent } from './workspace/exercicios/exercicios.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -36,7 +37,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatListModule,
     MatIconModule,
     MatCardModule,
-    DragDropModule
+    DragDropModule,
+    SidebarModule.forRoot(),
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
