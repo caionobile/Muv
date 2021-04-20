@@ -14,6 +14,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { SidebarModule } from 'ng-sidebar';
+import {MatCardModule} from '@angular/material/card';
+import { ExerciciosComponent } from './workspace/exercicios/exercicios.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { SidebarModule } from 'ng-sidebar';
     TreinosComponent,
     WorkspaceComponent,
     CalculadoraComponent,
-    ContatoComponent
+    ContatoComponent,
+    ExerciciosComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { SidebarModule } from 'ng-sidebar';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    SidebarModule.forRoot()
+    SidebarModule.forRoot(),
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
