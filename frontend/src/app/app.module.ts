@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    SidebarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
