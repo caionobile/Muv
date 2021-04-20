@@ -8,10 +8,12 @@ li > a {
 }
 
 .logo {
+  color: #ccff00;
   font-size: 24px;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-style: italic;
+  padding-left: 2vw;
 }
 
 .logo:hover {
@@ -20,7 +22,7 @@ li > a {
 
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-family: Quicksand;
   background: black;
@@ -92,7 +94,10 @@ nav {
   font-size: 12px;
 }
 
-@media (max-width: 1054px) {
+@media (max-width: 1080px) {
+  nav{
+    justify-content: space-around;
+  }
   .nav-list {
     display: flex;
     flex-direction: column;
