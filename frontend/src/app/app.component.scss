@@ -48,8 +48,6 @@ nav {
   }
 }
 
-
-
 .perlog {
   background-color: #5e5eff;
   a {
@@ -105,7 +103,7 @@ nav {
     flex-direction: column;
     top: 8vh;
     left: 0;
-    width: 35vw;
+    width: 40vw;
     height: 89.9vh;
     background: black;
     padding-left: 0;
@@ -115,10 +113,11 @@ nav {
 
   .sidebar li {
     font-size: 1.85vw;
+    transition: 0s 0.1s;
   }
 
-  ul > .calc{
-    letter-spacing: -0.60px;
+  ul > .calc {
+    letter-spacing: -0.6px;
   }
   .sidebar li:hover:not(.contato, .perlog) {
     background-color: #fff;
@@ -126,13 +125,24 @@ nav {
       color: black;
     }
   }
-
   li:focus:not(.contato, .perlog) {
     background-color: #fff;
+    transition: 0s;
     a {
+      transition: 0s;
       color: black;
     }
   }
+
+  li:active:not(.contato, .perlog) {
+    background-color: #fff;
+    transition: 0s;
+    a {
+      transition: 0s;
+      color: black;
+    }
+  }
+
   .nav-list li {
     display: none;
   }
@@ -141,7 +151,7 @@ nav {
   }
 }
 
-@media(max-width:650px){
+@media (max-width: 650px) {
   .sidebar li {
     font-size: 12px;
   }
