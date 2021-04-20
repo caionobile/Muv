@@ -10,8 +10,7 @@ export class DetalheExercicioComponent implements OnInit {
   detalheExercicio = {
     nome: 'Abdominal leve',
     intensidade: 1,
-    descricao:
-      'Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem',
+    descricao: 'Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem',
     sessoes: 3,
     repeticoes: 15,
   };
