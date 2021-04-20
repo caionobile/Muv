@@ -3,6 +3,6 @@ export interface Exercicio{
   nome: string;
   intensidade: number;
   descricao: string;
-  sessoes: number;
+  series: number;
   repeticoes: number;
 }
