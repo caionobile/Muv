@@ -1,16 +1,9 @@
 <div class="container-fluid text-center pb-5">
   <div cdkDropList cdkDropListSortingDisabled>
     <div class="row">
-      <app-exercicios class="col-4" cdkDrag></app-exercicios>
-      <app-exercicios class="col-4" cdkDrag></app-exercicios>
-      <app-exercicios class="col-4" cdkDrag></app-exercicios>
-    </div>
-  </div>
-  <div cdkDropList cdkDropListSortingDisabled>
-    <div class="row">
-      <app-exercicios class="col-4" cdkDrag></app-exercicios>
-      <app-exercicios class="col-4" cdkDrag></app-exercicios>
-      <app-exercicios class="col-4" cdkDrag></app-exercicios>
+      <div class="col-4" cdkDrag *ngFor='let exercicio of exercicios'>
+        <app-exercicios [exercicio] = "exercicio"></app-exercicios>
+      </div>
     </div>
   </div>
 </div>

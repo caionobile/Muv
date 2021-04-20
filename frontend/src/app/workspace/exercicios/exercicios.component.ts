@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetalheExercicioComponent } from './detalhe-exercicio/detalhe-exercicio.component';
+import { Exercicio } from '../exercicio.model'
 
 @Component({
   selector: 'app-exercicios',
@@ -9,15 +10,12 @@ import { DetalheExercicioComponent } from './detalhe-exercicio/detalhe-exercicio
 })
 export class ExerciciosComponent implements OnInit {
 
-  exercicio = {
-    nome: 'Abdominal leve',
-    sessoes: 3,
-    repeticoes: 15,
-  };
+  @Input() exercicio: Exercicio;
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    console.log(this.exercicio);
   }
 
   abrirDetalhes(): void {

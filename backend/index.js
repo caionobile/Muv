@@ -1,11 +1,10 @@
-//importa os módulos http e express
 const http = require('http');
 const express = require('express');
-
-//constrói um objeto express
+const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 //configura a porta do servidor e coloca em execução
 const porta = 3000;
@@ -21,7 +20,7 @@ const exercicios = [
     descrição:
       "Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem",
     sessoes: 3,
-    repeticao: 15
+    repeticoes: 15
   },
   {
     id: "2",
@@ -30,7 +29,7 @@ const exercicios = [
     descrição:
       "Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem",
     sessoes: 3,
-    repeticao: 15
+    repeticoes: 15
   },
   {
     id: "3",
@@ -39,12 +38,9 @@ const exercicios = [
     descrição:
       "Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem",
     sessoes: 3,
-    repeticao: 15
+    repeticoes: 15
   },
 ];
 app.get("/api/exercicios", (req, res, next) => {
-  res.status(200).json({
-    mensagem: "Tudo OK",
-    exercicios: exercicios,
-  });
+  res.status(200).json(exercicios);
 });

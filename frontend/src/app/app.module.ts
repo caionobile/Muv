@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DetalheExercicioComponent } from './workspace/exercicios/detalhe-exercicio/detalhe-exercicio.component';
 
+import { ExercicioService } from './workspace/exercicio.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,9 +44,10 @@ import { DetalheExercicioComponent } from './workspace/exercicios/detalhe-exerci
     MatCardModule,
     DragDropModule,
     SidebarModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ExercicioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
