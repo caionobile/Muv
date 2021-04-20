@@ -15,10 +15,11 @@ export class ExerciciosComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    console.log(this.exercicio);
   }
 
   abrirDetalhes(): void {
-    const dialogRef = this.dialog.open(DetalheExercicioComponent);
+    const dialogRef = this.dialog.open(DetalheExercicioComponent, {
+      data: {exercicio: this.exercicio}
+    });
   }
 }

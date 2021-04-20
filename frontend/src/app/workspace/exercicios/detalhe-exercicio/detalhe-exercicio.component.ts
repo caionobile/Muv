@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-detalhe-exercicio',
@@ -7,15 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalheExercicioComponent implements OnInit {
 
-  detalheExercicio = {
-    nome: 'Abdominal leve',
-    intensidade: 1,
-    descricao: 'Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem',
-    sessoes: 3,
-    repeticoes: 15,
-  };
+  detalheExercicio: any;
 
-  constructor() {}
+  constructor(public dialogRef: MatDialogRef<DetalheExercicioComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      this.detalheExercicio = data.exercicio;
+    }
 
   ngOnInit(): void {}
 }
