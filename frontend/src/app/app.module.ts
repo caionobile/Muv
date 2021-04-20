@@ -13,6 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import { ExerciciosComponent } from './workspace/exercicios/exercicios.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {MatIconModule} from '@angular/material/icon';
     TreinosComponent,
     WorkspaceComponent,
     CalculadoraComponent,
-    ContatoComponent
+    ContatoComponent,
+    ExerciciosComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
