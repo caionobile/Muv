@@ -14,6 +14,10 @@ li > a {
   font-style: italic;
 }
 
+.logo:hover{
+  color: #ccff00;
+}
+
 nav {
   display: flex;
   justify-content: space-around;
@@ -33,15 +37,33 @@ nav {
   letter-spacing: 3px;
   margin-left: 32px;
   line-height: 10.1vh;
-  padding: 1vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 
-.nav-list li:hover {
+.nav-list li:hover:not(.contato, .perlog) {
   background-color: #fff;
   a {
     color: black;
   }
 }
+
+
+.perlog{
+  background-color: #5e5eff;
+  a{
+    color: black;
+  }
+}
+
+.contato{
+  background-color: #ccff00;
+  a{
+    color: black;
+  }
+}
+
+
 
 .mobile-menu {
   display: none; //Para esconder em dispositivos maiores (se quiser)
@@ -63,7 +85,7 @@ nav {
   display: none;
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1054px) {
   .nav-list {
     display: flex;
   }
