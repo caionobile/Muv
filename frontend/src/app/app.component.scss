@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
-a, li>a{
+a,
+li > a {
   color: white;
   text-decoration: none;
   transition: 0.3s;
@@ -52,39 +53,49 @@ nav {
   height: 2px;
   background: #fff;
   margin: 7px;
-
 }
 
 .line1 {
   transition: 0.3s;
 }
 
-.sidebar{
+.sidebar {
   display: none;
 }
 
-@media (max-width: 1095px) {
+@media (max-width: 1040px) {
   .nav-list {
     display: flex;
   }
-  .sidebar{
+  .sidebar {
     display: block;
     top: 8vh;
     left: 0;
-    width: 40vw;
+    width: 35vw;
     height: 89.9vh;
     background: black;
     padding-left: 0;
     align-items: left;
-}
+  }
+  .sidebar li{
+    align-items: center;
+    display: flex;
+    list-style: none;
+    letter-spacing: 1.5px;
+    line-height: 10.1vh;
+    padding: 1vh;
+  }
+
+  .sidebar li:hover{
+    background-color: #fff;
+    a {
+      color: black;
+    }
+  }
   .nav-list li {
-    /* outline-width: 2vw;
-    padding-left: 2vw;
-    margin-left: 0;
-    opacity: 0; */
     display: none;
   }
-  .mobile-menu{
+  .mobile-menu {
     display: block;
   }
 }
