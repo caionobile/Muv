@@ -37,10 +37,13 @@ nav {
 
 .nav-list li {
   letter-spacing: 3px;
-  margin-left: 32px;
   line-height: 10.1vh;
   padding-left: 1vw;
   padding-right: 1vw;
+}
+
+.nav-list li:not(.contato){
+  margin-left: 32px;
 }
 
 .nav-list li:hover:not(.contato, .perlog) {
@@ -59,6 +62,7 @@ nav {
 
 .contato {
   background-color: #ccff00;
+  margin-left: 0px;
   a {
     color: black;
   }
@@ -95,7 +99,7 @@ nav {
 }
 
 @media (max-width: 1080px) {
-  nav{
+  nav {
     justify-content: space-around;
   }
   .nav-list {
