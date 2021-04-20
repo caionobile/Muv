@@ -17,6 +17,8 @@ import { SidebarModule } from 'ng-sidebar';
 import {MatCardModule} from '@angular/material/card';
 import { ExerciciosComponent } from './workspace/exercicios/exercicios.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DetalheExercicioComponent } from './workspace/exercicios/detalhe-exercicio/detalhe-exercicio.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     WorkspaceComponent,
     CalculadoraComponent,
     ContatoComponent,
-    ExerciciosComponent
+    ExerciciosComponent,
+    DetalheExercicioComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatCardModule,
     DragDropModule,
     SidebarModule.forRoot(),
-    MatCardModule
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
