@@ -48,6 +48,8 @@ nav {
   }
 }
 
+
+
 .perlog {
   background-color: #5e5eff;
   a {
@@ -82,6 +84,16 @@ nav {
   display: none;
 }
 
+.sidebar li {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  letter-spacing: 1.5px;
+  line-height: 10.1vh;
+  padding: 1vh;
+  font-size: 12px;
+}
+
 @media (max-width: 1054px) {
   .nav-list {
     display: flex;
@@ -100,19 +112,22 @@ nav {
     align-items: left;
     margin-bottom: 0;
   }
+
   .sidebar li {
-    align-items: center;
-    display: flex;
-    list-style: none;
-    letter-spacing: 1.5px;
-    line-height: 10.1vh;
-    padding: 1vh;
-    font-size: 12px;
+    font-size: 1.85vw;
   }
+
   ul > .calc{
     letter-spacing: -0.60px;
   }
   .sidebar li:hover:not(.contato, .perlog) {
+    background-color: #fff;
+    a {
+      color: black;
+    }
+  }
+
+  li:focus:not(.contato, .perlog) {
     background-color: #fff;
     a {
       color: black;
@@ -123,5 +138,11 @@ nav {
   }
   .mobile-menu {
     display: block;
+  }
+}
+
+@media(max-width:650px){
+  .sidebar li {
+    font-size: 12px;
   }
 }
