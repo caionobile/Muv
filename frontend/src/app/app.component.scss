@@ -42,7 +42,7 @@ nav {
   padding-right: 1vw;
 }
 
-.nav-list li:not(.contato){
+.nav-list li:not(.contato) {
   margin-left: 32px;
 }
 
@@ -69,7 +69,7 @@ nav {
 }
 
 .mobile-menu {
-  display: none; //Para esconder em dispositivos maiores (se quiser)
+  display: none;
   cursor: pointer;
 }
 
@@ -89,51 +89,49 @@ nav {
 }
 
 .sidebar li {
-  align-items: center;
-  display: flex;
-  list-style: none;
-  letter-spacing: 1.5px;
   line-height: 10.1vh;
   padding: 1vh;
   font-size: 12px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1042px) {
   nav {
     justify-content: space-around;
   }
-  .nav-list {
-    display: flex;
-    flex-direction: column;
-  }
+
   .sidebar {
     font-family: Quicksand;
     display: flex;
     flex-direction: column;
-    top: 8vh;
-    left: 0;
+    //list-style-type: none;
     width: 40vw;
+    //row-gap: 7vh;
+    justify-content: flex-start;
     height: 89.9vh;
     background: black;
     padding-left: 0;
-    align-items: left;
-    margin-bottom: 0;
   }
 
+  .perlog{
+    margin-top: auto;
+  }
   .sidebar li {
     font-size: 1.85vw;
     transition: 0s 0.1s;
+    letter-spacing: 1.5px;
   }
 
   ul > .calc {
     letter-spacing: -0.6px;
   }
+
   .sidebar li:hover:not(.contato, .perlog) {
     background-color: #fff;
     a {
       color: black;
     }
   }
+
   li:focus:not(.contato, .perlog) {
     background-color: #fff;
     transition: 0s;
@@ -155,13 +153,14 @@ nav {
   .nav-list li {
     display: none;
   }
+
   .mobile-menu {
     display: block;
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 800px) {
   .sidebar li {
-    font-size: 12px;
+    font-size: 13.9px;
   }
 }
