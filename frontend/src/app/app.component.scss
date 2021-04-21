@@ -47,8 +47,13 @@ nav {
 .nav-list li {
   letter-spacing: 3px;
   line-height: 10.1vh;
-  padding-left: 1vw;
+
+}
+
+.navanchor{
+  display: block;
   padding-right: 1vw;
+  padding-left: 1vw;
 }
 
 .nav-list li:not(.contato) {
@@ -68,6 +73,8 @@ nav {
     //color: black;
     color:  white;
   }
+  padding-right: 1vw;
+  padding-left: 1vw;
 }
 
 .contato {
@@ -77,6 +84,8 @@ nav {
     color: black;
     font-weight: 950;
   }
+  padding-right: 1vw;
+  padding-left: 1vw;
 }
 
 .muv-italic{
