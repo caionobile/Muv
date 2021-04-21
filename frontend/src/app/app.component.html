@@ -14,7 +14,7 @@
       <li><a routerLink="/meus-treinos" routerLinkActive="active" class="navanchor">Meus treinos</a></li>
       <li><a routerLink="/workspace" routerLinkActive="active" class="navanchor">Workspace</a></li>
       <li><a routerLink="/calculadora" routerLinkActive="active" class="navanchor">Calculadora de Saúde</a></li>
-      <li class="perlog"><a>Perfil</a><a > | Logoff</a></li>
+      <li class="perlog"><a>Perfil</a><a> | Logoff</a></li>
       <!-- <li class="contato"><a routerLink="/contato" routerLinkActive="active">Contato MUV!</a></li> -->
       <li class="contato"><a>Contato <span class="muv-italic">MUV!</span> </a></li>
     </ul>
@@ -24,13 +24,13 @@
 
 <ng-sidebar-container>
 
-  <ng-sidebar [(opened)]="opened" [closeOnClickOutside]=true >
-  <!-- <ng-sidebar [opened]=true [closeOnClickOutside]=true > -->
+  <ng-sidebar [(opened)]="opened" [closeOnClickOutside]=true>
+    <!-- <ng-sidebar [opened]=true [closeOnClickOutside]=true > -->
     <ul class="sidebar">
       <li><a routerLink="/meus-treinos" routerLinkActive="active" closeSidebar>Meus treinos</a></li>
       <li><a routerLink="/workspace" routerLinkActive="active" closeSidebar>Workspace</a></li>
       <li class="calc"><a routerLink="/calculadora" routerLinkActive="active" closeSidebar>Calculadora de Saúde</a></li>
-      <li class="perlog"><a closeSidebar>Perfil</a><a closeSidebar> | Logoff</a></li>
+      <li class="perlog"><a closeSidebar class="per">Perfil</a><a closeSidebar class="log"> | Logoff</a></li>
       <!-- <li class="contato"><a routerLink="/contato" routerLinkActive="active">Contato MUV!</a></li> -->
       <li class="contato"><a closeSidebar>Contato <span class="muv-italic">MUV!</span></a></li>
     </ul>

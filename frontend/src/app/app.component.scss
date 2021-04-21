@@ -47,10 +47,9 @@ nav {
 .nav-list li {
   letter-spacing: 3px;
   line-height: 10.1vh;
-
 }
 
-.navanchor{
+.navanchor {
   display: block;
   padding-right: 1vw;
   padding-left: 1vw;
@@ -71,7 +70,7 @@ nav {
   background-color: #5e5eff;
   a {
     //color: black;
-    color:  white;
+    color: white;
   }
   padding-right: 1vw;
   padding-left: 1vw;
@@ -88,7 +87,7 @@ nav {
   padding-left: 1vw;
 }
 
-.muv-italic{
+.muv-italic {
   font-style: italic;
 }
 
@@ -122,7 +121,6 @@ nav {
   nav {
     justify-content: space-around;
   }
-
   .sidebar {
     font-family: Quicksand;
     display: flex;
@@ -131,7 +129,22 @@ nav {
     justify-content: flex-start;
     height: 89.9vh;
     background: black;
-    padding-left: 0;
+    padding: 0;
+  }
+
+  ul a {
+    //display: inline-block;
+    width: 100%;
+    padding-left: 1.25vw;
+  }
+
+  ul a {
+    display: block;
+  }
+
+  li > .per,
+  li > .log {
+    display: inline;
   }
 
   .perlog {
@@ -141,6 +154,7 @@ nav {
     font-size: 1.85vw;
     transition: 0s 0.1s;
     letter-spacing: 1.5px;
+    padding: 0;
   }
 
   ul > .calc {
@@ -184,5 +198,12 @@ nav {
 @media (max-width: 800px) {
   .sidebar li {
     font-size: 13.9px;
+  }
+}
+
+@media (max-width: 334px) {
+  .calc > a {
+    padding: 0;
+    letter-spacing: -1px;
   }
 }
