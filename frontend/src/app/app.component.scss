@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+
 a,
 li > a {
   color: white;
@@ -9,11 +14,15 @@ li > a {
 
 .logo {
   color: #ccff00;
-  font-size: 24px;
+  font-size: 34px;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-style: italic;
   padding-left: 2vw;
+  //font-family: Finger Paint;
+  //font-family: La Belle Aurore;
+  font-family: Permanent Marker;
+  //font-family: Rock Salt;
 }
 
 .logo:hover {
@@ -103,16 +112,14 @@ nav {
     font-family: Quicksand;
     display: flex;
     flex-direction: column;
-    //list-style-type: none;
     width: 40vw;
-    //row-gap: 7vh;
     justify-content: flex-start;
     height: 89.9vh;
     background: black;
     padding-left: 0;
   }
 
-  .perlog{
+  .perlog {
     margin-top: auto;
   }
   .sidebar li {
