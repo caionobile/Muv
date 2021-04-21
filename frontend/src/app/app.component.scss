@@ -65,7 +65,8 @@ nav {
 .perlog {
   background-color: #5e5eff;
   a {
-    color: black;
+    //color: black;
+    color:  white;
   }
 }
 
@@ -74,7 +75,12 @@ nav {
   margin-left: 0px;
   a {
     color: black;
+    font-weight: 950;
   }
+}
+
+.muv-italic{
+  font-style: italic;
 }
 
 .mobile-menu {
