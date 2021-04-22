@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
 
 a,
@@ -19,10 +15,7 @@ li > a {
   letter-spacing: 4px;
   font-style: italic;
   padding-left: 2vw;
-  //font-family: Finger Paint;
-  //font-family: La Belle Aurore;
-  font-family: Permanent Marker;
-  //font-family: Rock Salt;
+  font-family: Rock Salt;
 }
 
 .logo:hover {
