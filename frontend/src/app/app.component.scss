@@ -10,7 +10,7 @@ li > a {
 
 .logo {
   color: #ccff00;
-  font-size: 28px;
+  font-size: 1.9vw;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-style: italic;
@@ -35,6 +35,7 @@ nav {
   list-style: none;
   display: flex;
   margin-bottom: 0;
+  font-size: 1.18vw;
 }
 
 .nav-list li {
@@ -110,9 +111,12 @@ nav {
   font-size: 12px;
 }
 
-@media (max-width: 1076px) {
+@media (max-width: 920px) {
   nav {
     justify-content: space-around;
+  }
+  .logo{
+    font-size: 30px;
   }
   .sidebar {
     font-family: Quicksand;
@@ -144,7 +148,7 @@ nav {
     margin-top: auto;
   }
   .sidebar li {
-    font-size: 1.85vw;
+    font-size: 3vw;
     transition: 0s 0.1s;
     letter-spacing: 1.5px;
     padding: 0;
@@ -188,15 +192,34 @@ nav {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 786px) {
   .sidebar li {
-    font-size: 13.9px;
+    font-size: 3.2vw;
   }
 }
 
-@media (max-width: 334px) {
+@media (max-width: 520px) {
+  .logo{
+    font-size: 26px;
+  }
+  .sidebar li {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 392px) {
   .calc > a {
     padding: 0;
     letter-spacing: -1px;
+  }
+
+/*   .sidebar li {
+    font-size: 14px;
+  } */
+}
+
+@media (max-width: 360px) {
+  .sidebar li {
+    font-size: 14px;
   }
 }
