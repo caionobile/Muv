@@ -1,10 +1,26 @@
+//verificar essa linha na conexão com banco
 const http = require('http');
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
 const app = express();
-
-app.use(express.json());
+const cors = require("cors");
+const mongoose = require("mongoose");
 app.use(cors());
+app.use(express.json());
+
+const Exercicio = require("./models/exercicio");
+const Treino = require("./models/treino");
+const Usuario = require("./models/usuario");
+
+mongoose
+  .connect(
+    "mongodb+srv://Gabriel:33IVBWfibyvEb2Uq@muv.mk0b2.mongodb.net/site_muv?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    console.log("Conexão OK");
+  })
+  .catch(() => {
+    console.log("Conexão NOK");
+  });
 
 //configura a porta do servidor e coloca em execução
 const porta = 3000;
@@ -18,7 +34,7 @@ const exercicios = [
     nome: "Abdominal leve",
     intensidade: 2,
     descricao:
-      "Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem",
+      "Deite em uma superfície plana e confortavel; coloque as mãos ao lado do corpo e deixe as pernas levemente flexonadas; agora contraia o abdômem efetuando uma subida do peitoral até os joelhos; repita o movimento pelas repetições indicadas.",
     series: 3,
     repeticoes: 15
   },
@@ -27,7 +43,7 @@ const exercicios = [
     nome: "Flexão",
     intensidade: 3,
     descricao:
-      "Enim exercitation laborum consectetur incididunt. Incididunt fugiat exercitation pariatur exercitation adipisicing ullamco Lorem amet qui. Pariatur minim officia non esse in dolor commodo aliquip.",
+      "Fique de joelhos e apoie as mãos logo abaixo do ombro, levemente abertas; coloque os pés juntos para trás, fique na ponta dos dedos e estique o corpo, deixando as costas retas. Contraindo o abdômen, desca com o tronco até o peitoral encostar no chão ou ficar próximo dele e volte para a posição inicial.",
     series: 3,
     repeticoes: 10
   },
@@ -36,7 +52,7 @@ const exercicios = [
     nome: "Polichinelo",
     intensidade: 1,
     descricao:
-      "Magna id consectetur incididunt adipisicing reprehenderit in enim sit in magna. Occaecat esse excepteur veniam incididunt nostrud quis ad voluptate. Magna ullamco eu tempor amet ipsum deserunt. Fugiat laborum sint quis nisi do sit eu dolore enim dolore ipsum dolor ad. Ut fugiat ipsum ipsum officia excepteur. Sint ea elit aliquip exercitation enim. Ea sint id magna sint exercitation ex consectetur culpa deserunt.",
+      "Antes de iniciar o movimento é necessário estar de pé, com os braços ao lado do corpo e as pernas fechadas. Logo depois, efetuar um pequeno salto, movendo as mãos acima da cabeça e as pernas se afastando lateralmente. Efetuar outro salto retornando os braços e pernas à posição inicial. Repetir o movimento pelo tempo ou número de repetições programado.",
     series: 3,
     repeticoes: 30
   },
@@ -45,7 +61,7 @@ const exercicios = [
     nome: "Abdominal",
     intensidade: 3,
     descricao:
-      "Deitar em cima de um tapete, colocar mãos ao lado do corpo, deixar pernas levemente flexonadas e contrair o abdômem",
+      "Deite em uma superfície plana e confortavel; coloque as mãos ao lado do corpo e deixe as pernas levemente flexonadas; agora contraia o abdômem efetuando uma subida do peitoral até os joelhos; repita o movimento pelas repetições indicadas.",
     series: 3,
     repeticoes: 30
   },
@@ -54,7 +70,7 @@ const exercicios = [
     nome: "Flexão",
     intensidade: 3.5,
     descricao:
-      "Enim exercitation laborum consectetur incididunt. Incididunt fugiat exercitation pariatur exercitation adipisicing ullamco Lorem amet qui. Pariatur minim officia non esse in dolor commodo aliquip.",
+      "Fique de joelhos e apoie as mãos logo abaixo do ombro, levemente abertas; coloque os pés juntos para trás, fique na ponta dos dedos e estique o corpo, deixando as costas retas. Contraindo o abdômen, desca com o tronco até o peitoral encostar no chão ou ficar próximo dele e volte para a posição inicial.",
     series: 3,
     repeticoes: 15
   },
@@ -63,7 +79,7 @@ const exercicios = [
     nome: "Polichinelo",
     intensidade: 1.5,
     descricao:
-      "Magna id consectetur incididunt adipisicing reprehenderit in enim sit in magna. Occaecat esse excepteur veniam incididunt nostrud quis ad voluptate. Magna ullamco eu tempor amet ipsum deserunt. Fugiat laborum sint quis nisi do sit eu dolore enim dolore ipsum dolor ad. Ut fugiat ipsum ipsum officia excepteur. Sint ea elit aliquip exercitation enim. Ea sint id magna sint exercitation ex consectetur culpa deserunt.",
+      "Antes de iniciar o movimento é necessário estar de pé, com os braços ao lado do corpo e as pernas fechadas. Logo depois, efetuar um pequeno salto, movendo as mãos acima da cabeça e as pernas se afastando lateralmente. Efetuar outro salto retornando os braços e pernas à posição inicial. Repetir o movimento pelo tempo ou número de repetições programado.",
     series: 3,
     repeticoes: 50
   },
