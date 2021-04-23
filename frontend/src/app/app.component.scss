@@ -110,7 +110,7 @@ nav {
   font-size: 12px;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 936px) {
   nav {
     justify-content: space-around;
   }
@@ -121,7 +121,7 @@ nav {
     font-family: Quicksand;
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 60vw;
     justify-content: flex-start;
     height: 89.9vh;
     background: black;
@@ -152,9 +152,9 @@ nav {
     padding: 0;
   }
 
-  ul > .calc {
+/*   ul > .calc {
     letter-spacing: -0.6px;
-  }
+  } */
 
   .sidebar li:hover:not(.contato, .perlog) {
     background-color: #fff;
@@ -205,12 +205,12 @@ nav {
   }
 }
 
-@media (max-width: 392px) {
+/* @media (max-width: 392px) {
   .calc > a {
     padding: 0;
     letter-spacing: -1px;
   }
-}
+} */
 
 @media (max-width: 360px) {
   .sidebar li {
