@@ -1,44 +1,43 @@
-<div class="container-fluid text-center">
-  <div class="row" >
+  <div class="up">
     <div class="card-group">
-      <div class="col-md-7">
+      <div class="col-md-8">
         <mat-card>
           <br>
-          <mat-card-title>Índice de Massa Corporal(IMC)</mat-card-title>
+          <mat-card-title class="text-center">Índice de Massa Corporal (IMC)</mat-card-title>
           <br>
           <br>
-          <mat-card-content>
+          <mat-card-content class="text-justify">
             O Índice de Massa Corporal, também conhecido como IMC, é um parâmetro criado pela
             Organização Mundial de Saúde, e ajuda a determinar se a pessoa está com o peso ideal,
             baseada na altura que possui.
           </mat-card-content>
-          <mat-card-content>
-            O cálculo é realizado da seguinte maneira: Divide-se o peso da pessoa (Em quilogramas),
-            pela sua altura(Em metros) elevado ao quadrado.
+          <mat-card-content class="text-justify">
+            O cálculo é realizado da seguinte maneira: Divide-se a massa da pessoa (em quilogramas),
+            pela sua altura (em metros) elevado ao quadrado.
           </mat-card-content>
-          <mat-card-content>
+          <mat-card-content class="text-center">
             <strong>Tabela de Referência</strong>
           </mat-card-content>
-          <mat-card-content>
+          <mat-card-content class="text-center">
             Menor que 18,5: Magreza | Entre 18,5 e 24,9: Peso Ideal
-             | Entre 25 e 29,9: Sobrepeso | Maior que 30: Obesidade
+            | Entre 25 e 29,9: Sobrepeso | Maior que 30: Obesidade
           </mat-card-content>
         </mat-card>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4 calcmobile">
         <form class="container" id="calculadoraIMC">
-          <mat-card>
+          <mat-card class="text-center">
             <br>
             <mat-card-title>Calculadora IMC</mat-card-title>
             <br>
             <br>
             <div class="calculadoraIMC">
-              <span>Altura(Em m): </span>
+              <span>Altura (em m): </span>
               <input type="text" placeholder="(ex: 1.65)" id="altura_input" maxlength="6">
             </div>
             <br>
             <div class="calculadoraIMC">
-              <span>Peso(Em Kg): </span>
+              <span>Massa (em Kg): </span>
               <input type="text" placeholder="(ex: 55.5)" name="peso_input" maxlength="6">
             </div>
             <br>
@@ -49,51 +48,49 @@
         </form>
       </div>
     </div>
-  </div>
-  <br>
-  <!-- Calculadora IAC -->
-  <br>
-  <div class="row">
+    <br>
+    <!-- Calculadora IAC -->
+    <br>
     <div class="card-group">
-      <div class="col-md-7">
+      <div class="col-md-8 ">
         <mat-card>
           <br>
-          <mat-card-title>Índice de Adiposidade Corporal(IAC)</mat-card-title>
+          <mat-card-title class="text-center">Índice de Adiposidade Corporal (IAC)</mat-card-title>
           <br>
           <br>
-          <mat-card-content>
+          <mat-card-content class="text-justify">
             O Índice de Adiposidade Corporal, também conhecido como IAC, é um parâmetro criado para
             determinar a porcentagem de gordura corporal. É um índice mais recente do que o IMC, e portanto,
             mais preciso.
           </mat-card-content>
-          <mat-card-content>
+          <mat-card-content class="text-justify">
             O cálculo é realizado da seguinte maneira: Divide-se a medida da circunferência do quadril
-            (Em centimetros), pela altura(Em metros) multiplicada pela raiz quadrada da altura, e subtraia
+            (em centimetros), pela altura (em metros) multiplicada pela raiz quadrada da altura, subtraindo
             18 ao final.
           </mat-card-content>
-          <mat-card-content>
+          <mat-card-content class="text-center">
             <strong>Tabela de Referência</strong>
             <br>
-            Homens: Entre 8 e 20: Normal | Entre 21 e 25: Sobrepeso | Acima de 25: Obesidade
+            <strong>Homens:</strong> Entre 8 e 20: Normal | Entre 21 e 25: Sobrepeso | Acima de 25: Obesidade
             <br>
-            Mulheres: Entre 21 e 32: Normal | Entre 33 e 38: Sobrepeso | Acima de 38: Obesidade
+            <strong>Mulheres:</strong> Entre 21 e 32: Normal | Entre 33 e 38: Sobrepeso | Acima de 38: Obesidade
           </mat-card-content>
         </mat-card>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4 calcmobile">
         <form class="container" id="calculadoraIAC">
-          <mat-card>
+          <mat-card class="text-center">
             <br>
             <mat-card-title>Calculadora IAC</mat-card-title>
             <br>
             <br>
             <div class="calculadoraIAC">
-              <span>Circunferência do Quadril(Em cm): </span>
+              <span>Circunferência do Quadril (em cm): </span>
               <input type="text" placeholder="(ex: 92)" id="quadril_input" maxlength="3">
             </div>
             <br>
             <div class="calculadoraIAC">
-              <span>Altura(Em m): </span>
+              <span>Altura (em m): </span>
               <input type="text" placeholder="(ex: 1.70)" name="altura_input" maxlength="6">
             </div>
             <br>
@@ -105,4 +102,3 @@
       </div>
     </div>
   </div>
-</div>

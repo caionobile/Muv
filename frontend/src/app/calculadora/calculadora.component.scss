@@ -1,5 +1,23 @@
-.card-group{
-  margin: auto;
+.up {
+  margin-top: 2vh;
+  margin-bottom: 11vh;
 }
 
+.col-md-8 {
+  display: flex;
+}
 
+.pad {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (max-width: 894px) {
+  .up {
+    margin-bottom: 6rem;
+  }
+  .calcmobile {
+    margin-top: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
