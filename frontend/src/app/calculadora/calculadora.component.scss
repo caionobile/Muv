@@ -11,6 +11,19 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.btnCalcular{
+  background-color: #ccff00;
+  color: black;
+  border-color: #b0d800;
+}
+
+.btnResetar{
+  background-color: #5252e4;
+  color: white;
+  border-color: #4949c9;
+}
+
 @media (max-width: 894px) {
   .up {
     margin-bottom: 6rem;
