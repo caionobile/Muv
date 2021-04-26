@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TreinosComponent } from './treinos/treinos.component';
@@ -20,8 +20,9 @@ import { ExerciciosComponent } from './workspace/exercicios/exercicios.component
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DetalheExercicioComponent } from './workspace/exercicios/detalhe-exercicio/detalhe-exercicio.component';
-
 import { ExercicioService } from './workspace/exercicio.service';
+/* import { FormsModule } from '@angular/forms'; */
+import { ReactiveFormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,9 @@ import { ExercicioService } from './workspace/exercicio.service';
     DragDropModule,
     SidebarModule.forRoot(),
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [ExercicioService],
   bootstrap: [AppComponent]
