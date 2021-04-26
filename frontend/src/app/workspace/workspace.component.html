@@ -2,7 +2,9 @@
   <div cdkDropList cdkDropListSortingDisabled>
     <div class="row">
       <div class="col-4" cdkDrag *ngFor='let exercicio of exercicios'>
-        <app-exercicios [exercicio] = "exercicio"></app-exercicios>
+        <mat-card>
+          <app-exercicios [exercicio] = "exercicio"></app-exercicios>
+        </mat-card>
       </div>
     </div>
   </div>

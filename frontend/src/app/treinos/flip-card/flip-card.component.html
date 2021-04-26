@@ -1,0 +1,18 @@
+<div class="container">
+  <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
+    <div class="front">
+      <ng-content select="flip-card-front"></ng-content>
+      <div class="front-button" (click)="toggle()">
+        Next >>
+      </div>
+    </div>
+    <div class="back">
+      <div style="overflow: auto; margin: 5px 10px 30px 0px;">
+        <ng-content class="card-back-component" select="flip-card-back"></ng-content>
+      </div>
+      <div class="back-button" (click)="toggle()">
+        << Previous
+      </div>
+    </div>
+  </div>
+</div>

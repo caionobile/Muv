@@ -16,12 +16,15 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { SidebarModule } from 'ng-sidebar';
 import {MatCardModule} from '@angular/material/card';
-import { ExerciciosComponent } from './workspace/exercicios/exercicios.component';
+import { ExerciciosComponent } from './exercicios/exercicios.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DetalheExercicioComponent } from './workspace/exercicios/detalhe-exercicio/detalhe-exercicio.component';
+import { FlipCardComponent } from './treinos/flip-card/flip-card.component';
+import { FlipCardFrontComponent } from './treinos/flip-card/flip-card-front';
+import { FlipCardBackComponent} from './treinos/flip-card/flip-card-back';
+import { DetalheExercicioComponent } from './exercicios/detalhe-exercicio/detalhe-exercicio.component';
 
-import { ExercicioService } from './workspace/exercicio.service';
+import { ExercicioService } from './exercicios/exercicio.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { ExercicioService } from './workspace/exercicio.service';
     CalculadoraComponent,
     ContatoComponent,
     ExerciciosComponent,
-    DetalheExercicioComponent
+    DetalheExercicioComponent,
+    FlipCardComponent,
+    FlipCardFrontComponent,
+    FlipCardBackComponent
   ],
   imports: [
     BrowserModule,

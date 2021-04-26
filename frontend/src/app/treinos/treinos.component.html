@@ -1,1 +1,14 @@
 <h2>Clique em "Workspace" (Entrega do dia 25/04/2021)</h2>
+<div *ngFor="let i of nums" style="display: inline-block; margin: 10px">
+  <flip-card>
+    <flip-card-front>
+    </flip-card-front>
+    <flip-card-back>
+      <div style="margin: 0px 10px 15px 20px;">
+        <div *ngFor="let i of nums">
+          <app-exercicios [exercicio]="exercicio"></app-exercicios>
+        </div>
+      </div>
+    </flip-card-back>
+  </flip-card>
+</div>
