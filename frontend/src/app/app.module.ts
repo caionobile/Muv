@@ -25,7 +25,7 @@ import { FlipCardBackComponent} from './treinos/flip-card/flip-card-back';
 import { DetalheExercicioComponent } from './exercicios/detalhe-exercicio/detalhe-exercicio.component';
 /* import { FormsModule } from '@angular/forms'; */
 import { ReactiveFormsModule } from '@angular/forms'
-
+import { MatInputModule } from '@angular/material/input';
 import { ExercicioService } from './exercicios/exercicio.service';
 @NgModule({
   declarations: [
@@ -56,6 +56,7 @@ import { ExercicioService } from './exercicios/exercicio.service';
     HttpClientModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
+    MatInputModule,
   ],
   providers: [ExercicioService],
   bootstrap: [AppComponent]
