@@ -27,6 +27,8 @@ import { DetalheExercicioComponent } from './exercicios/detalhe-exercicio/detalh
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
 import { ExercicioService } from './exercicios/exercicio.service';
+import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { ExercicioService } from './exercicios/exercicio.service';
     DetalheExercicioComponent,
     FlipCardComponent,
     FlipCardFrontComponent,
-    FlipCardBackComponent
+    FlipCardBackComponent,
+    PaginaInicialComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { ExercicioService } from './exercicios/exercicio.service';
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     MatInputModule,
+    NgbModule,
   ],
   providers: [ExercicioService],
   bootstrap: [AppComponent]

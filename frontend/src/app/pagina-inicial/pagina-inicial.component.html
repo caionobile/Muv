@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="gradient-custom">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUV</title>
+</head>
+<body class="gradient-custom">
+
+  <br><br><br><br>
+
+  <div class= row>
+    <div class="col-md-8">
+      <h2 class="logo">MUV!</h2>
+    </div>
+    <div class="col-md-2">
+      <!-- Botão Superior Login -->
+        <button type="button" class="btn btn-link botaoLogin" (click)="open(contentLogin)">Fazer Login</button>
+      <!-- Fim Botão Superior Login -->
+    </div>
+    <div class="col-md-2">
+      <!-- Botão Superior Cadastre-se -->
+        <button class="btn btn-lg btn-outline-primary botaoCadastro" (click)="open(contentCadastro)">Cadastre-se</button>
+      <!-- Fim Botão Superior Cadastre-se -->
+    </div>
+  </div>
+
+  <br><br><br>
+  <br><br><br>
+  <div class= row>
+    <div class="col-md-6 text-center">
+      <div class="titulo">
+        Treinos E Exercícios Diretamente Do Conforto De Casa
+      </div>
+      <br>
+      <div class="subtitulo">
+        Com o MUV!, você recebe um catálogo com vários exercícios, além de
+        ser capaz de criar seu próprio treino personalizado! De maneira totalmente gratuita, o MUV! também
+        oferece a opção de calcular seu IMC e IAC, tudo isso para ajudar você a conseguir se manter
+        o mais saudável possível, diretamente da sua casa.
+      </div>
+      &nbsp;
+      &nbsp;
+      <div>
+        <form>
+          &nbsp;
+          &nbsp;
+          <div class="form-group">
+            <div class="input-group">
+             <input id="email" class="form-control" type="email" placeholder="Email" required>
+             <button type="button" class="btn btn-lg btn-outline-primary botaoLoginModal">Cadastre-se, é grátis</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <img srcset= "../assets/ImgPaginaInicial.png 320w,
+                    ../assets/ImgPaginaInicial.png 480w,
+                    ../assets/ImgPaginaInicial.png 700w"
+
+              alt=""
+            sizes="(max-width: 320px) 120px,
+                   (max-width: 480px) 240px,
+                   (max-width: 680px) 270px,
+                   (max-width: 940px) 300px,
+                   (max-width: 1000px) 360px,
+                   (max-width: 1200px) 400px,
+                   (max-width: 1300px) 420px,
+                   (max-width: 1400px) 450px,
+                   (max-width: 1600px) 600px,
+                                       650px"
+              src="../assets/ImgPaginaInicial.png"
+        >
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="footer">
+    <p>Muv! © Todos os direitos reservados</p>
+  </div>
+
+</body>
+
+<!-- Modal Login -->
+<ng-template #contentLogin let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Login - Usuário</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" class="form-control" type="email" placeholder="joao@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <div class="input-group">
+          <input id="senha" class="form-control" type="password" placeholder="********" required>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer" text-align="center">
+    <button type="button" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
+    <button type="button" class="btn btn-lg btn-outline-link botaoEsqueciASenhaModal">Esqueci a Senha</button>
+  </div>
+</ng-template>
+
+<!-- Modal Cadastro -->
+<ng-template #contentCadastro let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Novo Usuário</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <div class="input-group">
+          <input id="nome" class="form-control" type="text" placeholder="João da Silva" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" class="form-control" type="email" placeholder="joao@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <div class="input-group">
+          <input id="senha" class="form-control" type="password" placeholder="********" required>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-lg btn-outline-primary botaoCadastroModal">Cadastrar</button>
+  </div>
+</ng-template>
+</html>
