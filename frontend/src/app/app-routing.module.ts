@@ -4,6 +4,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContatoComponent } from './contato/contato.component';
 import { TreinosComponent } from './treinos/treinos.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
+import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
     path: "contato",
     component: ContatoComponent
   },
+  {
+    path: "pagina-inicial",
+    component: PaginaInicialComponent
+  }
 ];
 
 @NgModule({
