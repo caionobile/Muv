@@ -24,6 +24,22 @@ input::-webkit-inner-spin-button {
   padding-right: 15px;
 }
 
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 22px;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: #5252e4 !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #5252e4!important;   /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+ border-color:#5252e4!important; /*outer ring color change*/
+}
+
 .btnCalcular{
   background-color: #ccff00;
   color: black;

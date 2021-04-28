@@ -41,7 +41,8 @@
           <div class="calculadoraIMC">
             <mat-form-field appearance="outline">
               <mat-label>Massa (em Kg): </mat-label>
-              <input matInput formControlName="massaImc" name="massaImc" mask="00||00.0||000.0" type="text" placeholder="(ex: 55.5)" name="peso_input" maxlength="6" #m>
+              <input matInput formControlName="massaImc" name="massaImc" mask="00||00.0||000.0" type="text"
+                placeholder="(ex: 55.5)" name="peso_input" maxlength="6" #m>
             </mat-form-field>
           </div>
           <br>
@@ -54,7 +55,7 @@
           <br>
           <br>
           {{resultadoImc}}
-<!--           <div class="calculadoraIMC">
+          <!--           <div class="calculadoraIMC">
             <span>Altura (em m): </span>
             <input type="text" placeholder="(ex: 1.65)" id="altura_input" maxlength="6">
           </div>
@@ -103,25 +104,42 @@
     </div>
 
     <div class="col-md-4 calcmobile">
-      <form class="container" id="calculadoraIAC">
-        <mat-card class="text-center">
+      <form [formGroup]="formIac" class="container" id="calculadoraIAC" (ngSubmit)="mostrarCalculoIac()">
+        <mat-card class="text-center" *ngIf="!calcularIac">
+          <br>
+          <mat-card-title>Calculadora IAC</mat-card-title>
+          <br>
+          <mat-radio-group aria-label="Selecione uma opção" formControlName="generoIac">
+            <mat-radio-button value='h'>Homem</mat-radio-button>
+            <mat-radio-button value="m">Mulher</mat-radio-button>
+          </mat-radio-group>
+          <br>
+          <div class="calculadoraIAC">
+            <mat-form-field appearance="outline">
+              <mat-label>Circunf. do Quadril (em cm):</mat-label>
+              <input matInput formControlName="circunfIac" name="circunfIac" type="text" placeholder="(ex: 92)"
+                id="quadril_input" mask="00||000">
+            </mat-form-field>
+          </div>
+          <div class="calculadoraIAC">
+            <mat-form-field appearance="outline">
+              <mat-label>Altura (em m): </mat-label>
+              <input matInput formControlName="alturaIac" name="alturaIac" type="text" placeholder="(ex: 1.65)"
+                id="altura_input" maxlength="6" mask="0.00||0.0||0">
+            </mat-form-field>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IAC</button>
+        </mat-card>
+        <mat-card class="text-center" *ngIf="calcularIac">
           <br>
           <mat-card-title>Calculadora IAC</mat-card-title>
           <br>
           <br>
-          <div class="calculadoraIAC">
-            <span>Circunferência do Quadril (em cm): </span>
-            <input type="text" placeholder="(ex: 92)" id="quadril_input" maxlength="3">
-          </div>
+          {{resultadoIac}}% de gordura
           <br>
-          <div class="calculadoraIAC">
-            <span>Altura (em m): </span>
-            <input type="text" placeholder="(ex: 1.70)" name="altura_input" maxlength="6">
-          </div>
-          <br>
-          <br>
-          <br>
-          <button type="button" class="btn btn-primary" onclick="calcularIAC();">Calcular IAC</button>
+          <button type="button" class="btn btn-primary-outline btnResetar" (click)="resetarIac()">Calcular
+            novamente</button>
         </mat-card>
       </form>
     </div>

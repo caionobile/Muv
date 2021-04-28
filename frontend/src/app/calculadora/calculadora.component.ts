@@ -12,6 +12,8 @@ export class CalculadoraComponent implements OnInit {
   calcularImc:boolean = false;
   calcularIac:boolean = false;
 
+  generoIac: number;
+
   resultadoImc:number = 0;
   resultadoIac:number = 0;
 
@@ -31,6 +33,10 @@ export class CalculadoraComponent implements OnInit {
     return m
   }
 
+  maskCircunf(c):number{
+    return parseFloat(c)
+  }
+
   constructor() { }
 
   ngOnInit(): void {
@@ -42,18 +48,17 @@ export class CalculadoraComponent implements OnInit {
         validators: [Validators.required],
       }),
     });
-
     this.formIac = new FormGroup({
       alturaIac: new FormControl(null, {
-
+        validators: [Validators.required],
       }),
-
+      circunfIac: new FormControl(null, {
+        validators: [Validators.required],
+      }),
+      generoIac:new FormControl(null, {
+        validators: [Validators.required],
+      }),
     });
-  }
-
-  teste():void{
-    console.log(this.maskAltura(this.formImc.value.alturaImc))
-    console.log(this.maskMassa(this.formImc.value.massaImc))
   }
 
   mostrarCalculoImc():void{
@@ -75,7 +80,19 @@ export class CalculadoraComponent implements OnInit {
   }
 
   resetarImc():void{
+    this.formImc.reset(); //Mudar caso ache algo melhor
     this.calcularImc = !this.calcularImc;
+  }
+
+  mostrarCalculoIac():void{
+    if(this.formIac.invalid){
+      return
+    }
+    const altura = this.maskAltura(this.formIac.value.alturaIac);
+    const circunf = this.maskCircunf(this.formIac.value.circunfIac);
+    this.resultadoIac = this.calculoIac(circunf, altura);
+    this.generoIac = this.formIac.value.generoIac;
+    this.calcularIac = true;
   }
 
   calculoIac(quadril, altura): number {
@@ -86,6 +103,7 @@ export class CalculadoraComponent implements OnInit {
   }
 
   resetarIac():void{
+    this.formIac.reset();
     this.calcularIac = !this.calcularIac
   }
 
