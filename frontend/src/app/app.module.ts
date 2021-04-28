@@ -29,6 +29,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ExercicioService } from './exercicios/exercicio.service';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgxMaskModule.forRoot(),
     MatInputModule,
     NgbModule,
+    MatRadioModule
   ],
   providers: [ExercicioService],
   bootstrap: [AppComponent]
