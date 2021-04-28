@@ -17,6 +17,7 @@ export class PaginaInicialComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Abre o modal
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -24,7 +25,7 @@ export class PaginaInicialComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+  //Fecha o modal
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
