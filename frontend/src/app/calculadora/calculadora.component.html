@@ -35,14 +35,14 @@
             <mat-form-field appearance="outline">
               <mat-label>Altura (em m): </mat-label>
               <input matInput formControlName="alturaImc" name="alturaImc" type="text" placeholder="(ex: 1.65)"
-                id="altura_input" maxlength="6" mask="0.00||0.0||0" #he>
+                id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
             </mat-form-field>
           </div>
           <div class="calculadoraIMC">
             <mat-form-field appearance="outline">
               <mat-label>Massa (em Kg): </mat-label>
               <input matInput formControlName="massaImc" name="massaImc" mask="00||00.0||000.0" type="text"
-                placeholder="(ex: 55.5)" name="peso_input" maxlength="6" #m>
+                placeholder="(ex: 55.5)" name="peso_input" maxlength="6" autocomplete="off">
             </mat-form-field>
           </div>
           <br>
@@ -118,14 +118,14 @@
             <mat-form-field appearance="outline">
               <mat-label>Circunf. do Quadril (em cm):</mat-label>
               <input matInput formControlName="circunfIac" name="circunfIac" type="text" placeholder="(ex: 92)"
-                id="quadril_input" mask="00||000">
+                id="quadril_input" mask="00||000" autocomplete="off">
             </mat-form-field>
           </div>
           <div class="calculadoraIAC">
             <mat-form-field appearance="outline">
               <mat-label>Altura (em m): </mat-label>
               <input matInput formControlName="alturaIac" name="alturaIac" type="text" placeholder="(ex: 1.65)"
-                id="altura_input" maxlength="6" mask="0.00||0.0||0">
+                id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
             </mat-form-field>
           </div>
           <br>
