@@ -5,7 +5,7 @@
         <br>
         <mat-card-title class="text-center">Índice de Massa Corporal (IMC)</mat-card-title>
         <br>
-        <br>
+
         <mat-card-content class="text-justify">
           O Índice de Massa Corporal, também conhecido como IMC, é um parâmetro criado pela
           Organização Mundial de Saúde, e ajuda a determinar se a pessoa está com o peso ideal,
@@ -19,8 +19,12 @@
           <strong>Tabela de Referência</strong>
         </mat-card-content>
         <mat-card-content class="text-center">
-          Menor que 18,5: Magreza | Entre 18,5 e 24,9: Peso Ideal
-          | Entre 25 e 29,9: Sobrepeso | Maior que 30: Obesidade
+          Menor que 18.5: Magreza
+          <br> Entre 18.5 e 24.9: Peso Ideal
+          <br> Entre 25 e 29.9: Sobrepeso
+          <br> Entre 30 e 34.9: Obesidade grau I
+          <br> Entre 35 e 39.9: Obesidade grau II (Severa)
+          <br> Acima de 40: Obesidade grau III (Mórbida)
         </mat-card-content>
       </mat-card>
     </div>
@@ -29,7 +33,9 @@
       <form [formGroup]="formImc" class="container" id="calculadoraIMC" (ngSubmit)="mostrarCalculoImc()">
         <mat-card class="text-center" *ngIf="!calcularImc">
           <br>
+
           <mat-card-title>Calculadora IMC</mat-card-title>
+          <br>
           <br>
           <div class="calculadoraIMC">
             <mat-form-field appearance="outline">
@@ -38,6 +44,7 @@
                 id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
             </mat-form-field>
           </div>
+          <br>
           <div class="calculadoraIMC">
             <mat-form-field appearance="outline">
               <mat-label>Massa (em Kg): </mat-label>
@@ -47,6 +54,9 @@
           </div>
           <br>
           <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IMC</button>
+          <br>
+          <br>
+
         </mat-card>
 
         <mat-card class="text-center" *ngIf="calcularImc">
@@ -55,6 +65,8 @@
           <br>
           <br>
           {{resultadoImc}}
+          <br>
+          {{tabelaImc}}
           <!--           <div class="calculadoraIMC">
             <span>Altura (em m): </span>
             <input type="text" placeholder="(ex: 1.65)" id="altura_input" maxlength="6">
@@ -90,15 +102,17 @@
         </mat-card-content>
         <mat-card-content class="text-justify">
           O cálculo é realizado da seguinte maneira: Divide-se a medida da circunferência do quadril
-          (em centimetros), pela altura (em metros) multiplicada pela raiz quadrada da altura, subtraindo
+          (em centimetros), pela altura (em metros) multiplicada pela raiz quadrada dela, subtraindo
           18 ao final.
         </mat-card-content>
         <mat-card-content class="text-center">
           <strong>Tabela de Referência</strong>
           <br>
-          <strong>Homens:</strong> Entre 8 e 20: Normal | Entre 21 e 25: Sobrepeso | Acima de 25: Obesidade
           <br>
-          <strong>Mulheres:</strong> Entre 21 e 32: Normal | Entre 33 e 38: Sobrepeso | Acima de 38: Obesidade
+          <strong>Homens:</strong> Entre 8 e 19.9: Normal | Entre 20 e 24.9: Sobrepeso | Acima de 25: Obesidade
+          <br>
+          <br>
+          <strong>Mulheres:</strong> Entre 21 e 31.9: Normal | Entre 32 e 37.9: Sobrepeso | Acima de 38: Obesidade
         </mat-card-content>
       </mat-card>
     </div>
@@ -128,6 +142,8 @@
                 id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
             </mat-form-field>
           </div>
+          <mat-error *ngIf="!iacCompleto">Preencha todas as opções</mat-error>
+          <mat-error *ngIf="!iacReal">Utilize dados reais!</mat-error>
           <br>
           <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IAC</button>
         </mat-card>
@@ -137,6 +153,8 @@
           <br>
           <br>
           {{resultadoIac}}% de gordura
+          <br>
+          {{tabelaIac}}
           <br>
           <button type="button" class="btn btn-primary-outline btnResetar" (click)="resetarIac()">Calcular
             novamente</button>
