@@ -5,6 +5,8 @@ import { ContatoComponent } from './contato/contato.component';
 import { TreinosComponent } from './treinos/treinos.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
+import { AuthGuard } from './pagina-inicial/auth/auth.guard';
+
 
 const routes: Routes = [
   {
@@ -36,6 +38,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

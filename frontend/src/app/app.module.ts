@@ -23,13 +23,15 @@ import { FlipCardComponent } from './treinos/flip-card/flip-card.component';
 import { FlipCardFrontComponent } from './treinos/flip-card/flip-card-front';
 import { FlipCardBackComponent} from './treinos/flip-card/flip-card-back';
 import { DetalheExercicioComponent } from './exercicios/detalhe-exercicio/detalhe-exercicio.component';
-/* import { FormsModule } from '@angular/forms'; */
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
 import { ExercicioService } from './exercicios/exercicio.service';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatRadioModule} from '@angular/material/radio';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import {MatRadioModule} from '@angular/material/radio';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
     MatSidenavModule,
@@ -64,7 +67,7 @@ import {MatRadioModule} from '@angular/material/radio';
     NgbModule,
     MatRadioModule
   ],
-  providers: [ExercicioService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

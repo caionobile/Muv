@@ -1,18 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Usuario = require("../models/usuario");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 //Conexão Usuario
-router.get("", (req, res, next) => {
-  Usuario.find().then((documents) => {
-    console.log(documents);
-    res.status(200).json({
-      mensagem: "Tudo OK",
-      usuarios: documents,
-    });
-  });
-});
-
 router.get("/:id", (req, res, next) => {
   Usuario.findById(req.params.id).then((usu) => {
     if (usu) {
@@ -32,21 +24,54 @@ router.delete("/:id", (req, res, next) => {
   });
 });
 
-router.put("/:id", (req, res, next) => {
-  const usuario = new Usuario({
-    _id: req.params.id,
+router.post('/login',(req,res,next)=>{
+  let user;
+  Usuario.findOne({email:req.body.email}).then(u=>{
+    user=u;
+    console.log(user);
+    console.log(u);
+    console.log(req.body.senha,u.senha)
+    if(!u){
+      return res.status(401).json({
+        mensagem:"Email invalido"
+      })
+    }
+    return bcrypt.compare(req.body.senha,u.senha);
+  }).then(result=>{
+    if(!result){
+    return res.status(401).json({
+      mensagem:"Senha invalida"
+    })
+  }
+    const token = jwt.sign(
+      {email:user.email,id:user.id},
+      'minhasenha',
+      {expiresIn:'1h'}
+    )
+    res.status(200).json({token:token})
+  }).catch(err=>{
+    return res.status(401).json({
+      mensagem:"Login falhou: "+err
+    })
+  })
+})
+
+router.post('/signup',(req, res,next) => {
+  bcrypt.hash(req.body.senha, 10).then(hash =>{
+  const usuario= new Usuario({
     nome: req.body.nome,
     email: req.body.email,
-    senha: req.body.senha
-  });
-  Usuario.updateOne({ _id: req.params.id }, usuario)
-    .then((resultado) => {
-      console.log(resultado);
+    senha: hash
+  })
+  usuario.save().then(result =>{
+    res.status(201).json({
+      mensagem:"Usuario criado",
+      resultado: result
     })
-    .catch((err) => {
-      console.log(err);
-    });
-  res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
+  }).catch(err =>{
+    res.status(500).json({error:err})
+  })
+  })
 });
 
 module.exports = router;
