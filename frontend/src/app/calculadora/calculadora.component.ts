@@ -89,16 +89,16 @@ export class CalculadoraComponent implements OnInit {
 
   checkImc(imc): string {
     if (imc < 18.5)
-      return 'Magreza';
+      return 'magreza';
     if (imc >= 18.5 && imc < 25)
-      return 'Ideal';
+      return 'ideal';
     if (imc >= 25 && imc < 30)
-      return 'Sobrepeso';
+      return 'sobrepeso';
     if (imc >= 30 && imc < 35)
-      return 'Grau1';
+      return 'grau1';
     if (imc >= 35 && imc < 40)
-      return 'Grau2';
-    return 'Grau3';
+      return 'grau2';
+    return 'grau3';
   }
 
   resetarImc():void{
@@ -134,17 +134,17 @@ export class CalculadoraComponent implements OnInit {
   checkIac(iac, genero): string{
     if (genero == 'h'){
       if (iac >= 8 && iac < 20)
-        return 'Normal';
+        return 'normal';
       if (iac >= 20 && iac < 25)
-        return 'Sobrepeso';
-      return 'Obesidade'
+        return 'sobrepeso';
+      return 'obesidade'
     }
     if (genero == 'm'){
       if (iac >= 21 && iac < 32)
-        return 'Normal';
+        return 'normal';
       if (iac >= 32 && iac < 38)
-        return 'Sobrepeso';
-      return 'Obesidade'
+        return 'sobrepeso';
+      return 'obesidade'
     }
   }
 
