@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgForm } from '@angular/forms';
+import { UsuarioService } from './auth/usuario.service';
 
 @Component({
   selector: 'app-pagina-inicial',
@@ -8,13 +10,25 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class PaginaInicialComponent implements OnInit {
 
+
   closeResult: string;
 
   constructor(
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private usuarioService:UsuarioService,
   ) { }
 
   ngOnInit(): void {
+  }
+  onLogin(form: NgForm){
+    if(form.invalid)return;
+    this.usuarioService.login(form.value.email,form.value.password);
+  }
+  onSignup(form: NgForm){
+    console.log(form.value)
+    if(form.invalid)return;
+    this.getDismissReason
+    this.usuarioService.criarUsuario(form.value.nome, form.value.email,form.value.password);
   }
 
   //Abre o modal

@@ -79,24 +79,23 @@
       </button>
     </div>
     <div class="modal-body">
-      <form>
+      <form (submit)="onLogin(loginForm)" #loginForm="ngForm" >
         <div class="form-group">
           <label for="email">Email</label>
           <div class="input-group">
-            <input id="email" class="form-control" type="email" placeholder="joao@email.com" required>
+            <input id="email" name="email" ngModel #emailInput="ngModel" class="form-control" type="email" placeholder="joao@email.com" required>
           </div>
         </div>
         <div class="form-group">
           <label for="senha">Senha</label>
           <div class="input-group">
-            <input id="senha" class="form-control" type="password" placeholder="********" required>
+            <input id="senha" name="password" ngModel #passwordInput="ngModel" class="form-control" type="password" placeholder="********" required>
           </div>
         </div>
+        <div class="modal-footer" text-align="center">
+          <button type="submit" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
+        </div>
       </form>
-    </div>
-    <div class="modal-footer" text-align="center">
-      <button type="button" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
-      <button type="button" class="btn btn-lg btn-outline-link botaoEsqueciASenhaModal">Esqueci a Senha</button>
     </div>
   </ng-template>
 
@@ -109,29 +108,29 @@
       </button>
     </div>
     <div class="modal-body">
-      <form>
+      <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
         <div class="form-group">
           <label for="nome">Nome</label>
           <div class="input-group">
-            <input id="nome" class="form-control" type="text" placeholder="João da Silva" required>
+            <input id="nome" name="nome"ngModel #nomeInput="ngModel" class="form-control" type="text" placeholder="João da Silva" required>
           </div>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
           <div class="input-group">
-            <input id="email" class="form-control" type="email" placeholder="joao@email.com" required>
+            <input id="email" name="email"ngModel #emailInput="ngModel" class="form-control" type="email" placeholder="joao@email.com" required>
           </div>
         </div>
         <div class="form-group">
           <label for="senha">Senha</label>
           <div class="input-group">
-            <input id="senha" class="form-control" type="password" placeholder="********" required>
+            <input id="senha" name="password" ngModel #passwordInput="ngModel" class="form-control" type="password" placeholder="********" required>
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-lg btn-outline-primary botaoCadastroModal">Cadastrar</button>
+        </div>
       </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-lg btn-outline-primary botaoCadastroModal">Cadastrar</button>
     </div>
   </ng-template>
 </html>
