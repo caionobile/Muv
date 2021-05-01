@@ -10,6 +10,37 @@ input::-webkit-inner-spin-button {
   -moz-appearance: textfield;
 } */
 
+$magreza: #0099ff;
+$normal: #00b300;
+$sobrepeso: #ceaf00;
+$grau1: #e48900;
+$grau2: #c65000;
+$grau3: #9f0700;
+
+.magreza{
+  color: $magreza;
+}
+
+.ideal, .normal{
+  color: $normal;
+}
+
+.sobrepeso{
+  color: $sobrepeso;
+}
+
+.grau1{
+  color: $grau1;
+}
+
+.grau2{
+  color: $grau2;
+}
+
+.grau3, .obesidade{
+  color: $grau3;
+}
+
 .up {
   margin-top: 2vh;
   margin-bottom: 11vh;
