@@ -22,4 +22,5 @@ export class ExerciciosComponent implements OnInit {
       data: {exercicio: this.exercicio}
     });
   }
+
 }

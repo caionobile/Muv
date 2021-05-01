@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Exercicio } from '../exercicios/exercicio.model';
+import { ExerciciosComponent } from '../exercicios/exercicios.component';
 
 @Component({
   selector: 'app-treinos',
@@ -35,12 +36,6 @@ export class TreinosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  flip: string = 'inactive';
-
-  toggleFlip() {
-    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
 }

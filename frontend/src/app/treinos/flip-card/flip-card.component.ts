@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flip-card.component.scss']
 })
 export class FlipCardComponent implements OnInit {
+
   toggleProperty = false;
 
   constructor() { }
@@ -16,6 +17,5 @@ export class FlipCardComponent implements OnInit {
   toggle() {
     this.toggleProperty = !this.toggleProperty;
   }
-
 
 }
