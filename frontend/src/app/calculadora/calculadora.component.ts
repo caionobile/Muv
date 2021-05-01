@@ -101,6 +101,15 @@ export class CalculadoraComponent implements OnInit {
     return 'grau3';
   }
 
+  imcRes = {
+    'magreza':'Magreza',
+    'ideal':'Peso ideal',
+    'sobrepeso':'Sobrepeso',
+    'grau1':'Obesidade grau I',
+    'grau2':'Obesidade grau II (Severa)',
+    'grau3':'Obesidade grau III (Mórbida)'
+  }
+
   resetarImc():void{
     this.formImc.reset();
     this.calcularImc = !this.calcularImc;
@@ -146,6 +155,12 @@ export class CalculadoraComponent implements OnInit {
         return 'sobrepeso';
       return 'obesidade'
     }
+  }
+
+  iacRes = {
+    'normal':'Normal',
+    'sobrepeso':'Sobrepeso',
+    'obesidade':'Obesidade'
   }
 
   resetarIac():void{
