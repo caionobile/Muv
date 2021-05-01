@@ -25,6 +25,10 @@ $background-card : rgba(255, 255, 255, 0);
   background-color: $background-card;
 }
 
+.front {
+  transform: rotateX(0deg);
+}
+
 .back {
   transform: rotateY(180deg);
 }
