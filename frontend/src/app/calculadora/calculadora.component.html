@@ -39,24 +39,23 @@
           <br>
           <div class="calculadoraIMC">
             <mat-form-field appearance="outline">
-              <mat-label>Altura (em m): </mat-label>
-              <input matInput formControlName="alturaImc" name="alturaImc" type="text" placeholder="(ex: 1.65)"
-                id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <br>
-          <div class="calculadoraIMC">
-            <mat-form-field appearance="outline">
               <mat-label>Massa (em Kg): </mat-label>
               <input matInput formControlName="massaImc" name="massaImc" mask="00||00.0||000.0" type="text"
                 placeholder="(ex: 55.5)" name="peso_input" maxlength="6" autocomplete="off">
             </mat-form-field>
           </div>
           <br>
+          <div class="calculadoraIMC">
+            <mat-form-field appearance="outline">
+              <mat-label>Altura (em m): </mat-label>
+              <input matInput formControlName="alturaImc" name="alturaImc" type="text" placeholder="(ex: 1.65)"
+                id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <br>
           <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IMC</button>
           <br>
           <br>
-
         </mat-card>
 
         <mat-card class="text-center" *ngIf="calcularImc">
@@ -64,13 +63,23 @@
           <mat-card-title>Calculadora IMC</mat-card-title>
           <br>
           <br>
-          {{resultadoImc}}
           <br>
-          <span class="{{tabelaImc}}">{{imcRes[tabelaImc]}}</span>
+          <span class="res-calculo">{{resultadoImc}}</span>
+          <br>
+          <br>
+          <br>
+          <br>
+          <span class="{{tabelaImc}} res-tabela">{{imcRes[tabelaImc]}}</span>
+          <br>
+          <br>
+          <br>
           <br>
           <button type="button" class="btn btn-primary-outline btnResetar" (click)="resetarImc()">Calcular
             novamente</button>
+          <br>
+          <br>
         </mat-card>
+
       </form>
     </div>
   </div>
@@ -94,6 +103,7 @@
           (em centimetros), pela altura (em metros) multiplicada pela raiz quadrada dela, subtraindo
           18 ao final.
         </mat-card-content>
+        <br>
         <mat-card-content class="text-center">
           <strong>Tabela de Referência</strong>
           <br>
@@ -135,18 +145,29 @@
           <mat-error *ngIf="!iacReal">Utilize dados reais!</mat-error>
           <br>
           <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IAC</button>
+          <br>
+          <br>
         </mat-card>
         <mat-card class="text-center" *ngIf="calcularIac">
           <br>
           <mat-card-title>Calculadora IAC</mat-card-title>
           <br>
           <br>
-          {{resultadoIac}}% de gordura
           <br>
-          <span class="{{tabelaIac}}">{{iacRes[tabelaIac]}}</span>
+          <span class='res-calculo-iac'>{{resultadoIac}}% de gordura</span>
+          <br>
+          <br>
+          <br>
+          <br>
+          <span class="{{tabelaIac}} res-tabela">{{iacRes[tabelaIac]}}</span>
+          <br>
+          <br>
+          <br>
           <br>
           <button type="button" class="btn btn-primary-outline btnResetar" (click)="resetarIac()">Calcular
             novamente</button>
+          <br>
+          <br>
         </mat-card>
       </form>
     </div>
