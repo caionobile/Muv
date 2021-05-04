@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Exercicio } from '../exercicios/exercicio.model';
-import { ExerciciosComponent } from '../exercicios/exercicios.component';
-
+import { Exercicio } from '../models/exercicio.model';
+import { Treino } from '../models/treino.model';
 @Component({
   selector: 'app-treinos',
   templateUrl: './treinos.component.html',
@@ -22,16 +21,74 @@ import { ExerciciosComponent } from '../exercicios/exercicios.component';
 })
 export class TreinosComponent implements OnInit {
 
-  exercicio: Exercicio = {
+  i: Exercicio = {
     id: '1',
-    nome: 'treinos',
+    nome: 'treino',
     descricao: 'descricao',
     intensidade: 1,
     repeticoes: 2,
     series: 3
   };
 
-  nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  exercicios: Exercicio[] = [
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+    this.i,
+  ]
+
+  n: Treino = {
+    id: '1',
+    nome: 'Treino',
+    posicao: 1,
+    exercicios: this.exercicios,
+  }
+
+  treinos: Treino[] = [
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+    this.n,
+  ]
 
   constructor() { }
 

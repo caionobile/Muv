@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Exercicio } from '../exercicios/exercicio.model';
+import { Exercicio } from '../models/exercicio.model';
 import { ExercicioService } from '../exercicios/exercicio.service';
 import { Subscription } from 'rxjs';
 
