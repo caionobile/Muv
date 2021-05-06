@@ -32,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatRadioModule} from '@angular/material/radio';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
+import { BarsComponent } from './bars/bars.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
     FlipCardComponent,
     FlipCardFrontComponent,
     FlipCardBackComponent,
-    PaginaInicialComponent
+    PaginaInicialComponent,
+    BarsComponent
   ],
   imports: [
     BrowserModule,
