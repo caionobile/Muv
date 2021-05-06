@@ -13,7 +13,7 @@ app.use(express.json());
 mongoose
   .connect(
     `mongodb+srv://Gabriel:33IVBWfibyvEb2Uq@muv.mk0b2.mongodb.net/site_muv?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true }
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true  }
   )
   .then(() => {
     console.log("Conexão OK");
