@@ -1,5 +1,4 @@
 <header>
-  <!-- <img src="images/logo_branca.png/"  class="logo"> -->
   <nav>
 
     <div class="mobile-menu" (click)="toggleSidebar()">
@@ -14,15 +13,14 @@
       <li><a routerLink="meus-treinos" routerLinkActive="active" class="navanchor">Meus treinos</a></li>
       <li><a routerLink="workspace" routerLinkActive="active" class="navanchor">Workspace</a></li>
       <li><a routerLink="calculadora" routerLinkActive="active" class="navanchor">Calculadoras de Saúde</a></li>
-      <li class="perlog"><a>Perfil</a><a> | Logoff</a></li>
-      <!-- <li class="contato"><a routerLink="/contato" routerLinkActive="active">Contato MUV!</a></li> -->
-      <li class="contato"><a>Contato <span class="muv-italic">MUV!</span> </a></li>
+      <li class="perlog"><a (click)="open(contentPerfil)">Perfil</a> | <a (click)="open(contentLogoff)">Logoff</a></li>
+      <li class="contato"><a (click)="open(contentContato)">Contato <span class="muv-italic">MUV!</span> </a></li>
     </ul>
 
   </nav>
 </header>
 
-<ng-sidebar-container >
+<ng-sidebar-container>
 
   <ng-sidebar [(opened)]="opened" [closeOnClickOutside]=true showBackdrop=true>
     <!-- <ng-sidebar [opened]=true [closeOnClickOutside]=true > -->
@@ -30,9 +28,8 @@
       <li><a routerLink="meus-treinos" routerLinkActive="active" closeSidebar>Meus treinos</a></li>
       <li><a routerLink="workspace" routerLinkActive="active" closeSidebar>Workspace</a></li>
       <li class="calc"><a routerLink="calculadora" routerLinkActive="active" closeSidebar>Calculadoras de Saúde</a></li>
-      <li class="perlog"><a closeSidebar class="per">Perfil</a><a closeSidebar class="log"> | Logoff</a></li>
-      <!-- <li class="contato"><a routerLink="/contato" routerLinkActive="active">Contato MUV!</a></li> -->
-      <li class="contato"><a closeSidebar>Contato <span class="muv-italic">MUV!</span></a></li>
+      <li class="perlog"><a (click)="open(contentPerfil)" closeSidebar class="per">Perfil</a>  |<a (click)="open(contentLogoff)" closeSidebar class="log">Logoff</a></li>
+      <li class="contato"><a (click)="open(contentContato)" closeSidebar>Contato <span class="muv-italic">MUV!</span> </a></li>
     </ul>
   </ng-sidebar>
 
@@ -41,3 +38,55 @@
   </div>
 
 </ng-sidebar-container>
+
+<!-- MODAL PERFIL -->
+<ng-template #contentPerfil let-modal>
+  <div class="modal-header">
+<!--     <h4 class="modal-title" id="modal-basic-title">Login - Usuário</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+    <h4 class="modal-title" id="modal-basic-title">Perfil</h4>
+  </div>
+  <div class="modal-body">
+<!--     <form #loginForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" name="email" ngModel #emailInput="ngModel" class="form-control" type="email"
+            placeholder="joao@email.com" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <div class="input-group">
+          <input id="senha" name="password" ngModel #passwordInput="ngModel" class="form-control" type="password"
+            placeholder="********" required>
+        </div>
+      </div>
+      <div class="modal-footer" text-align="center">
+        <button type="submit" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
+      </div>
+    </form> -->
+  </div>
+</ng-template>
+
+<!-- MODAL LOGOFF -->
+<ng-template #contentLogoff let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Logoff</h4>
+  </div>
+  <div class="modal-body">
+
+  </div>
+</ng-template>
+
+<!-- MODAL CONTATO -->
+<ng-template #contentContato let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Contato</h4>
+  </div>
+  <div class="modal-body">
+
+  </div>
+</ng-template>
