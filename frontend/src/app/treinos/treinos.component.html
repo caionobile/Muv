@@ -1,5 +1,13 @@
-<div class="col-md-4 col-xl-3" *ngFor="let treino of treinos" style="display: inline-block; padding: 0;">
-  <div class="flip">
-    <flip-card [treino]='treino'></flip-card>
+<div>
+  <div
+    class="col-md-4 col-xl-3 box"
+    *ngFor="let treino of treinos"
+    style="display: inline-block; padding: 10px 0px 0px 0px"
+    ngSortgridItem
+    [ngSortGridItems]="treinos"
+    [autoScroll]="true"
+    (sorted)="storeNewOrder($event)"
+  >
+    <flip-card [treino]="treino"></flip-card>
   </div>
 </div>

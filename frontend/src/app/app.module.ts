@@ -33,6 +33,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
 import { BarsComponent } from './bars/bars.component';
+import { NgsgModule } from 'ng-sortgrid';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +69,8 @@ import { BarsComponent } from './bars/bars.component';
     NgxMaskModule.forRoot(),
     MatInputModule,
     NgbModule,
-    MatRadioModule
+    MatRadioModule,
+    NgsgModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
