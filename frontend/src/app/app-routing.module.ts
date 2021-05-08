@@ -22,11 +22,12 @@ const routes: Routes = [
   {
     path: 'muv',
     redirectTo: 'muv/meus-treinos',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: "muv",
     component: BarsComponent,
+    //canActivate:[AuthGuard],
     children:
     [
       {
