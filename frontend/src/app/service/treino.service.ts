@@ -20,15 +20,15 @@ export class TreinoService {
   // }
 
   getTreinos(): void {
-    this.httpClient
-      .get<{ mensagem: string; treinos: any }>(
+      this.httpClient
+      .get<{ treino: any }>(
         'http://localhost:3000/api/treinos'
       )
       .pipe(
         map((dados) => {
-          return dados.treinos.map((treino: any) => {
+          return dados.treino.map((treino: any) => {
             return {
-              id: treino.id,
+              id: treino._id,
               nome: treino.nome,
               posicao: treino.posicao,
               exercicios: treino.exercicios,
