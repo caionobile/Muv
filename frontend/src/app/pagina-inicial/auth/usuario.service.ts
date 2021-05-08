@@ -53,7 +53,7 @@ export class UsuarioService {
         if (this.token) {
           this.autenticado = true;
           this.authStatusSubject.next(true);
-          this.router.navigate(['/']);
+          this.router.navigate(['/muv']);
         }
       });
   }

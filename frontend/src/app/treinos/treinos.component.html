@@ -1,4 +1,4 @@
-<div>
+<div class="mg">
   <div
     class="col-md-4 col-xl-3 box"
     *ngFor="let treino of treinos"
@@ -6,6 +6,7 @@
     ngSortgridItem
     [ngSortGridItems]="treinos"
     [autoScroll]="true"
+    [scrollPointBottom]="100"
     (sorted)="storeNewOrder($event)"
   >
     <flip-card [treino]="treino"></flip-card>

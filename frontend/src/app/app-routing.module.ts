@@ -22,11 +22,12 @@ const routes: Routes = [
   {
     path: 'muv',
     redirectTo: 'muv/meus-treinos',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: "muv",
     component: BarsComponent,
+    //canActivate:[AuthGuard],
     children:
     [
       {
@@ -52,5 +53,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers:[AuthGuard]
 })
 export class AppRoutingModule { }
