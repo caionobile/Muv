@@ -33,6 +33,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
 import { BarsComponent } from './bars/bars.component';
 import { NgsgModule } from 'ng-sortgrid';
+import { CriarExercicioComponent } from './exercicios/criar-exercicio/criar-exercicio.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { NgsgModule } from 'ng-sortgrid';
     FlipCardFrontComponent,
     FlipCardBackComponent,
     PaginaInicialComponent,
-    BarsComponent
+    BarsComponent,
+    CriarExercicioComponent
   ],
   imports: [
     BrowserModule,
