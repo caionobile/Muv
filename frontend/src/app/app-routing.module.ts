@@ -6,33 +6,46 @@ import { TreinosComponent } from './treinos/treinos.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { AuthGuard } from './pagina-inicial/auth/auth.guard';
+import { BarsComponent } from './bars/bars.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'meus-treinos', //Redirecionando para "meus-treinos", sendo a Home
+    redirectTo: 'pagina-inicial',
     pathMatch: 'full'
-  },
-  {
-    path: "meus-treinos",
-    component: TreinosComponent
-  },
-  {
-    path: "workspace",
-    component: WorkspaceComponent
-  },
-  {
-    path: "calculadora",
-    component: CalculadoraComponent
-  },
-  {
-    path: "contato",
-    component: ContatoComponent
   },
   {
     path: "pagina-inicial",
     component: PaginaInicialComponent
+  },
+  {
+    path: 'muv',
+    redirectTo: 'muv/meus-treinos',
+    pathMatch: 'full'
+  },
+  {
+    path: "muv",
+    component: BarsComponent,
+    children:
+    [
+      {
+        path: "meus-treinos",
+        component: TreinosComponent
+      },
+      {
+        path: "workspace",
+        component: WorkspaceComponent
+      },
+      {
+        path: "calculadora",
+        component: CalculadoraComponent
+      },
+      {
+        path: "contato",
+        component: ContatoComponent
+      },
+    ]
   }
 ];
 

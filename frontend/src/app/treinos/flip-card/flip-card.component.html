@@ -2,16 +2,14 @@
   <div [ngClass]="toggleProperty ? 'flipped' : ''" class="card">
     <div class="front" (click)="toggle()">
       <div class="area-front">
-        <ng-content select="flip-card-front"></ng-content>
+        <flip-card-front select="flip-card-front" [nome]='treino.nome'></flip-card-front>
       </div>
       <div class="front-button">
         <a>Próximo ►</a>
       </div>
     </div>
     <div class="back">
-      <div class="area-back">
-        <ng-content class="card-back-component" select="flip-card-back"></ng-content>
-      </div>
+      <flip-card-back select="flip-card-back" [exercicios]='treino.exercicios'></flip-card-back>
       <div class="back-button">
         <a (click)="toggle()"> ◄ Voltar</a>
       </div>

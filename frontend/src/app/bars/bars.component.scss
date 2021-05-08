@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap");
+
+a,
+li > a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+// boostrap override for centered modals
+.modal-open .modal {
+  display: flex !important;
+  align-items: center !important;
+  .modal-dialog {
+    flex-grow: 1;
+  }
+}
+
+.logo {
+  color: #ccff00;
+  font-size: 1.9vw;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-style: italic;
+  padding-left: 2vw;
+  font-family: Rock Salt;
+}
+
+.logo:hover {
+  color: #ccff00;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Quicksand;
+  background: black;
+  height: 10.1vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin-bottom: 0;
+  font-size: 1.18vw;
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  line-height: 10.1vh;
+}
+
+.navanchor {
+  display: block;
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+.nav-list li:not(.contato) {
+  margin-left: 32px;
+}
+
+.nav-list li:hover:not(.contato, .perlog) {
+  background-color: #fff;
+  a {
+    color: black;
+  }
+}
+
+.perlog {
+  background-color: #5e5eff;
+  a {
+    color: white;
+  }
+  a:hover{
+    text-decoration:underline;
+    cursor: pointer;
+  }
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+.contato {
+  background-color: #ccff00;
+  margin-left: 0px;
+  a {
+    color: black;
+    font-weight: 950;
+  }
+  a:hover{
+    text-decoration:underline;
+    cursor: pointer;
+  }
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+.muv-italic {
+  font-style: italic;
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  margin: 7px;
+}
+
+.line1 {
+  transition: 0.3s;
+}
+
+.sidebar {
+  display: none;
+}
+
+.sidebar li {
+  line-height: 10.1vh;
+  padding: 1vh;
+  font-size: 12px;
+}
+
+@media (max-width: 936px) {
+  nav {
+    justify-content: space-around;
+  }
+  .logo {
+    font-size: 30px;
+  }
+  .sidebar {
+    font-family: Quicksand;
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    justify-content: flex-start;
+    height: 89.9vh;
+    background: black;
+    padding: 0;
+  }
+
+  ul a {
+    width: 100%;
+    padding-left: 3.5vw;
+  }
+
+  ul a {
+    display: block;
+  }
+
+  li > .per,
+  li > .log {
+    display: inline;
+  }
+
+  .perlog {
+    margin-top: auto;
+  }
+  .sidebar li {
+    font-size: 3vw;
+    transition: 0s 0.1s;
+    letter-spacing: 1.5px;
+    padding: 0;
+  }
+
+/*   ul > .calc {
+    letter-spacing: -0.6px;
+  } */
+
+  .sidebar li:hover:not(.contato, .perlog) {
+    background-color: #fff;
+    a {
+      color: black;
+    }
+  }
+
+  li:focus:not(.contato, .perlog) {
+    background-color: #fff;
+    transition: 0s;
+    a {
+      transition: 0s;
+      color: black;
+    }
+  }
+
+  li:active:not(.contato, .perlog) {
+    background-color: #fff;
+    transition: 0s;
+    a {
+      transition: 0s;
+      color: black;
+    }
+  }
+
+  .nav-list li {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+}
+
+@media (max-width: 786px) {
+  .sidebar li {
+    font-size: 3.2vw;
+  }
+}
+
+@media (max-width: 520px) {
+  .logo {
+    font-size: 26px;
+  }
+  .sidebar li {
+    font-size: 16px;
+  }
+}
+
+/* @media (max-width: 392px) {
+  .calc > a {
+    padding: 0;
+    letter-spacing: -1px;
+  }
+} */
+
+@media (max-width: 360px) {
+  .sidebar li {
+    font-size: 14px;
+  }
+}

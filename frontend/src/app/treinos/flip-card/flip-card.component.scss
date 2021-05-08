@@ -1,4 +1,4 @@
-$background-card : rgba(255, 255, 255, 0);
+$background-card : rgba(87, 193, 255, 0.616);
 
 .container {
   width: 100%;
@@ -25,6 +25,17 @@ $background-card : rgba(255, 255, 255, 0);
   background-color: $background-card;
 }
 
+h1 {
+  font-family: fantasy;
+  font-size: 30px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .front {
   cursor: pointer;
   transform: rotateX(0deg);
@@ -38,20 +49,18 @@ $background-card : rgba(255, 255, 255, 0);
   transform: rotateY(180deg);
 }
 
-.card-back-component {
-  text-align: center;
-}
-
 .front-button {
-  position: absolute;
-  right: 15px;
-  bottom: 10px;
+  display: flex;
+  height: 50px;
+  margin: 0px 15px 0px 15px;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .back-button {
   display: flex;
   height: 50px;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 15px 0px 15px;
   align-items: center;
 }
 
@@ -63,15 +72,49 @@ a {
 }
 
 .area-front {
+  display: flex;
+  height: 351px;
   overflow: hidden;
-  text-align: center;
-  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
 }
 
 .area-back {
-  overflow: auto;
-  margin: 17px 10px 0px 20px;
+  height: 334px;
+  margin: 17px 17px 0px 20px;
   border-radius: 6px;
+}
+
+thead tr th{
+  border: none;
+  background-color: transparent;
+}
+
+tbody tr th, td {
+  border: none;
+}
+
+tbody {
+  display: block;
+  height: 288px;
+  overflow-y: hidden;
+  background-color: rgba(255, 255, 255, 0.295);
+  border-radius: 6px;
+}
+
+tbody:hover {
+  overflow-y: auto;
+}
+
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+  background-color: rgba(158, 156, 158, 0.842);
 }
 
 ::-webkit-scrollbar {
@@ -79,14 +122,11 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: none;
+  background: rgba(180, 180, 180, 0.356);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }

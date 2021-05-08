@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetalheExercicioComponent } from './detalhe-exercicio/detalhe-exercicio.component';
-import { Exercicio } from './exercicio.model'
+import { Exercicio } from '../models/exercicio.model'
 
 @Component({
   selector: 'app-exercicios',

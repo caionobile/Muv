@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Exercicio } from '../exercicios/exercicio.model';
-import { ExercicioService } from '../exercicios/exercicio.service';
+import { Exercicio } from '../models/exercicio.model';
+import { ExercicioService } from '../service/exercicio.service';
 import { Subscription } from 'rxjs';
 
 @Component({

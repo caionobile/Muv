@@ -26,12 +26,14 @@ import { DetalheExercicioComponent } from './exercicios/detalhe-exercicio/detalh
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
-import { ExercicioService } from './exercicios/exercicio.service';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatRadioModule} from '@angular/material/radio';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
+import { BarsComponent } from './bars/bars.component';
+import { NgsgModule } from 'ng-sortgrid';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,8 @@ import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
     FlipCardComponent,
     FlipCardFrontComponent,
     FlipCardBackComponent,
-    PaginaInicialComponent
+    PaginaInicialComponent,
+    BarsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
     NgxMaskModule.forRoot(),
     MatInputModule,
     NgbModule,
-    MatRadioModule
+    MatRadioModule,
+    NgsgModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]

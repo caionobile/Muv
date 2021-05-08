@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Exercicio } from './exercicio.model';
+import { Exercicio } from '../models/exercicio.model';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
