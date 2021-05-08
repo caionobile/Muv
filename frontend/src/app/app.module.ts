@@ -26,7 +26,6 @@ import { DetalheExercicioComponent } from './exercicios/detalhe-exercicio/detalh
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
-import { ExercicioService } from './exercicios/exercicio.service';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatRadioModule} from '@angular/material/radio';
