@@ -33,6 +33,9 @@ import { AuthInterceptor } from './pagina-inicial/auth/auth-interceptor';
 import { BarsComponent } from './bars/bars.component';
 import { NgsgModule } from 'ng-sortgrid';
 import { CriarExercicioComponent } from './exercicios/criar-exercicio/criar-exercicio.component';
+import { PerfilComponent } from './bars/perfil/perfil.component';
+import { LogoffComponent } from './bars/logoff/logoff.component';
+import { ContatoComponent } from './bars/contato/contato.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { CriarExercicioComponent } from './exercicios/criar-exercicio/criar-exer
     FlipCardBackComponent,
     PaginaInicialComponent,
     BarsComponent,
-    CriarExercicioComponent
+    CriarExercicioComponent,
+    PerfilComponent,
+    LogoffComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,
