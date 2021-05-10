@@ -42,6 +42,13 @@ const routes: Routes = [
         component: CalculadoraComponent
       },
     ]
+  },
+  
+  //Redirecionando pra página inicial caso path não exista
+  {
+    path: "**",
+    redirectTo: 'pagina-inicial',
+    pathMatch: 'full'
   }
 ];
 
