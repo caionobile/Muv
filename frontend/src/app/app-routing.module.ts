@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
-import { ContatoComponent } from './contato/contato.component';
 import { TreinosComponent } from './treinos/treinos.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
@@ -41,10 +40,6 @@ const routes: Routes = [
       {
         path: "calculadora",
         component: CalculadoraComponent
-      },
-      {
-        path: "contato",
-        component: ContatoComponent
       },
     ]
   }
