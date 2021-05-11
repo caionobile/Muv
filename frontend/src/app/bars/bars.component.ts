@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgForm } from '@angular/forms';
 import * as AOS from 'aos';
-
+import { MatDialog } from '@angular/material/dialog';
+import { PerfilComponent } from './perfil/perfil.component';
+import { LogoffComponent } from './logoff/logoff.component';
+import { ContatoComponent } from './contato/contato.component';
 @Component({
   selector: 'app-bars',
   templateUrl: './bars.component.html',
-  styleUrls: ['./bars.component.scss']
+  styleUrls: ['./bars.component.scss'],
 })
-export class BarsComponent{
+export class BarsComponent {
+  constructor(private modalService: NgbModal, public dialog: MatDialog) {}
 
-  constructor(
-    private modalService: NgbModal,
-  ){}
+  opened: boolean = false;
+  closeResult: string;
 
-   opened: boolean = false;
-   closeResult: string;
-
-   toggleSidebar() {
+  toggleSidebar() {
     this.opened = !this.opened;
   }
 
@@ -25,23 +25,42 @@ export class BarsComponent{
     AOS.init();
   }
 
-    //Abre o modal
-    open(content) {
-      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-      }, (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      });
-    }
-    //Fecha o modal
-    private getDismissReason(reason: any): string {
-      if (reason === ModalDismissReasons.ESC) {
-        return 'by pressing ESC';
-      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-        return 'by clicking on a backdrop';
-      } else {
-        return `with: ${reason}`;
-      }
-    }
+  //MatDialogs
+  abrirPerfil() {
+    this.dialog.open(PerfilComponent, {
+      width: '750px',
+    });
+  }
 
+  abrirLogoff() {
+    this.dialog.open(LogoffComponent);
+  }
+
+  abrirContato() {
+    this.dialog.open(ContatoComponent);
+  }
+
+  //Abre o modal
+  open(content) {
+    this.modalService
+      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+  //Fecha o modal
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 }
