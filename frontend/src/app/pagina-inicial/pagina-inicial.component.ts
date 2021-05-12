@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuarioService } from './auth/usuario.service';
 
 @Component({
@@ -12,6 +12,8 @@ export class PaginaInicialComponent implements OnInit {
 
 
   closeResult: string;
+  email: any;
+  form: FormGroup;
 
   constructor(
     private modalService: NgbModal,
@@ -19,11 +21,19 @@ export class PaginaInicialComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      nome: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      email: new FormControl(null, {
+        validators: [Validators.required, Validators.email]
+      }),
+      senha: new FormControl(null, {
+        validators: [Validators.required]
+      })
+    })
   }
-  onLogin(form: NgForm){
-    if(form.invalid)return;
-    this.usuarioService.login(form.value.email,form.value.password);
-  }
+
   onSignup(form: NgForm){
     console.log(form.value)
     if(form.invalid)return;
@@ -31,10 +41,12 @@ export class PaginaInicialComponent implements OnInit {
     this.usuarioService.criarUsuario(form.value.nome, form.value.email,form.value.password);
   }
 
-  //Abre o modal
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //Abre o modal com email preenchido
+  openEmailPreenchido(content, form: NgForm) {
+    this.email = form.value.email;
+  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
+
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
