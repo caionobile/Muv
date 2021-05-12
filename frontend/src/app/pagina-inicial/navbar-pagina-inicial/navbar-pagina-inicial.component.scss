@@ -1,0 +1,83 @@
+mat-form-field{
+  width:100%;
+
+}
+
+.navbar a{
+  color: rgb(0,0,0);
+  font-size: 4.5vw;
+  font-family: Rock Salt;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-style: italic;
+  padding-left: 2vw;
+  margin-top: 5%;
+
+  @media (max-width: 576px){
+    font-size: 5.8vw;
+  }
+  @media (max-width: 420px){
+    font-size: 5.5vw;
+    padding-left: 0vw;
+  }
+  @media (max-width: 280px){
+    font-size: 5.5vw;
+    width: 100%;
+    text-align: center;
+  }
+  @media (max-width: 210px){
+    font-size: 7.0vw;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.btnLoginNavBar{
+  font-size: 2.0vw;
+  color: #000000;
+  border-bottom: 3px solid black !important;
+  margin-top: 5%;
+  margin-right: 5%;
+  text-align: center;
+
+  @media (max-width: 920px){
+    font-size: 2.9vw;
+    border-bottom: 1.5px solid black !important;
+  }
+  @media (max-width: 420px){
+    font-size: 3.1vw;
+    border-bottom: 1.5px solid black !important;
+  }
+  @media (max-width: 280px){
+    font-size: 4.2vw;
+    width:47%;
+  }
+  @media (max-width: 210px){
+    font-size: 5.1vw;
+    width:47%;
+  }
+}
+
+.btnCadastroNavbar{
+  color: #000000;
+  font-size: 2.0vw;
+  border-color: rgb(219, 232, 48) !important;
+  background-color: rgb(219, 232, 48) !important;
+  margin-top: 5%;
+
+  @media (max-width: 920px){
+    font-size: 2.9vw;
+  }
+  @media (max-width: 420px){
+    font-size: 3.1vw;
+  }
+  @media (max-width: 280px){
+    font-size: 4.2vw;
+    width:47%;
+  }
+
+  @media (max-width: 210px){
+    font-size: 5.1vw;
+    width:47%;
+  }
+}
