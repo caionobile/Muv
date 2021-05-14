@@ -22,8 +22,7 @@ import { FlipCardComponent } from './treinos/flip-card/flip-card.component';
 import { FlipCardFrontComponent } from './treinos/flip-card/flip-card-front';
 import { FlipCardBackComponent} from './treinos/flip-card/flip-card-back';
 import { DetalheExercicioComponent } from './exercicios/detalhe-exercicio/detalhe-exercicio.component';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';

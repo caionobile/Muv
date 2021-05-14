@@ -1,11 +1,85 @@
-<div class="container-fluid text-center pb-5">
-  <div cdkDropList cdkDropListSortingDisabled>
-    <div class="row">
-      <div class="col-4" cdkDrag *ngFor='let exercicio of exercicios'>
-        <mat-card>
-          <app-exercicios [exercicio] = "exercicio"></app-exercicios>
-        </mat-card>
+<div cdkDropListGroup class="workspace-box pb-5">
+  <div class="exercicios-box text-center">
+    <div
+      id="workspace-exercicios"
+      cdkDropList
+      [cdkDropListData]="exercicios"
+      cdkDropListSortingDisabled
+      (cdkDropListDropped)="drop($event)"
+      style="display: block"
+    >
+      <mat-card
+        class="col-3"
+        *ngFor="let exercicio of exercicios"
+        cdkDrag
+        style="display: inline-block; margin: 5px"
+      >
+        <app-exercicios [exercicio]="exercicio"></app-exercicios>
+      </mat-card>
+    </div>
+  </div>
+  <div class="treino-box pb-5">
+    <div style="height: 86%; display: block; padding-bottom: 40px">
+      <h3 style="margin: 10px 0px 0px 0px">Lista de Exercícios:</h3>
+      <div
+        id="lista-exercicios"
+        cdkDropList
+        [cdkDropListData]="exerciciosTreino"
+        (cdkDropListDropped)="drop($event)"
+        class="lista-exercicios"
+      >
+        <h3
+          id="exercicios-treino"
+          *ngIf="!exerciciosTreino[0]"
+          style="
+            color: rgba(94, 94, 94, 0.644);
+            font-size: 16px;
+            border: 0px;
+            cursor: default;
+          "
+        >
+          Arraste os exercícios aqui!
+        </h3>
+        <div
+          class="ex-lista"
+          *ngFor="let exTreino of exerciciosTreino"
+          placeholder="Arraste aqui!"
+          cdkDrag
+        >
+          {{ exTreino.nome }} {{ exTreino.series }}x{{ exTreino.repeticoes }}
+        </div>
       </div>
     </div>
+    <form [formGroup]="treinoForm" (submit)="onCreateTreino(treinoForm)">
+      <mat-form-field id="mat-form-nome">
+        <mat-label>Nome Treino</mat-label>
+        <input
+          id="nomeInput"
+          name="nome"
+          type="text"
+          matInput
+          formControlName="nome"
+          class="form-control"
+          placeholder="Treino#1"
+          minlength="2"
+          autocomplete="off"
+          required
+        />
+        <mat-error *ngIf="treinoForm.get('nome').invalid"
+          >Digite um nome</mat-error
+        >
+      </mat-form-field>
+      <div
+        class="modal-footer"
+        style="display: flex; justify-content: center; border-top: none"
+      >
+        <button
+          type="submit"
+          class="btn btn-lg btn-outline-primary botaoLoginModal"
+        >
+          Criar Treino
+        </button>
+      </div>
+    </form>
   </div>
 </div>
