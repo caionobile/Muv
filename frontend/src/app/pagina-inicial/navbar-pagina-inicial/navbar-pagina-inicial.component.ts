@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
-import { UsuarioService } from './auth/usuario.service';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UsuarioService } from '../auth/usuario.service';
 
 @Component({
-  selector: 'app-pagina-inicial',
-  templateUrl: './pagina-inicial.component.html',
-  styleUrls: ['./pagina-inicial.component.scss']
+  selector: 'app-navbar-pagina-inicial',
+  templateUrl: './navbar-pagina-inicial.component.html',
+  styleUrls: ['./navbar-pagina-inicial.component.scss']
 })
-export class PaginaInicialComponent implements OnInit {
-
+export class NavbarPaginaInicialComponent implements OnInit {
 
   closeResult: string;
-  email: any;
   form: FormGroup;
 
   constructor(
@@ -34,6 +32,10 @@ export class PaginaInicialComponent implements OnInit {
     })
   }
 
+  onLogin(form: NgForm){
+    if(form.invalid)return;
+    this.usuarioService.login(form.value.email,form.value.password);
+  }
   onSignup(form: NgForm){
     console.log(form.value)
     if(form.invalid)return;
@@ -41,12 +43,10 @@ export class PaginaInicialComponent implements OnInit {
     this.usuarioService.criarUsuario(form.value.nome, form.value.email,form.value.password);
   }
 
-  //Abre o modal com email preenchido
-  openEmailPreenchido(content, form: NgForm) {
-    this.email = form.value.email;
-  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //Abre o modal
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
-
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });

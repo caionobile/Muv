@@ -35,6 +35,7 @@ import { CriarExercicioComponent } from './exercicios/criar-exercicio/criar-exer
 import { PerfilComponent } from './bars/perfil/perfil.component';
 import { LogoffComponent } from './bars/logoff/logoff.component';
 import { ContatoComponent } from './bars/contato/contato.component';
+import { NavbarPaginaInicialComponent } from './pagina-inicial/navbar-pagina-inicial/navbar-pagina-inicial.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ContatoComponent } from './bars/contato/contato.component';
     CriarExercicioComponent,
     PerfilComponent,
     LogoffComponent,
-    ContatoComponent
+    ContatoComponent,
+    NavbarPaginaInicialComponent
   ],
   imports: [
     BrowserModule,
