@@ -1,7 +1,7 @@
 <close-modal></close-modal>
 <h2 mat-dialog-title>Perfil</h2>
 
-<mat-dialog-content>
+<mat-dialog-content style="max-height: 100rem; padding-bottom: 2%;">
 
   <!--   <mat-form-field appearance="outline">
     <mat-label>ID</mat-label>
@@ -28,9 +28,9 @@
       <mat-label>Digite a nova senha</mat-label>
       <input matInput formControlName="novaSenha" type="password" autocomplete="off">
     </mat-form-field>
-    <!-- =====================FEEDBACKS===================== -->
-    <!-- =====================FEEDBACKS===================== -->
-    <!-- =====================FEEDBACKS===================== -->
+    <mat-error class="redefinida" *ngIf="feedback.length > 0 && feedback == validacoes.senhaRedefinida">{{feedback}}</mat-error>
+    <mat-error *ngIf="feedback.length > 0 && feedback != validacoes.senhaRedefinida">{{feedback}}</mat-error>
+    <br>
     <button type="submit" class="btn btn-success-outline redefinir">Redefinir senha</button>
   </form>
 
