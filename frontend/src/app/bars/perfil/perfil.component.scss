@@ -1,0 +1,32 @@
+::ng-deep .mat-form-field-disabled .mat-form-field-outline {
+  color: #4949c9 !important;
+}
+
+input.mat-input-element {
+  color: #686868;
+}
+
+mat-label {
+  color: #5e5eff;
+}
+
+.inp {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+
+.inp2 {
+  width: 100%;
+  padding: 0;
+}
+
+.redefinir{
+  width: 75%;
+  background-color: #5e5eff;
+  color: white;
+  border-color: #4949c9;
+  margin: auto;
+  display: block;
+}
+

@@ -1,13 +1,14 @@
-<h2 mat-dialog-title>Logoff</h2>
+<close-modal></close-modal>
+<h2 mat-dialog-title>Já vai?</h2>
 
-<!-- <mat-dialog-content>
+<mat-dialog-content>
   <h3>
     Tem certeza que deseja sair de sua conta?
   </h3>
 
 </mat-dialog-content>
 
-<mat-dialog-actions>
-  <button class="mat-raised-button">Cancelar</button>
-  <button class="mat-raised-button mat-primary">Sair</button>
-</mat-dialog-actions> -->
+<mat-dialog-actions class="align-btn">
+  <!-- <button class="btn btn-success-outline cancelar" [mat-dialog-close]="true">Cancelar</button> -->
+  <button class="btn btn-success-outline sair" [mat-dialog-close]="true" (click)='fazerLogoff()' >Sair</button>
+</mat-dialog-actions>

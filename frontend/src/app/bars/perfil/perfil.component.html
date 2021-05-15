@@ -1,36 +1,37 @@
+<close-modal></close-modal>
 <h2 mat-dialog-title>Perfil</h2>
 
-<!-- <mat-dialog-content style="display: inline-block;">
+<mat-dialog-content>
 
-  <mat-form-field>
+  <!--   <mat-form-field appearance="outline">
     <mat-label>ID</mat-label>
-    <input matInput disabled value="Google">
-  </mat-form-field>
-  <mat-form-field>
+    <input matInput disabled value="" type="text">
+  </mat-form-field> -->
+  <mat-form-field appearance="outline" class="inp">
     <mat-label>Usuário</mat-label>
-    <input matInput disabled value="User">
+    <input matInput disabled value="Username" autocomplete="off">
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field appearance="outline" class="inp">
     <mat-label>Email</mat-label>
-    <input matInput disabled value="email">
+    <input matInput disabled value="usuario@email.com" autocomplete="off">
   </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Redefinição de senha</mat-label>
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <mat-label>Digite a senha atual</mat-label>
-            <input matInput>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-  </mat-form-field>
+  <mat-divider></mat-divider>
+  <br>
+  <h3>Redefinição de senha</h3>
+  <form [formGroup]="formRedefinicao" class="container" (ngSubmit)="redefinirSenha()">
+    <mat-form-field class="inp2">
+      <mat-label>Digite a senha atual</mat-label>
+      <input matInput formControlName="senhaAtual" type="password" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field class="inp2">
+      <mat-label>Digite a nova senha</mat-label>
+      <input matInput formControlName="novaSenha" type="password" autocomplete="off">
+    </mat-form-field>
+    <!-- =====================FEEDBACKS===================== -->
+    <!-- =====================FEEDBACKS===================== -->
+    <!-- =====================FEEDBACKS===================== -->
+    <button type="submit" class="btn btn-success-outline redefinir">Redefinir senha</button>
+  </form>
 
 </mat-dialog-content>
-
-<mat-dialog-actions>
-  <button class="mat-raised-button mat-primary">Redefinir senha</button>
-</mat-dialog-actions> -->

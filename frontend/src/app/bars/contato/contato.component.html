@@ -1,13 +1,19 @@
-<h2 mat-dialog-title>Contato</h2>
+<close-modal></close-modal>
+<h2 mat-dialog-title>Contato <span style="font-style: italic">MUV!</span></h2>
 
-<!-- <mat-dialog-content>
-  <mat-form-field>
-    <input matInput placeholder="Course Description" formControlName="description">
-  </mat-form-field>
+<mat-dialog-content >
+  <form [formGroup]="formContato" class="container" (ngSubmit)="enviar()" style="display: block">
+    <mat-form-field class="inp">
+      <mat-label>Digite o assunto do contato</mat-label>
+      <input matInput type="text" autocomplete="off">
+    </mat-form-field>
 
+    <mat-form-field appearance="outline" class="inp">
+      <mat-label>Digite o texto do contato</mat-label>
+      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="6"
+        cdkAutosizeMaxRows="15" autocomplete="off"></textarea>
+    </mat-form-field>
+    <!-- =====================FEEDBACK===================== -->
+    <button type="submit" class="btn btn-success-outline enviar">Enviar</button>
+  </form>
 </mat-dialog-content>
-
-<mat-dialog-actions>
-  <button class="mat-raised-button">Cancelar</button>
-  <button class="mat-raised-button mat-primary">Enviar</button>
-</mat-dialog-actions> -->

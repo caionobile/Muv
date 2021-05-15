@@ -28,7 +28,7 @@ export class BarsComponent {
   //MatDialogs
   abrirPerfil() {
     this.dialog.open(PerfilComponent, {
-      width: '750px',
+      width: '360px',
     });
   }
 
@@ -37,7 +37,9 @@ export class BarsComponent {
   }
 
   abrirContato() {
-    this.dialog.open(ContatoComponent);
+    this.dialog.open(ContatoComponent,{
+      width: '650px',
+    });
   }
 
   //Abre o modal
