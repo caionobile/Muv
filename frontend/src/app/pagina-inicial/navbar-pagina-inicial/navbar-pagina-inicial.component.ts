@@ -28,6 +28,12 @@ export class NavbarPaginaInicialComponent implements OnInit {
       }),
       senha: new FormControl(null, {
         validators: [Validators.required]
+      }),
+      emailLogin: new FormControl(null, {
+        validators: [Validators.required, Validators.email]
+      }),
+      senhaLogin: new FormControl(null, {
+        validators: [Validators.required]
       })
     })
   }
