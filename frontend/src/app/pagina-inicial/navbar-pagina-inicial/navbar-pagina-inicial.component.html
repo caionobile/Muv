@@ -2,67 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" data-aos="fade-right" data-aos-duration="900" data-aos-once="true">Muv!</a>
         <ul class="navbar-nav ml-auto"></ul>
-        <button class="btn btn-link btnLoginNavBar" type="button" (click)="open(contentLogin)">Fazer Login</button>
-        <button class="btn btn-primary btnCadastroNavbar" type="button" (click)="open(contentCadastro)">Cadastre-se</button>
+        <button class="btn btn-link btnLoginNavBar" type="button" (click)="openLogin()">Fazer Login</button>
+        <button class="btn btn-primary btnCadastroNavbar" type="button" (click)="openCadastro()">Cadastre-se</button>
   </div>
 </nav>
-
-<!-- Modal Login -->
-<ng-template #contentLogin let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Login - Usuário</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="form" (submit)="onLogin(loginForm)" #loginForm="ngForm">
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="exemplo@email.com" formControlName="emailLogin" name="emailLogin"/>
-          <mat-error *ngIf="form.get('emailLogin').invalid">Digite um email válido</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Senha</mat-label>
-        <input type="password" matInput placeholder="***" formControlName="senhaLogin" name="senhaLogin"/>
-          <mat-error *ngIf="form.get('senhaLogin').invalid">Digite uma senha válida</mat-error>
-      </mat-form-field>
-      <div class="modal-footer" text-align="center">
-        <button type="submit" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
-      </div>
-    </form>
-  </div>
-</ng-template>
-
-<!-- Modal Cadastro -->
-<ng-template #contentCadastro let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Novo Usuário</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <form [formGroup]="form" (submit)="onSignup(signupForm)" #signupForm="ngForm">
-      <mat-form-field>
-        <mat-label>Nome Completo</mat-label>
-        <input type="nome"  matInput placeholder="Joao da Silva" formControlName="nome" name="nome"/>
-          <mat-error *ngIf="form.get('nome').invalid">Digite um nome válido</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input type="email"  matInput placeholder="joao@email.com" formControlName="email" name="email"/>
-          <mat-error *ngIf="form.get('email').invalid">Digite um email válido</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Senha</mat-label>
-        <input type="password"  matInput placeholder="***" formControlName="senha" name="senha"/>
-          <mat-error *ngIf="form.get('senha').invalid">Digite uma senha válida</mat-error>
-      </mat-form-field>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-lg btn-outline-primary botaoCadastroModal">Cadastrar</button>
-      </div>
-    </form>
-  </div>
-</ng-template>
-

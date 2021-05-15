@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { UsuarioService } from '../auth/usuario.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
+import { CadastroComponent } from '../cadastro/cadastro.component';
 
 @Component({
   selector: 'app-navbar-pagina-inicial',
@@ -10,61 +10,22 @@ import { UsuarioService } from '../auth/usuario.service';
 })
 export class NavbarPaginaInicialComponent implements OnInit {
 
-  closeResult: string;
-  form: FormGroup;
 
   constructor(
-    private modalService: NgbModal,
-    private usuarioService:UsuarioService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      nome: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      email: new FormControl(null, {
-        validators: [Validators.required, Validators.email]
-      }),
-      senha: new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      emailLogin: new FormControl(null, {
-        validators: [Validators.required, Validators.email]
-      }),
-      senhaLogin: new FormControl(null, {
-        validators: [Validators.required]
-      })
-    })
   }
 
-  onLogin(form: NgForm){
-    if(form.invalid)return;
-    this.usuarioService.login(form.value.email,form.value.password);
-  }
-  onSignup(form: NgForm){
-    console.log(form.value)
-    if(form.invalid)return;
-    this.getDismissReason
-    this.usuarioService.criarUsuario(form.value.nome, form.value.email,form.value.password);
+  openLogin() {
+    this.dialog.open(LoginComponent);
   }
 
-  //Abre o modal
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  openCadastro() {
+    this.dialog.open(CadastroComponent, {
+      data: {email: ""}
     });
   }
-  //Fecha o modal
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+
 }

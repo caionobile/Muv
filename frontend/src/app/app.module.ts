@@ -37,6 +37,8 @@ import { LogoffComponent } from './bars/logoff/logoff.component';
 import { ContatoComponent } from './bars/contato/contato.component';
 import { NavbarPaginaInicialComponent } from './pagina-inicial/navbar-pagina-inicial/navbar-pagina-inicial.component';
 import { CloseModalComponent } from './bars/close-modal/close-modal.component';
+import { LoginComponent } from './pagina-inicial/login/login.component';
+import { CadastroComponent } from './pagina-inicial/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { CloseModalComponent } from './bars/close-modal/close-modal.component';
     LogoffComponent,
     ContatoComponent,
     NavbarPaginaInicialComponent,
-    CloseModalComponent
+    CloseModalComponent,
+    LoginComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,

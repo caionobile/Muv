@@ -18,7 +18,7 @@ export class ExerciciosComponent implements OnInit {
   }
 
   abrirDetalhes(): void {
-    const dialogRef = this.dialog.open(DetalheExercicioComponent, {
+    this.dialog.open(DetalheExercicioComponent, {
       data: {exercicio: this.exercicio}
     });
   }
