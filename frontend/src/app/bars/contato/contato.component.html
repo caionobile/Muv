@@ -1,18 +1,22 @@
 <close-modal></close-modal>
 <h2 mat-dialog-title>Contato <span style="font-style: italic">MUV!</span></h2>
 
-<mat-dialog-content >
+<mat-dialog-content style="padding-bottom: 0.4rem;">
+  <h3 mat-dialog-title class="introducao-contato">Fique à vontade para nos enviar sugestões, relatos de problemas no <span style="font-style: italic">MUV!</span> e tudo aquilo que achar necessário comentar para melhorarmos cada vez mais!</h3>
   <form [formGroup]="formContato" class="container" (ngSubmit)="enviar()" style="display: block">
     <mat-form-field class="inp">
-      <mat-label>Digite o assunto do contato</mat-label>
-      <input matInput type="text" autocomplete="off">
+      <mat-label>Digite o assunto da mensagem</mat-label>
+      <input matInput type="text" autocomplete="off" formControlName="assunto">
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="inp">
-      <mat-label>Digite o texto do contato</mat-label>
+      <mat-label>Digite a mensagem</mat-label>
       <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="6"
-        cdkAutosizeMaxRows="15" autocomplete="off"></textarea>
+        cdkAutosizeMaxRows="15" autocomplete="off" formControlName="mensagem"></textarea>
     </mat-form-field>
+    <mat-error *ngIf="campoFaltando">Preencha todos os campos</mat-error>
+    <mat-error *ngIf="textoEnviado" style="color: green;">Mensagem enviada com sucesso!</mat-error>
+    <br>
     <!-- =====================FEEDBACK===================== -->
     <button type="submit" class="btn btn-success-outline enviar">Enviar</button>
   </form>
