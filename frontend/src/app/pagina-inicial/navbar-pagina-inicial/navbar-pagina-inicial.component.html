@@ -19,13 +19,13 @@
     <form [formGroup]="form" (submit)="onLogin(loginForm)" #loginForm="ngForm">
       <mat-form-field>
         <mat-label>Email</mat-label>
-        <input type="email"  matInput placeholder="exemplo@email.com" formControlName="email" name="email"/>
-          <mat-error *ngIf="form.get('email').invalid">Digite um email válido</mat-error>
+        <input type="email" matInput placeholder="exemplo@email.com" formControlName="emailLogin" name="emailLogin"/>
+          <mat-error *ngIf="form.get('emailLogin').invalid">Digite um email válido</mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Senha</mat-label>
-        <input type="senha"  matInput placeholder="***" formControlName="senha" name="senha"/>
-          <mat-error *ngIf="form.get('senha').invalid">Digite uma senha válida</mat-error>
+        <input type="password" matInput placeholder="***" formControlName="senhaLogin" name="senhaLogin"/>
+          <mat-error *ngIf="form.get('senhaLogin').invalid">Digite uma senha válida</mat-error>
       </mat-form-field>
       <div class="modal-footer" text-align="center">
         <button type="submit" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
@@ -56,7 +56,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Senha</mat-label>
-        <input type="senha"  matInput placeholder="***" formControlName="senha" name="senha"/>
+        <input type="password"  matInput placeholder="***" formControlName="senha" name="senha"/>
           <mat-error *ngIf="form.get('senha').invalid">Digite uma senha válida</mat-error>
       </mat-form-field>
       <div class="modal-footer">
