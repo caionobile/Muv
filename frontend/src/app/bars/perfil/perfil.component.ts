@@ -38,7 +38,8 @@ export class PerfilComponent implements OnInit {
     else if (this.formRedefinicao.value.senhaAtual == this.formRedefinicao.value.novaSenha){
       this.feedback = this.validacoes.novaSenhaIgualAntiga;
     }
-/*     else if (this.formRedefinicao.value.senhaAtual != "SENHA ANTIGA DO USUARIO"){
+    //=====================CHECAR SENHA ANTIGA=====================
+/*  else if (this.formRedefinicao.value.senhaAtual != SENHA_ANTIGA_DO_USUARIO){
       this.feedback = this.validacoes.senhaAtualIncorreta;
     } */
     else {
