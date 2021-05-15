@@ -5,7 +5,7 @@ const Treino = require("../models/treino");
 //Conexão Treino
 router.get("", async (req, res) => {
   try {
-    const treino = await Treino.find()
+    const treino = await Treino.find().populate('usuario')
       .populate(["exercicios"])
       .sort({ posicao: 1 });
 
@@ -18,7 +18,7 @@ router.get("", async (req, res) => {
 router.get("/:id", (req, res, next) => {
   try {
     const treino = new Treino.findById(req.params.treinoId).populate([
-      "exercicios",
+      "usuario",  "exercicios"
     ]);
 
     return res.send({ treino });
@@ -28,39 +28,41 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.post("", async (req, res) => {
+  console.log(req.body)
   try {
-    const { nome, posicao, exercicios } = req.body;
+    const { nome, assignTo, exercicios } = req.body;
 
-    const treino = await Treino.create({ nome, posicao });
+    const treino = await Treino.create({ nome, assignTo, exercicios });
+    
+    // await Promise.all(
+    //   exercicios.map(async (exercicio) => {
 
-    await Promise.all(
-      exercicios.map(async (exercicio) => {
-        const treinoExercicio = new Exercicio({
-          ...exercicios,
-          treino: treino._id,
-        });
+    //     treino.exercicios.push(exercicio._id);
+    //   })
+    // );
+    
+    const lastTreino = await Treino.find()
+    .sort({ posicao: -1 })
+    .limit(1);
 
-        await treinoExercicio.save();
-
-        treino.exercicios.push(treinoExercicio);
-      })
-    );
+    treino.posicao = lastTreino[0].posicao + 1;
 
     await treino.save();
 
     return res.send({ treino });
   } catch (err) {
+    console.log(err)
     return res.status(400).send({ error: "Erro ao criar novo treino" });
   }
 });
 
 router.delete("/:id", (req, res, next) => {
   try {
-    Treino.findByIdAndDelete(req.params.treinoId);
+    Treino.findByIdAndRemove(req.params.treinoId).populate('usuario');
 
     return res.send();
   } catch {
-    return res.status(400).send({ error: "Erro ao deletar treino" });
+    return res.status(400).send({ error: "Erro ao remover treino" });
   }
 });
 
@@ -111,7 +113,7 @@ router.put("", (req, res, next) => {
 
     res.status(200).json({ mensagem: treinos });
   } catch (err) {
-    return res.status(400).send({ error: err });
+    return res.status(400).send({ error: "Erro ao favoritar treino" });
   }
 });
 

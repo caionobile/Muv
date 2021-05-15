@@ -11,14 +11,6 @@ export class TreinoService {
 
   constructor(private httpClient: HttpClient) {}
 
-  // getTreinos(): void {
-  //   this.httpClient.get <Treinos[]>('http://localhost:3000/api/treinos')
-  //   .subscribe((dados) => {
-  //     this.treinos = dados;
-  //     this.listaTreinosAtualizada.next([... this.treinos]);
-  //   })
-  // }
-
   getTreinos(): void {
       this.httpClient
       .get<{ treino: any }>(
@@ -63,5 +55,11 @@ export class TreinoService {
         // this.clientes = copia;
         // this.listaClientesAtualizada.next([...this.clientes]);
       });
+  }
+
+  criarTreino(treino: any){
+    this.httpClient
+      .post(`http://localhost:3000/api/treinos/`, treino)
+      .subscribe()
   }
 }

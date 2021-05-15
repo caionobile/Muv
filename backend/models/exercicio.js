@@ -6,7 +6,8 @@ const exercicioSchema = mongoose.Schema({
   descricao: {type: String, required: true},
   series: {type: Number, required: true},
   repeticoes: {type: Number, required: true},
-  assignTo: {type: mongoose.Schema.Types.ObjectId, required: false}
+  treino: {type: mongoose.Schema.Types.ObjectId, ref: "Treino", required: true},
+  assignTo: {type: mongoose.Schema.Types.ObjectId, ref: "Usuario", required: true}
 });
 
 module.exports = mongoose.model('Exercicio', exercicioSchema);

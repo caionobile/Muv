@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Exercicio } from '../models/exercicio.model';
 import { ExercicioService } from '../service/exercicio.service';
+import { TreinoService } from '../service/treino.service';
 import { Subscription } from 'rxjs';
 import {
   CdkDragDrop,
@@ -20,7 +21,7 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   private exerciciosSubscription: Subscription;
   treinoForm: FormGroup;
 
-  constructor(public exercicioService: ExercicioService) {}
+  constructor(public exercicioService: ExercicioService,public treinoService: TreinoService ) {}
 
   ngOnInit(): void {
     this.treinoForm = new FormGroup({
@@ -80,9 +81,14 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
       .style.borderColor = "#ff1414cb";
       return;
     };
+    let idExercicios= [];
+    for (let i of this.exerciciosTreino){
+      idExercicios.push(i.id);
+    }
     let treino = {
       nome: this.treinoForm.value.nome,
-      exercicios: this.exerciciosTreino,
+      assignTo: "608dc95d48429b2a20a21263",
+      exercicios: idExercicios,
     };
     this.exerciciosTreino = [];
     document.getElementById("mat-form-nome")
@@ -96,7 +102,7 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
         validators: [Validators.required, Validators.minLength(1)]
       })
     });
-    console.log(treino);
+    this.treinoService.criarTreino(treino)
     // location.reload();
   }
 }

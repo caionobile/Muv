@@ -22,6 +22,29 @@ router.get("/:id", (req, res, next) => {
   });
 });
 
+router.post("", (req, res, next) => {
+  const exercicio = new Exercicio({
+    nome: req.body.nome,
+    intensidade: req.body.intensidade,
+    descricao: req.body.descricao,
+    series: req.body.series,
+    repeticoes: req.body.repeticoes 
+  });
+  exercicio.save().then((exercicioInserido) => {
+    res.status(201).json({
+      mensagem: "Exercicio inserido",
+      cliente: {
+        id: exercicioInserido._id,
+        nome: exercicioInserido.nome,
+        intensidade: exercicioInserido.intensidade,
+        descricao: exercicioInserido.descricao,
+        series: exercicioInserido.series,
+        repeticoes: exercicioInserido.repeticoes
+      },
+    });
+  });
+});
+
 router.delete("/:id", (req, res, next) => {
   Exercicio.deleteOne({ _id: req.params.id }).then((resultado) => {
     res.status(200).json({
@@ -48,29 +71,5 @@ router.put("/:id", (req, res, next) => {
     });
   res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
 });
-
-router.post("", (req, res, next) => {
-  const exercicio = new Exercicio({
-    nome: req.body.nome,
-    intensidade: req.body.intensidade,
-    descricao: req.body.descricao,
-    series: req.body.series,
-    repeticoes: req.body.repeticoes 
-  });
-  exercicio.save().then((exercicioInserido) => {
-    res.status(201).json({
-      mensagem: "Exercicio inserido",
-      cliente: {
-        id: exercicioInserido._id,
-        nome: exercicioInserido.nome,
-        intensidade: exercicioInserido.intensidade,
-        descricao: exercicioInserido.descricao,
-        series: exercicioInserido.series,
-        repeticoes: exercicioInserido.repeticoes
-      },
-    });
-  });
-});
-
 
 module.exports = router;
