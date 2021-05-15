@@ -1,1 +1,30 @@
-<p>criar-exercicio works!</p>
+    <form [formGroup]="form" (submit)="onSignup(signupForm)" #signupForm="ngForm">
+      <mat-form-field>
+        <mat-label>Nome do Exercicio</mat-label>
+        <input type="text"  matInput placeholder="Digite o nome do Exercicio" formControlName="nomeExercicio" name="nomeExercicio"/>
+
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Intensidade</mat-label>
+        <input type="number"  matInput placeholder="Digite a intensidade do exercicios (Entre 1 e 5)"formControlName="intensidade" name="intensidade"/>
+
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Descrição</mat-label>
+        <input type="text"  matInput placeholder="Descrição do exercicio"formControlName="descricao"  name="descricao"/>
+
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Series</mat-label>
+        <input type="number"  matInput placeholder="Digite o numero de series"formControlName="series" name="series"/>
+        
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Repetições</mat-label>
+        <input type="number"  matInput placeholder="Digite o numero de repeticoes" formControlName="repeticao" name="repeticao"/>
+
+      </mat-form-field>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-lg btn-outline-primary botaoCadastroModal">Cadastrar</button>
+      </div>
+    </form>

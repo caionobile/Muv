@@ -19,6 +19,21 @@ export class ExercicioService {
   //   })
   // }
 
+  criarExercicio(nomeExercicio:string,intensidade:number,descricao:string,series:number,repeticao:number){
+    const exercicio ={
+      nome:nomeExercicio,
+      intensidade:intensidade,
+      descricao:descricao,
+      series:series,
+      repeticoes:repeticao
+    }
+    this.httpClient
+      .post('http://localhost:3000/api/exercicios',exercicio)
+      .subscribe((resposta) => {
+        console.log(resposta);
+      });
+  }
+
   getExercicios(): void {
     this.httpClient
       .get<{ mensagem: string; exercicios: any }>(
