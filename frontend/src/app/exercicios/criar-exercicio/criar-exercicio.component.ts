@@ -4,41 +4,41 @@ import { ExercicioService } from 'src/app/service/exercicio.service';
 @Component({
   selector: 'app-criar-exercicio',
   templateUrl: './criar-exercicio.component.html',
-  styleUrls: ['./criar-exercicio.component.scss']
+  styleUrls: ['./criar-exercicio.component.scss'],
 })
 export class CriarExercicioComponent implements OnInit {
-
   form: FormGroup;
-  constructor(private exercicioService:ExercicioService) { }
+  constructor(private exercicioService: ExercicioService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
       nomeExercicio: new FormControl(null, {
-        validators: [Validators.required]
+        validators: [Validators.required],
       }),
       intensidade: new FormControl(null, {
-        validators: [Validators.required, Validators.email]
+        validators: [Validators.required],
       }),
       descricao: new FormControl(null, {
-        validators: [Validators.required, Validators.email]
+        validators: [Validators.required],
       }),
       series: new FormControl(null, {
-        validators: [Validators.required, Validators.email]
+        validators: [Validators.required],
       }),
       repeticao: new FormControl(null, {
-        validators: [Validators.required]
-      })
-    })
+        validators: [Validators.required],
+      }),
+    });
   }
-  onSignup (form:NgForm){
-    console.log(form.value)
-    if(form.invalid)return;
+  onCriar(form: NgForm) {
+    console.log(form.value);
+    if (form.invalid) return;
     this.exercicioService.criarExercicio(
       form.value.nomeExercicio,
       form.value.intensidade,
       form.value.descricao,
       form.value.series,
-      form.value.repeticao);
+      form.value.repeticao
+    );
+    location.reload();
   }
-
 }

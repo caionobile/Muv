@@ -28,18 +28,20 @@ router.post("", (req, res, next) => {
     intensidade: req.body.intensidade,
     descricao: req.body.descricao,
     series: req.body.series,
-    repeticoes: req.body.repeticoes 
+    repeticoes: req.body.repeticoes,
+    assignTo: req.body.assignTo
   });
   exercicio.save().then((exercicioInserido) => {
     res.status(201).json({
       mensagem: "Exercicio inserido",
-      cliente: {
+      exercicio: {
         id: exercicioInserido._id,
         nome: exercicioInserido.nome,
         intensidade: exercicioInserido.intensidade,
         descricao: exercicioInserido.descricao,
         series: exercicioInserido.series,
-        repeticoes: exercicioInserido.repeticoes
+        repeticoes: exercicioInserido.repeticoes,
+        assignTo: exercicioInserido.assignTo,
       },
     });
   });

@@ -3,6 +3,8 @@ import { Exercicio } from '../models/exercicio.model';
 import { ExercicioService } from '../service/exercicio.service';
 import { TreinoService } from '../service/treino.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { CriarExercicioComponent } from '../exercicios/criar-exercicio/criar-exercicio.component';
 import {
   CdkDragDrop,
   copyArrayItem,
@@ -21,7 +23,10 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   private exerciciosSubscription: Subscription;
   treinoForm: FormGroup;
 
-  constructor(public exercicioService: ExercicioService,public treinoService: TreinoService ) {}
+  constructor(
+    public exercicioService: ExercicioService,
+    public treinoService: TreinoService,
+    public dialog: MatDialog ) {}
 
   ngOnInit(): void {
     this.treinoForm = new FormGroup({
@@ -104,5 +109,9 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
     });
     this.treinoService.criarTreino(treino)
     // location.reload();
+  }
+
+  novoExercicio(){
+    this.dialog.open(CriarExercicioComponent)
   }
 }

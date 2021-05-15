@@ -25,7 +25,8 @@ export class ExercicioService {
       intensidade:intensidade,
       descricao:descricao,
       series:series,
-      repeticoes:repeticao
+      repeticoes:repeticao,
+      assignTo: "608dc95d48429b2a20a21263"
     }
     this.httpClient
       .post('http://localhost:3000/api/exercicios',exercicio)
