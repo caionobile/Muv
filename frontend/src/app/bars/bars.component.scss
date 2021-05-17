@@ -75,13 +75,17 @@ nav {
 
 .btn-perfil,
 .btn-logoff {
-
   background-color: #5e5eff;
   padding: 0;
   border: none;
   /*   height: 0; */
   color: white;
   width: 5rem;
+  letter-spacing: 3px;
+}
+
+.btn-perfil{
+  padding-left: 6px;
 }
 
 .btn-perfil:hover,
@@ -147,7 +151,7 @@ nav {
     flex-direction: column;
     width: 60vw;
     justify-content: flex-start;
-    height:89.9vh;
+    height: 89.9vh;
     margin-bottom: 0;
     background: black;
     padding: 0;
@@ -219,11 +223,11 @@ nav {
   .sidebar li {
     font-size: 3.2vw;
   }
-  .contato{
-    >a:hover{
+  .contato {
+    > a:hover {
       text-decoration: none;
     }
-    :hover{
+    :hover {
       background-color: #8fb300;
     }
   }
