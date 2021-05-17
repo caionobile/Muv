@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
+import { EmailService } from 'src/app/service/email.service';
 
 @Component({
   selector: 'app-contato',
@@ -12,7 +17,7 @@ export class ContatoComponent implements OnInit {
   textoEnviado: boolean = false;
   campoFaltando: boolean = false;
 
-  constructor(public dialogRef: MatDialog) {}
+  constructor(public dialogRef: MatDialog, public email: EmailService) {}
 
   ngOnInit(): void {
     this.formContato = new FormGroup({
@@ -31,16 +36,20 @@ export class ContatoComponent implements OnInit {
       this.campoFaltando = true;
       return;
     }
-    //=====================ENVIAR EMAIL COM ASSUNTO/MENSAGEM=====================
 
-    //=====================ENVIAR EMAIL COM ASSUNTO/MENSAGEM=====================
+    this.email.enviarEmail(
+      'NOME USUARIO',
+      'EMAIL@USUARIO.COM',
+      this.formContato.value.assunto,
+      this.formContato.value.mensagem
+    );
+
     this.campoFaltando = false;
     this.textoEnviado = true;
+
     setTimeout(() => {
       this.textoEnviado = false;
       this.dialogRef.closeAll();
     }, 1500);
-
-
   }
 }

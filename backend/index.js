@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const exercicioRoutes = require('./rotas/exercicios');
 const treinoRoutes = require('./rotas/treinos');
 const usuarioRoutes = require('./rotas/usuarios');
+const emailRoutes = require('./rotas/email');
 
 app.use(cors());
 app.use(express.json());
@@ -31,5 +32,6 @@ server.listen(porta);
 app.use('/api/exercicios', exercicioRoutes);
 app.use('/api/treinos', treinoRoutes);
 app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/email', emailRoutes);
 
 module.exports = app;
