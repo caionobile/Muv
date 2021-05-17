@@ -13,8 +13,20 @@
       <li><a routerLink="meus-treinos" routerLinkActive="active" class="navanchor">Meus treinos</a></li>
       <li><a routerLink="workspace" routerLinkActive="active" class="navanchor">Workspace</a></li>
       <li><a routerLink="calculadora" routerLinkActive="active" class="navanchor">Calculadoras de Saúde</a></li>
-      <li class="perlog"><button class="btn-perfil" (click)="abrirPerfil()"><span class="espacamento">Perfil</span></button><span style="margin-right: -2.75px">|</span><button class="btn-logoff" (click)="abrirLogoff()"><span class="espacamento">Sair</span></button></li>
-      <li class="contato"><a (click)="abrirContato()">Contato <span class="muv-italic">MUV!</span> </a></li>
+      <li class="perlog">
+        <button class="btn-perfil" (click)="abrirPerfil()">
+          Perfil
+        </button>
+        <span style="margin-right: -2.75px">|</span>
+        <button class="btn-logoff" (click)="abrirLogoff()">
+          Sair
+        </button>
+      </li>
+      <li class="contato">
+        <button class="btn-contato"(click)="abrirContato()">
+          Contato <span class="muv-italic">MUV!</span>
+        </button>
+      </li>
     </ul>
 
   </nav>
@@ -28,8 +40,10 @@
       <li><a routerLink="meus-treinos" routerLinkActive="active" closeSidebar>Meus treinos</a></li>
       <li><a routerLink="workspace" routerLinkActive="active" closeSidebar>Workspace</a></li>
       <li class="calc"><a routerLink="calculadora" routerLinkActive="active" closeSidebar>Calculadoras de Saúde</a></li>
-      <li class="perlog"><a (click)="abrirPerfil()" closeSidebar class="per">Perfil</a>  |<a (click)="abrirLogoff()" closeSidebar class="log">Sair</a></li>
-      <li class="contato"><a (click)="abrirContato()" closeSidebar>Contato <span class="muv-italic">MUV!</span> </a></li>
+      <li class="perlog"><a (click)="abrirPerfil()" closeSidebar class="per">Perfil</a> |<a (click)="abrirLogoff()"
+          closeSidebar class="log">Sair</a></li>
+      <li class="contato"><a (click)="abrirContato()" closeSidebar>Contato <span class="muv-italic">MUV!</span> </a>
+      </li>
     </ul>
   </ng-sidebar>
 

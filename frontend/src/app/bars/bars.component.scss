@@ -84,13 +84,23 @@ nav {
   letter-spacing: 3px;
 }
 
-.btn-perfil{
+.btn-perfil {
   padding-left: 6px;
 }
 
 .btn-perfil:hover,
 .btn-logoff:hover {
   background-color: #4141af;
+}
+
+.btn-contato {
+  background-color: #ccff00;
+  padding: 0;
+  border: none;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  letter-spacing: 3px;
+  font-weight: 950;
 }
 
 .contato {
@@ -100,12 +110,9 @@ nav {
     color: black;
     font-weight: 950;
   }
-  a:hover {
-    text-decoration: underline;
-    cursor: pointer;
+  :hover {
+    background-color: #a9d300;
   }
-  padding-right: 1vw;
-  padding-left: 1vw;
 }
 
 .muv-italic {
@@ -227,9 +234,6 @@ nav {
     > a:hover {
       text-decoration: none;
     }
-    :hover {
-      background-color: #8fb300;
-    }
   }
 }
 
@@ -241,13 +245,6 @@ nav {
     font-size: 16px;
   }
 }
-
-/* @media (max-width: 392px) {
-  .calc > a {
-    padding: 0;
-    letter-spacing: -1px;
-  }
-} */
 
 @media (max-width: 360px) {
   .sidebar li {
