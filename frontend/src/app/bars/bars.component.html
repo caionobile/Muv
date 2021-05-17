@@ -13,7 +13,8 @@
       <li><a routerLink="meus-treinos" routerLinkActive="active" class="navanchor">Meus treinos</a></li>
       <li><a routerLink="workspace" routerLinkActive="active" class="navanchor">Workspace</a></li>
       <li><a routerLink="calculadora" routerLinkActive="active" class="navanchor">Calculadoras de Saúde</a></li>
-      <li class="perlog"><a (click)="abrirPerfil()">Perfil</a> | <a (click)="abrirLogoff()">Sair</a></li>
+
+      <li class="perlog"><button class="btn-perfil" (click)="abrirPerfil()">Perfil</button><span style="margin-right: -2.75px">|</span><button class="btn-logoff" (click)="abrirLogoff()">Sair</button></li>
       <li class="contato"><a (click)="abrirContato()">Contato <span class="muv-italic">MUV!</span> </a></li>
     </ul>
 

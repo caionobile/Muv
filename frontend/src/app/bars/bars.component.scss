@@ -71,15 +71,22 @@ nav {
 
 .perlog {
   background-color: #5e5eff;
-  a {
-    color: white;
-  }
-  a:hover{
-    text-decoration:underline;
-    cursor: pointer;
-  }
-  padding-right: 1vw;
-  padding-left: 1vw;
+}
+
+.btn-perfil,
+.btn-logoff {
+
+  background-color: #5e5eff;
+  padding: 0;
+  border: none;
+  /*   height: 0; */
+  color: white;
+  width: 5rem;
+}
+
+.btn-perfil:hover,
+.btn-logoff:hover {
+  background-color: #4141af;
 }
 
 .contato {
@@ -89,8 +96,8 @@ nav {
     color: black;
     font-weight: 950;
   }
-  a:hover{
-    text-decoration:underline;
+  a:hover {
+    text-decoration: underline;
     cursor: pointer;
   }
   padding-right: 1vw;
@@ -140,7 +147,7 @@ nav {
     flex-direction: column;
     width: 60vw;
     justify-content: flex-start;
-    height: 89.9vh;
+    height:89.9vh;
     background: black;
     padding: 0;
   }
@@ -169,7 +176,7 @@ nav {
     padding: 0;
   }
 
-/*   ul > .calc {
+  /*   ul > .calc {
     letter-spacing: -0.6px;
   } */
 
