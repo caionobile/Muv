@@ -78,7 +78,6 @@ nav {
   background-color: #5e5eff;
   padding: 0;
   border: none;
-  /*   height: 0; */
   color: white;
   width: 6vw;
   letter-spacing: 3px;
@@ -173,24 +172,40 @@ nav {
     display: block;
   }
 
+  .perlog {
+    margin-top: auto;
+  }
+
   li > .per,
   li > .log {
     display: inline;
   }
 
-  .perlog {
-    margin-top: auto;
+  .per,
+  .log {
+    color: white;
+    background-color: #5e5eff;
+    width: 29.69vw;
+    letter-spacing: 1.5px;
+    padding: 0;
+    border: none;
   }
+
+  .per:hover,
+  .log:hover {
+    background-color: #4141af;
+  }
+
+  .contato:hover{
+    cursor: pointer;
+  }
+
   .sidebar li {
     font-size: 3vw;
     transition: 0s 0.1s;
     letter-spacing: 1.5px;
     padding: 0;
   }
-
-  /*   ul > .calc {
-    letter-spacing: -0.6px;
-  } */
 
   .sidebar li:hover:not(.contato, .perlog) {
     background-color: #fff;
@@ -229,11 +244,6 @@ nav {
 @media (max-width: 786px) {
   .sidebar li {
     font-size: 3.2vw;
-  }
-  .contato {
-    > a:hover {
-      text-decoration: none;
-    }
   }
 }
 

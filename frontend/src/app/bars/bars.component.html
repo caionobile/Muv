@@ -35,13 +35,15 @@
 <ng-sidebar-container style="height: 89.9vh">
 
   <ng-sidebar [(opened)]="opened" [closeOnClickOutside]=true showBackdrop=true>
-    <!-- <ng-sidebar [opened]=true [closeOnClickOutside]=true > -->
+    <!-- <ng-sidebar [opened]=true showBackdrop=true> -->
     <ul class="sidebar">
       <li><a routerLink="meus-treinos" routerLinkActive="active" closeSidebar>Meus treinos</a></li>
       <li><a routerLink="workspace" routerLinkActive="active" closeSidebar>Workspace</a></li>
       <li class="calc"><a routerLink="calculadora" routerLinkActive="active" closeSidebar>Calculadoras de Saúde</a></li>
-      <li class="perlog"><a (click)="abrirPerfil()" closeSidebar class="per">Perfil</a> |<a (click)="abrirLogoff()"
-          closeSidebar class="log">Sair</a></li>
+      <li class="perlog"><button (click)="abrirPerfil()" closeSidebar class="per">Perfil</button>
+        <span style="margin-left: -0.5px; margin-right: -2px">|</span>
+        <button (click)="abrirLogoff()"
+          closeSidebar class="log">Sair</button></li>
       <li class="contato"><a (click)="abrirContato()" closeSidebar>Contato <span class="muv-italic">MUV!</span> </a>
       </li>
     </ul>
