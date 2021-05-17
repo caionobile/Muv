@@ -8,8 +8,8 @@ router.post("", async (req, res, next) => {
     port: 587,
     secure: false,
     auth: {
-      user: "syble.hayes94@ethereal.email",
-      pass: "8uSbszJ3C9gMyBEkmB",
+      user: "zackery.grady@ethereal.email",
+      pass: "8PumHAhhH5u33SYtDw",
     },
   });
 
