@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 const transport = require("nodemailer");
 
-router.post("", (req, res, next) => {
-  transporter = transport.createTransport({
+router.post("", async (req, res, next) => {
+  transporter = await transport.createTransport({
     host: "smtp.ethereal.email",
     port: 587,
     secure: false,
@@ -13,7 +13,7 @@ router.post("", (req, res, next) => {
     },
   });
 
-  transporter
+  await transporter
     .sendMail({
       from: `"${req.body.nomeUsuario}" <${req.body.emailUsuario}>`,
       to: "muvequipe@gmail.com",
