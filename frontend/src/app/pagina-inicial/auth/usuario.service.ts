@@ -35,6 +35,7 @@ export class UsuarioService {
       .post('http://localhost:3000/api/usuarios/signup', authData)
       .subscribe((resposta) => {
         console.log(resposta);
+        this.login(authData.email, authData.senha);
       });
 
   }

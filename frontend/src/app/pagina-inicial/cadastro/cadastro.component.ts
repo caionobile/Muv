@@ -33,7 +33,13 @@ export class CadastroComponent implements OnInit {
 
   onSignUp(){
     if(this.form.invalid)return;
-    this.usuarioService.criarUsuario(this.form.value.nome, this.form.value.email, this.form.value.senha);
+    let usuario = {
+      nome: this.form.value.nome,
+      email: this.form.value.email,
+      senha: this.form.value.senha
+    }
+    this.usuarioService.criarUsuario(usuario.nome, usuario.email, usuario.senha);
+    this.dialogRef.close();
   }
 
 }

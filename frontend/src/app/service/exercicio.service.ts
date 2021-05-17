@@ -11,14 +11,6 @@ export class ExercicioService {
 
   constructor(private httpClient: HttpClient) {}
 
-  // getExercicios(): void {
-  //   this.httpClient.get <Exercicio[]>('http://localhost:3000/api/exercicios')
-  //   .subscribe((dados) => {
-  //     this.exercicios = dados;
-  //     this.listaExerciciosAtualizada.next([... this.exercicios]);
-  //   })
-  // }
-
   criarExercicio(nomeExercicio:string,intensidade:number,descricao:string,series:number,repeticao:number){
     const exercicio ={
       nome:nomeExercicio,
