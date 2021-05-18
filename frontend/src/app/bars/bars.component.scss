@@ -69,6 +69,11 @@ nav {
   }
 }
 
+/* .active{
+  background: rgb(255, 255, 255);
+  color: black!important;
+} */
+
 .perlog {
   background-color: #5e5eff;
 }
@@ -196,14 +201,14 @@ nav {
     background-color: #4141af;
   }
 
-  .contato{
+  .contato {
     text-align: center;
-    a{
+    a {
       padding: 0;
     }
   }
 
-  .contato:hover{
+  .contato:hover {
     cursor: pointer;
   }
 
