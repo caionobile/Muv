@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 //Conexão Usuario
 router.get("/:id", (req, res, next) => {
   Usuario.findById(req.params.id).then((usu) => {
+    console.log(usu)
     if (usu) {
       res.status(200).json(usu);
     } else {
@@ -28,9 +29,7 @@ router.post('/login',(req,res,next)=>{
   let user;
   Usuario.findOne({email:req.body.email}).then(u=>{
     user=u;
-    console.log(user);
-    console.log(u);
-    console.log(req.body.senha,u.senha)
+    console.log (user)
     if(!u){
       return res.status(401).json({
         mensagem:"Email invalido"
@@ -48,7 +47,7 @@ router.post('/login',(req,res,next)=>{
       'minhasenha',
       {expiresIn:'1h'}
     )
-    res.status(200).json({token:token})
+    res.status(200).json({nome:user.nome,email:user.email,id:user.id,token:token})
   }).catch(err=>{
     return res.status(401).json({
       mensagem:"Login falhou: "+err

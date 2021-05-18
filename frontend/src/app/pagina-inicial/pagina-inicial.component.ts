@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { UsuarioService } from './auth/usuario.service';
 import { CadastroComponent } from './cadastro/cadastro.component';
 
 @Component({
@@ -13,9 +14,11 @@ s
 
   constructor(
     private dialog: MatDialog,
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit(): void {
+    this.usuarioService.removerDadosCliente();
   }
 
   openCadastro() {
