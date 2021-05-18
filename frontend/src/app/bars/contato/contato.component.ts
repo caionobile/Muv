@@ -17,6 +17,9 @@ export class ContatoComponent implements OnInit {
   textoEnviado: boolean = false;
   campoFaltando: boolean = false;
 
+  nomeUsuario: string = localStorage.getItem("nome")
+  emailUsuario: string = localStorage.getItem("email")
+
   constructor(public dialogRef: MatDialog, public email: EmailService) {}
 
   ngOnInit(): void {
@@ -38,8 +41,8 @@ export class ContatoComponent implements OnInit {
     }
 
     this.email.enviarEmail(
-      'NOME USUARIO',
-      'EMAIL@USUARIO.COM',
+      this.nomeUsuario,
+      this.emailUsuario,
       this.formContato.value.assunto,
       this.formContato.value.mensagem
     );

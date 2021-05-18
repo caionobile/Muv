@@ -16,6 +16,9 @@ export class PerfilComponent implements OnInit {
     campoFaltando: "Preencha todos os campos",
   }
   formRedefinicao!: FormGroup;
+  
+  nomeUsuario: string = localStorage.getItem("nome")
+  emailUsuario: string = localStorage.getItem("email")
 
   constructor() {}
 
