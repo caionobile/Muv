@@ -40,12 +40,12 @@ export class ContatoComponent implements OnInit {
       return;
     }
 
-    /*this.email.enviarEmail(
+    this.email.enviarEmail(
       this.nomeUsuario,
       this.emailUsuario,
       this.formContato.value.assunto,
       this.formContato.value.mensagem
-    );*/
+    );
 
     this.campoFaltando = false;
     this.textoEnviado = true;

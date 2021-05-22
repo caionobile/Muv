@@ -5,7 +5,7 @@ const Treino = require("../models/treino");
 //Conexão Treino
 router.get("/usuario/:id", async (req, res) => {
   try {
-    const treino = await Treino.find({assignTo: req.params.id})
+    const treino = await Treino.find({assignTo: {'$in': [req.params.id,"60a9542eb4cf3204e4c8d364"]}})
       .populate(["exercicios"])
       .sort({ posicao: 1 });
 

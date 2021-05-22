@@ -4,7 +4,8 @@ const Exercicio = require("../models/exercicio");
 
 //Conexão Exercicios
 router.get("/usuario/:id", (req, res, next) => {
-  Exercicio.find({assignTo: req.params.id}).then((documents) => {
+  Exercicio.find({assignTo: {'$in': [req.params.id,"60a9542eb4cf3204e4c8d364"]}})
+  .then((documents) => {
     res.status(200).json({
       mensagem: "Tudo OK",
       exercicios: documents,
