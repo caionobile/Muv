@@ -3,8 +3,8 @@ const router = express.Router();
 const Exercicio = require("../models/exercicio");
 
 //Conexão Exercicios
-router.get("", (req, res, next) => {
-  Exercicio.find().then((documents) => {
+router.get("/usuario/:id", (req, res, next) => {
+  Exercicio.find({assignTo: req.params.id}).then((documents) => {
     res.status(200).json({
       mensagem: "Tudo OK",
       exercicios: documents,

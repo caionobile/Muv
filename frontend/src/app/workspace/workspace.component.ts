@@ -29,13 +29,14 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
     public dialog: MatDialog ) {}
 
   ngOnInit(): void {
+    const idUsuario = localStorage.getItem("id")
     this.treinoForm = new FormGroup({
       nome: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(1)]
       })
     });
 
-    this.exercicioService.getExercicios();
+    this.exercicioService.getExercicios(idUsuario);
     this.exerciciosSubscription = this.exercicioService
       .getListaDeExerciciosAtualizadaObservable()
       .subscribe((exercicios: Exercicio[]) => {
@@ -92,7 +93,7 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
     }
     let treino = {
       nome: this.treinoForm.value.nome,
-      assignTo: "608dc95d48429b2a20a21263",
+      assignTo: localStorage.getItem("id"),
       exercicios: idExercicios,
     };
     this.exerciciosTreino = [];

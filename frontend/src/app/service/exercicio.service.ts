@@ -11,14 +11,14 @@ export class ExercicioService {
 
   constructor(private httpClient: HttpClient) {}
 
-  criarExercicio(nomeExercicio:string,intensidade:number,descricao:string,series:number,repeticao:number){
+  criarExercicio(nomeExercicio:string,intensidade:number,descricao:string,series:number,repeticao:number, assignTo:string){
     const exercicio ={
       nome:nomeExercicio,
       intensidade:intensidade,
       descricao:descricao,
       series:series,
       repeticoes:repeticao,
-      assignTo: "608dc95d48429b2a20a21263"
+      assignTo: assignTo
     }
     this.httpClient
       .post('http://localhost:3000/api/exercicios',exercicio)
@@ -27,10 +27,10 @@ export class ExercicioService {
       });
   }
 
-  getExercicios(): void {
+  getExercicios(idUsuario): void {
     this.httpClient
       .get<{ mensagem: string; exercicios: any }>(
-        'http://localhost:3000/api/exercicios'
+        `http://localhost:3000/api/exercicios/usuario/${idUsuario}`
       )
       .pipe(
         map((dados) => {
@@ -42,6 +42,7 @@ export class ExercicioService {
               descricao: exercicio.descricao,
               series: exercicio.series,
               repeticoes: exercicio.repeticoes,
+              assignTo: exercicio.assignTo,
             };
           });
         })

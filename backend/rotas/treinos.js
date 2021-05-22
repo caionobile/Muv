@@ -3,9 +3,9 @@ const router = express.Router();
 const Treino = require("../models/treino");
 
 //Conexão Treino
-router.get("", async (req, res) => {
+router.get("/usuario/:id", async (req, res) => {
   try {
-    const treino = await Treino.find().populate('usuario')
+    const treino = await Treino.find({assignTo: req.params.id})
       .populate(["exercicios"])
       .sort({ posicao: 1 });
 
@@ -17,9 +17,8 @@ router.get("", async (req, res) => {
 
 router.get("/:id", (req, res, next) => {
   try {
-    const treino = new Treino.findById(req.params.treinoId).populate([
-      "usuario",  "exercicios"
-    ]);
+    const treino = new Treino.findById(req.params.id)
+    .populate(["usuario",  "exercicios"]);
 
     return res.send({ treino });
   } catch {

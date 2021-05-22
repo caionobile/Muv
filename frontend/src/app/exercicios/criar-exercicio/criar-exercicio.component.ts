@@ -37,7 +37,8 @@ export class CriarExercicioComponent implements OnInit {
       form.value.intensidade,
       form.value.descricao,
       form.value.series,
-      form.value.repeticao
+      form.value.repeticao,
+      localStorage.getItem("id")
     );
     location.reload();
   }

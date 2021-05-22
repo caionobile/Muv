@@ -11,10 +11,10 @@ export class TreinoService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getTreinos(): void {
+  getTreinos(idUsuario): void {
       this.httpClient
       .get<{ treino: any }>(
-        'http://localhost:3000/api/treinos'
+        `http://localhost:3000/api/treinos/usuario/${idUsuario}`
       )
       .pipe(
         map((dados) => {
@@ -24,6 +24,7 @@ export class TreinoService {
               nome: treino.nome,
               posicao: treino.posicao,
               exercicios: treino.exercicios,
+              assignTo: treino.assignTo
             };
           });
         })
