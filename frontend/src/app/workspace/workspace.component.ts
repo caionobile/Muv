@@ -113,6 +113,8 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   }
 
   novoExercicio(){
-    this.dialog.open(CriarExercicioComponent)
+    this.dialog.open(CriarExercicioComponent, {
+      data: { exercicio: null }
+    })
   }
 }

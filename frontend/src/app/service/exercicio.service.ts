@@ -27,6 +27,22 @@ export class ExercicioService {
       });
   }
 
+  alterarExercicio(idExercicio: string, nomeExercicio:string,intensidade:number,descricao:string,series:number,repeticao:number, assignTo:string) {
+    const exercicio ={
+      nome:nomeExercicio,
+      intensidade:intensidade,
+      descricao:descricao,
+      series:series,
+      repeticoes:repeticao,
+      assignTo: assignTo
+    }
+    this.httpClient
+      .put(`http://localhost:3000/api/exercicios/${idExercicio}`,exercicio)
+      .subscribe((resposta) => {
+        console.log(resposta);
+      });
+  }
+
   getExercicios(idUsuario): void {
     this.httpClient
       .get<{ mensagem: string; exercicios: any }>(
@@ -55,5 +71,9 @@ export class ExercicioService {
 
   getListaDeExerciciosAtualizadaObservable() {
     return this.listaExerciciosAtualizada.asObservable();
+  }
+
+  removerExercicio(id: string) {
+    this.httpClient.delete(`http://localhost:3000/api/exercicios/${id}`).subscribe()
   }
 }

@@ -5,4 +5,5 @@ export interface Exercicio{
   descricao: string;
   series: number;
   repeticoes: number;
+  assignTo: string;
 }
