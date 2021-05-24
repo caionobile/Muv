@@ -5,4 +5,5 @@ export interface Treino{
   nome: string;
   posicao: number;
   exercicios: Exercicio[];
+  assignTo: string;
 }

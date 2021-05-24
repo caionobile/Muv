@@ -62,6 +62,7 @@ h1 {
   height: 50px;
   margin: 0px 15px 0px 15px;
   align-items: center;
+  justify-content: space-between;
 }
 
 a {
@@ -130,4 +131,11 @@ tbody tr:hover {
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 6px;
+}
+
+.btn, .btn-outline-danger, .btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
 }

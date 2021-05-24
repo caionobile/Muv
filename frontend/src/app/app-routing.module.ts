@@ -43,13 +43,13 @@ const routes: Routes = [
       },
     ]
   },
-  
+
   //Redirecionando pra página inicial caso path não exista
-  {
-    path: "**",
-    redirectTo: 'pagina-inicial',
-    pathMatch: 'full'
-  }
+  // {
+  //   path: "**",
+  //   redirectTo: 'pagina-inicial',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({

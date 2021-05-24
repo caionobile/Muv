@@ -63,4 +63,14 @@ export class TreinoService {
       .post(`http://localhost:3000/api/treinos/`, treino)
       .subscribe()
   }
+
+  atualizarTreino(id: string, treino: any){
+    this.httpClient
+      .put(`http://localhost:3000/api/treinos/${id}`, treino)
+      .subscribe()
+  }
+
+  removerTreino(id: string){
+    this.httpClient.delete(`http://localhost:3000/api/treinos/${id}`).subscribe()
+  }
 }

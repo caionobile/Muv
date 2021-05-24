@@ -11,6 +11,8 @@ import {
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Treino } from '../models/treino.model';
 
 @Component({
   selector: 'app-workspace',
@@ -22,19 +24,46 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   exerciciosTreino: Exercicio[] = [];
   private exerciciosSubscription: Subscription;
   treinoForm: FormGroup;
+  routerTreino: any;
 
   constructor(
     public exercicioService: ExercicioService,
     public treinoService: TreinoService,
-    public dialog: MatDialog ) {}
+    public dialog: MatDialog,
+    private router: Router
+  ) {
+    if (this.router.getCurrentNavigation().extras.state) {
+      this.routerTreino = this.router.getCurrentNavigation().extras.state;
+      for(let t of this.routerTreino.exercicios) {
+        let et: Exercicio = {
+          id: t._id,
+          nome: t.nome,
+          descricao: t.descricao,
+          intensidade: t.intensidade,
+          repeticoes: t.repeticoes,
+          series: t.series,
+          assignTo: t.assignTo,
+        }
+        this.exerciciosTreino.push(et);
+      }
+    }
+  }
 
   ngOnInit(): void {
-    const idUsuario = localStorage.getItem("id")
-    this.treinoForm = new FormGroup({
-      nome: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(1)]
-      })
-    });
+    const idUsuario = localStorage.getItem('id');
+    if (this.routerTreino) {
+      this.treinoForm = new FormGroup({
+        nome: new FormControl(this.routerTreino.nome, {
+          validators: [Validators.required, Validators.minLength(1)],
+        }),
+      });
+    } else {
+      this.treinoForm = new FormGroup({
+        nome: new FormControl(null, {
+          validators: [Validators.required, Validators.minLength(1)],
+        }),
+      });
+    }
 
     this.exercicioService.getExercicios(idUsuario);
     this.exerciciosSubscription = this.exercicioService
@@ -49,7 +78,7 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   }
 
   drop(event: CdkDragDrop<Exercicio[]>) {
-    if(event.container.id == 'lista-exercicios'){
+    if (event.container.id == 'lista-exercicios') {
       if (event.previousContainer === event.container) {
         moveItemInArray(
           event.container.data,
@@ -69,52 +98,55 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
     }
   }
 
-  onCreateTreino(treinoForm: FormGroup){
+  cadastrarTreino(treinoForm: FormGroup) {
     this.treinoForm = treinoForm;
-    if(this.treinoForm.invalid || this.exerciciosTreino[0] == null) {
-      if (this.exerciciosTreino[0] == null){
-        document.getElementById("exercicios-treino")
-        .innerHTML = "Coloque pelo menos um exercício para o treino!";
-        document.getElementById("exercicios-treino")
-        .style.color = "#ff1414cb";
-        document.getElementById("lista-exercicios")
-        .style.borderColor = "#ff1414cb";
+    if (this.treinoForm.invalid || this.exerciciosTreino[0] == null) {
+      if (this.exerciciosTreino[0] == null) {
+        document.getElementById('exercicios-treino').innerHTML =
+          'Coloque pelo menos um exercício para o treino!';
+        document.getElementById('exercicios-treino').style.color = '#ff1414cb';
+        document.getElementById('lista-exercicios').style.borderColor =
+          '#ff1414cb';
       } else {
-        document.getElementById("lista-exercicios")
-        .style.borderColor = "rgba(128, 128, 128, 0.466)";
+        document.getElementById('lista-exercicios').style.borderColor =
+          'rgba(128, 128, 128, 0.466)';
       }
-      document.getElementById("mat-form-nome")
-      .style.borderColor = "#ff1414cb";
+      document.getElementById('mat-form-nome').style.borderColor = '#ff1414cb';
       return;
-    };
-    let idExercicios= [];
-    for (let i of this.exerciciosTreino){
+    }
+    let idExercicios = [];
+    for (let i of this.exerciciosTreino) {
       idExercicios.push(i.id);
     }
     let treino = {
       nome: this.treinoForm.value.nome,
-      assignTo: localStorage.getItem("id"),
+      assignTo: localStorage.getItem('id'),
       exercicios: idExercicios,
     };
     this.exerciciosTreino = [];
-    document.getElementById("mat-form-nome")
-    .style.borderColor = "rgba(90, 90, 90, 0.61)";
-    document.getElementById("lista-exercicios")
-    .style.borderColor = "rgba(128, 128, 128, 0.466)";
-    (<HTMLInputElement>document.getElementById("nomeInput"))
-    .value = "";
+    document.getElementById('mat-form-nome').style.borderColor =
+      'rgba(90, 90, 90, 0.61)';
+    document.getElementById('lista-exercicios').style.borderColor =
+      'rgba(128, 128, 128, 0.466)';
+    (<HTMLInputElement>document.getElementById('nomeInput')).value = '';
     this.treinoForm = new FormGroup({
       nome: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(1)]
-      })
+        validators: [Validators.required, Validators.minLength(1)],
+      }),
     });
-    this.treinoService.criarTreino(treino)
+    if (this.routerTreino){
+      this.treinoService.atualizarTreino(this.routerTreino.id, treino);
+      this.router.navigate(['/muv/meus-treinos']);
+    } else {
+      this.treinoService.criarTreino(treino);
+    }
+
     // location.reload();
   }
 
-  novoExercicio(){
+  novoExercicio() {
     this.dialog.open(CriarExercicioComponent, {
-      data: { exercicio: null }
-    })
+      data: { exercicio: null },
+    });
   }
 }

@@ -27,7 +27,6 @@ router.get("/:id", (req, res, next) => {
 });
 
 router.post("", async (req, res) => {
-  console.log(req.body)
   try {
     const { nome, assignTo, exercicios } = req.body;
 
@@ -57,9 +56,11 @@ router.post("", async (req, res) => {
 
 router.delete("/:id", (req, res, next) => {
   try {
-    Treino.findByIdAndRemove(req.params.treinoId).populate('usuario');
-
-    return res.send();
+    Treino.deleteOne({ _id: req.params.id }).then((resultado) => {
+      res.status(200).json({
+        mensagem: "Usuário removido",
+      });
+    });
   } catch {
     return res.status(400).send({ error: "Erro ao remover treino" });
   }
@@ -67,35 +68,21 @@ router.delete("/:id", (req, res, next) => {
 
 router.put("/:id", (req, res, next) => {
   try {
-    const { nome, posicao, exercicios } = req.body;
-
-    const treino = Treino.findByIdAndUpdate(
-      req.params.treinoId,
-      { nome, posicao },
-      { new: True }
-    );
-
-    treino.exercicios = [];
-
-    Exercicio.remove({ treino: treino._id });
-
-    Promise.all(
-      exercicios.map(async (exercicio) => {
-        const treinoExercicio = new Exercicio({
-          ...exercicios,
-          treino: treino._id,
-        });
-
-        treinoExercicio.save();
-
-        treino.exercicios.push(treinoExercicio);
-      })
-    );
-
-    treino.save();
-
-    return res.send({ treino });
+    const treino = new Treino({
+      _id: req.params.id,
+      nome: req.body.nome,
+      posicao: req.body.posicao,
+      exercicios: req.body.exercicios,
+      assignTo: req.body.assignTo
+    });
+    Treino.updateOne({ _id: req.params.id }, treino)
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
+      res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
   } catch (err) {
+    console.log(err);
     return res.status(400).send({ error: "Erro ao atualizar treino" });
   }
 });

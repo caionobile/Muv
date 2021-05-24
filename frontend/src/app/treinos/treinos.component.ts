@@ -14,7 +14,7 @@ export class TreinosComponent implements OnInit {
   private treinosSubscription: Subscription;
 
   ngOnInit(): void {
-  const idUsuario = localStorage.getItem("id")  
+  const idUsuario = localStorage.getItem("id")
   this.treinoService.getTreinos(idUsuario);
     this.treinosSubscription = this.treinoService
     .getListaDeTreinosAtualizadaObservable()

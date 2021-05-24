@@ -34,7 +34,7 @@ export class FlipCardBackComponent {
   constructor(public dialog: MatDialog) {}
 
   abrirDetalhes(exercicio): void {
-    const dialogRef = this.dialog.open(DetalheExercicioComponent, {
+    this.dialog.open(DetalheExercicioComponent, {
       data: { exercicio: exercicio },
     });
   }
