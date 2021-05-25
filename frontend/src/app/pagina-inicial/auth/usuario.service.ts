@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthData } from './auth-data.model';
 import { AuthDataL } from './auth-datal.model';
-import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Subject, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Usuario } from '../../models/usuario.model'
-
+import { Usuario } from '../../models/usuario.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +14,8 @@ export class UsuarioService {
   private token: string;
   private authStatusSubject = new Subject<boolean>();
   private autenticado: boolean = false;
-  private usuario:Usuario;
+  private usuario: Usuario;
+  private erroLogin: boolean = false;
   public getToken(): string {
     return this.token;
   }
@@ -27,18 +27,23 @@ export class UsuarioService {
   public getStatusSubject() {
     return this.authStatusSubject.asObservable();
   }
-  private salvarDadosCliente(id:string,nome:string,email:string){
-    localStorage.setItem('id',id);
-    localStorage.setItem('nome',nome);
-    localStorage.setItem('email',email);
+
+  public getErroLogin(): boolean {
+    return this.erroLogin;
   }
-  public removerDadosCliente(){
+
+  private salvarDadosCliente(id: string, nome: string, email: string) {
+    localStorage.setItem('id', id);
+    localStorage.setItem('nome', nome);
+    localStorage.setItem('email', email);
+  }
+  public removerDadosCliente() {
     localStorage.removeItem('id');
     localStorage.removeItem('nome');
     localStorage.removeItem('email');
   }
 
-  constructor(private httpClient: HttpClient, private router: Router ) {}
+  constructor(private httpClient: HttpClient, private router: Router) {}
   criarUsuario(nome: string, email: string, senha: string) {
     const authData: AuthData = {
       nome: nome,
@@ -51,7 +56,6 @@ export class UsuarioService {
         console.log(resposta);
         this.login(authData.email, authData.senha);
       });
-
   }
 
   login(email: string, senha: string) {
@@ -60,20 +64,23 @@ export class UsuarioService {
       senha: senha,
     };
     this.httpClient
-      .post<{id:string,nome:string,email:string, token: string }>(
+      .post<{ id: string; nome: string; email: string; token: string }>(
         'http://localhost:3000/api/usuarios/login',
         authDatal
       )
+      .pipe(
+        catchError(() => {
+          this.erroLogin = true;
+          return throwError('Email e/ou senha incorretos');
+        })
+      )
       .subscribe((resposta) => {
+        this.erroLogin = false;
         this.token = resposta.token;
-        if (this.token) {
-          this.autenticado = true;
-          this.authStatusSubject.next(true);
-          this.salvarDadosCliente(resposta.id,resposta.nome,resposta.email)
-          this.router.navigate(['/muv']);
-        }
+        this.autenticado = true;
+        this.authStatusSubject.next(true);
+        this.salvarDadosCliente(resposta.id, resposta.nome, resposta.email);
       });
-
   }
 
   logout() {

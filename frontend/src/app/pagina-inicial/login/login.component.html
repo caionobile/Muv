@@ -1,18 +1,17 @@
 <!-- Modal Login -->
-  <div class="modal-body">
-    <form [formGroup]="form" (submit)="onLogin()" #loginForm="ngForm">
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="exemplo@email.com" formControlName="emailLogin" name="emailLogin"/>
-          <mat-error *ngIf="form.get('emailLogin').invalid">Digite um email válido</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Senha</mat-label>
-        <input type="password" matInput placeholder="***" formControlName="senhaLogin" name="senhaLogin"/>
-          <mat-error *ngIf="form.get('senhaLogin').invalid">Digite uma senha válida</mat-error>
-      </mat-form-field>
-      <div class="modal-footer" text-align="center">
-        <button type="submit" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
-      </div>
-    </form>
-  </div>
+<div class="modal-body">
+  <form [formGroup]="form" (submit)="onLogin()" #loginForm="ngForm">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="exemplo@email.com" formControlName="emailLogin" name="emailLogin" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Senha</mat-label>
+      <input type="password" matInput placeholder="***" formControlName="senhaLogin" name="senhaLogin" />
+    </mat-form-field>
+    <mat-error *ngIf="loginError">Email e/ou senha incorretos</mat-error>
+    <div class="modal-footer" text-align="center">
+      <button type="submit" class="btn btn-lg btn-outline-primary botaoLoginModal">Login</button>
+    </div>
+  </form>
+</div>
