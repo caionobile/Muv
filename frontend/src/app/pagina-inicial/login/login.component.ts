@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
+    this.loginError = false;
     if (this.form.invalid) return;
     this.usuarioService.login(
       this.form.value.emailLogin,
