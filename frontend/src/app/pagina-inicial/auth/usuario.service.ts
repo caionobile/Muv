@@ -16,6 +16,7 @@ export class UsuarioService {
   private autenticado: boolean = false;
   private usuario: Usuario;
   private erroLogin: boolean = false;
+  private erroCadastro: boolean = false;
   public getToken(): string {
     return this.token;
   }
@@ -30,6 +31,10 @@ export class UsuarioService {
 
   public getErroLogin(): boolean {
     return this.erroLogin;
+  }
+
+  public getErroCadastro(): boolean {
+    return this.erroCadastro;
   }
 
   private salvarDadosCliente(id: string, nome: string, email: string) {
@@ -52,8 +57,14 @@ export class UsuarioService {
     };
     this.httpClient
       .post('http://localhost:3000/api/usuarios/signup', authData)
-      .subscribe((resposta) => {
-        console.log(resposta);
+      .pipe(
+        catchError(() => {
+          this.erroCadastro = true;
+          return throwError('Email já cadastrado');
+        })
+      )
+      .subscribe(() => {
+        this.erroCadastro = false;
         this.login(authData.email, authData.senha);
       });
   }
