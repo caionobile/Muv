@@ -30,9 +30,16 @@ router.post("/login", (req, res, next) => {
   Usuario.findOne({ email: req.body.email })
     .then((u) => {
       user = u;
+      console.log(user);
+      if (!u) {
+        return throwError();
+      }
       return bcrypt.compare(req.body.senha, u.senha);
     })
-    .then(() => {
+    .then((result) => {
+      if (!result) {
+        return throwError();
+      }
       const token = jwt.sign({ email: user.email, id: user.id }, "minhasenha", {
         expiresIn: "1h",
       });
