@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UsuarioService } from '../auth/usuario.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,6 +16,7 @@ export class CadastroComponent implements OnInit {
   cadastroError: boolean = false;
 
   constructor(
+    private toastr: ToastrService,
     private usuarioService: UsuarioService,
     public dialogRef: MatDialogRef<CadastroComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -51,11 +53,27 @@ export class CadastroComponent implements OnInit {
       usuario.senha
     );
     setTimeout(() => {
-      if (this.usuarioService.getErroCadastro()) this.cadastroError = true;
+      if (this.usuarioService.getErroCadastro() == true){
+        this.cadastroError = true;
+        this.mostrarToastFalha();
+      }
       else {
+        this.mostrarToastSucesso();
         this.router.navigate(['/muv']);
         this.dialogRef.close();
       }
     }, 750);
+  }
+
+  mostrarToastSucesso(){
+    this.toastr.success('Usuário cadastrado com sucesso', 'Cadastro Realizado', {
+      positionClass : "toast-top-center"
+    });
+  }
+
+  mostrarToastFalha(){
+    this.toastr.error('Usuário não cadastrado', 'Erro', {
+      positionClass : "toast-top-center"
+    });
   }
 }

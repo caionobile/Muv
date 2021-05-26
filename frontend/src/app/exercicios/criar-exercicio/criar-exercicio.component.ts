@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { Exercicio } from 'src/app/models/exercicio.model';
 import { ExercicioService } from 'src/app/service/exercicio.service';
 @Component({
@@ -12,6 +13,7 @@ export class CriarExercicioComponent implements OnInit {
   form: FormGroup;
   exercicio: Exercicio;
   constructor(
+    private toastr: ToastrService,
     private exercicioService: ExercicioService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -69,6 +71,7 @@ export class CriarExercicioComponent implements OnInit {
         form.value.repeticao,
         localStorage.getItem('id')
       )
+      this.mostrarToastExercicioAtualizadoSucesso()
     } else {
       this.exercicioService.criarExercicio(
         form.value.nomeExercicio,
@@ -78,7 +81,22 @@ export class CriarExercicioComponent implements OnInit {
         form.value.repeticao,
         localStorage.getItem('id')
       );
+      this.mostrarToastExercicioSucesso()
     }
-    location.reload();
+    setTimeout(() => {location.reload();}, 1800)
+  }
+
+  mostrarToastExercicioSucesso(){
+    this.toastr.success('Exercício Cadastrado', 'Sucesso', {
+      positionClass : "toast-top-center",
+      timeOut : 1800
+    });
+  }
+
+  mostrarToastExercicioAtualizadoSucesso(){
+    this.toastr.success('Exercício Atualizado', 'Sucesso', {
+      positionClass : "toast-top-center",
+      timeOut : 1800
+    });
   }
 }

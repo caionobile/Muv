@@ -13,6 +13,7 @@ import {
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Treino } from '../models/treino.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-workspace',
@@ -27,6 +28,7 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   routerTreino: any;
 
   constructor(
+    private toastr: ToastrService,
     public exercicioService: ExercicioService,
     public treinoService: TreinoService,
     public dialog: MatDialog,
@@ -136,9 +138,11 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
     });
     if (this.routerTreino){
       this.treinoService.atualizarTreino(this.routerTreino.id, treino);
+      this.mostrarToastTreinoAtualizadoSucesso()
       this.router.navigate(['/muv/meus-treinos']);
     } else {
       this.treinoService.criarTreino(treino);
+      this.mostrarToastTreinoSucesso()
     }
 
     // location.reload();
@@ -147,6 +151,20 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
   novoExercicio() {
     this.dialog.open(CriarExercicioComponent, {
       data: { exercicio: null },
+    });
+  }
+
+  mostrarToastTreinoSucesso(){
+    this.toastr.success('Treino Cadastrado', 'Sucesso', {
+      positionClass : "toast-top-center",
+      timeOut: 1800
+    });
+  }
+
+  mostrarToastTreinoAtualizadoSucesso(){
+    this.toastr.success('Treino Atualizado', 'Sucesso', {
+      positionClass : "toast-top-center",
+      timeOut: 1800
     });
   }
 }

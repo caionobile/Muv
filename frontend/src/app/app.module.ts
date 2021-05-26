@@ -39,7 +39,7 @@ import { NavbarPaginaInicialComponent } from './pagina-inicial/navbar-pagina-ini
 import { CloseModalComponent } from './bars/close-modal/close-modal.component';
 import { LoginComponent } from './pagina-inicial/login/login.component';
 import { CadastroComponent } from './pagina-inicial/cadastro/cadastro.component';
-
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +83,12 @@ import { CadastroComponent } from './pagina-inicial/cadastro/cadastro.component'
     NgbModule,
     MatRadioModule,
     NgsgModule,
+    ToastrModule.forRoot({
+      timeOut: 3500,
+      progressBar: true,
+      progressAnimation: "increasing",
+      preventDuplicates: true
+    })
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
   bootstrap: [AppComponent]
