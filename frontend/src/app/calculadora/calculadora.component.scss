@@ -60,12 +60,16 @@ $grau3-border: #8d0700;
 }
 
 .up {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 .col-md-8 {
   display: flex;
+}
+
+.background {
+  background: #DBDBDB;
 }
 
 .pad {
