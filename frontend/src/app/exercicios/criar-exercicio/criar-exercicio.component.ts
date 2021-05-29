@@ -27,7 +27,7 @@ export class CriarExercicioComponent implements OnInit {
           validators: [Validators.required],
         }),
         intensidade: new FormControl(this.exercicio.intensidade, {
-          validators: [Validators.required],
+          validators: [Validators.required, Validators.max(5)],
         }),
         descricao: new FormControl(this.exercicio.descricao, {
           validators: [Validators.required],
@@ -45,7 +45,7 @@ export class CriarExercicioComponent implements OnInit {
           validators: [Validators.required],
         }),
         intensidade: new FormControl(null, {
-          validators: [Validators.required],
+          validators: [Validators.required, Validators.max(5)],
         }),
         descricao: new FormControl(null, {
           validators: [Validators.required],

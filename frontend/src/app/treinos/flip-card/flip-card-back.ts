@@ -36,6 +36,7 @@ export class FlipCardBackComponent {
   abrirDetalhes(exercicio): void {
     this.dialog.open(DetalheExercicioComponent, {
       data: { exercicio: exercicio },
+      width: '650px',
     });
   }
 }

@@ -19,7 +19,8 @@ export class ExerciciosComponent implements OnInit {
 
   abrirDetalhes(): void {
     this.dialog.open(DetalheExercicioComponent, {
-      data: {exercicio: this.exercicio}
+      data: {exercicio: this.exercicio},
+      width: '650px',
     });
   }
 
