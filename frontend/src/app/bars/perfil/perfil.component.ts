@@ -8,17 +8,17 @@ import { NgForm, FormGroup, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./perfil.component.scss'],
 })
 export class PerfilComponent implements OnInit {
-  feedback: string = "";
+  feedback: string = '';
   validacoes = {
-    senhaRedefinida: "Senha redefinida com sucesso!",
-    novaSenhaIgualAntiga: "A nova senha não pode ser igual a senha anterior",
-    senhaAtualIncorreta: "Senha atual incorreta",
-    campoFaltando: "Preencha todos os campos",
-  }
+    senhaRedefinida: 'Senha redefinida com sucesso!',
+    novaSenhaIgualAntiga: 'A nova senha não pode ser igual a senha anterior',
+    senhaAtualIncorreta: 'Senha atual incorreta',
+    campoFaltando: 'Preencha todos os campos',
+  };
   formRedefinicao!: FormGroup;
-  
-  nomeUsuario: string = localStorage.getItem("nome")
-  emailUsuario: string = localStorage.getItem("email")
+
+  nomeUsuario: string = localStorage.getItem('nome');
+  emailUsuario: string = localStorage.getItem('email');
 
   constructor() {}
 
@@ -33,25 +33,24 @@ export class PerfilComponent implements OnInit {
     });
   }
 
-  redefinirSenha(): void {
-    if (this.formRedefinicao.invalid){
+/*   redefinirSenha(): void {
+    if (this.formRedefinicao.invalid) {
       this.feedback = this.validacoes.campoFaltando;
-      return
-    }
-    else if (this.formRedefinicao.value.senhaAtual == this.formRedefinicao.value.novaSenha){
+      return;
+    } else if (
+      this.formRedefinicao.value.senhaAtual ==
+      this.formRedefinicao.value.novaSenha
+    ) {
       this.feedback = this.validacoes.novaSenhaIgualAntiga;
-    }
-    //=====================CHECAR SENHA ANTIGA=====================
-/*  else if (this.formRedefinicao.value.senhaAtual != SENHA_ANTIGA_DO_USUARIO){
+    } else if (
+      this.formRedefinicao.value.senhaAtual !=
+    ) {
       this.feedback = this.validacoes.senhaAtualIncorreta;
-    } */
-    else {
-      //=====================REDEFINIÇÃO DE SENHA=====================
-
-      //=====================REDEFINIÇÃO DE SENHA=====================
+    } else {
       this.feedback = this.validacoes.senhaRedefinida;
-      setTimeout(() => {this.feedback = ""}, 5000)
+      setTimeout(() => {
+        this.feedback = '';
+      }, 5000);
     }
-  }
-
+  } */
 }
