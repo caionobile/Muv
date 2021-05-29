@@ -38,6 +38,7 @@ mat-card {
   display: flex;
   align-items: flex-start;
   background: #DBDBDB;
+  position: fixed;
   @media (max-width: 420px){
     display: block;
   }
