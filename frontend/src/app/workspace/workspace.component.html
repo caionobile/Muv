@@ -1,7 +1,7 @@
 <div cdkDropListGroup class="workspace-box ">
   <div class="exercicios-box text-center">
     <div class="btn-exercicios">
-      <button class="btn btn-outline-primary right" (click)="novoExercicio()">Criar exercício</button>
+      <button class="btn btn-primary right" (click)="novoExercicio()">Criar exercício</button>
     </div>
     <div
       id="workspace-exercicios"
@@ -70,9 +70,9 @@
       >
         <button
           type="submit"
-          class="btn btn-lg btn-outline-primary"
+          class="btn btn-lg btn-success"
         >
-          <div *ngIf="!routerTreino">Criar Treino</div>
+          <div *ngIf="!routerTreino">Criar treino</div>
           <div *ngIf="routerTreino">Atualizar</div>
         </button>
       </div>
