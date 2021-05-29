@@ -16,7 +16,7 @@ router.post("", async (req, res, next) => {
   await transporter
     .sendMail({
       from: `"${req.body.nomeUsuario}" <${req.body.emailUsuario}>`,
-      to: "muvequipe@gmail.com",
+      to: "muv@email.com",
       subject: req.body.assunto,
       text: req.body.mensagem,
       html: req.body.mensagem,
