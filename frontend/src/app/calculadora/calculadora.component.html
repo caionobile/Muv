@@ -1,176 +1,178 @@
-<div class="up">
-  <div class="card-group">
-    <div class="col-md-8">
-      <mat-card>
-        <br>
-        <mat-card-title class="text-center">Índice de Massa Corporal (IMC)</mat-card-title>
-        <br>
-
-        <mat-card-content class="text-justify">
-          O Índice de Massa Corporal, também conhecido como IMC, é um parâmetro criado pela
-          Organização Mundial de Saúde, e ajuda a determinar se a pessoa está com o peso ideal,
-          baseada na altura que possui.
-        </mat-card-content>
-        <mat-card-content class="text-justify">
-          O cálculo é realizado da seguinte maneira: Divide-se a massa da pessoa (em quilogramas),
-          pela sua altura (em metros) elevado ao quadrado.
-        </mat-card-content>
-        <mat-card-content class="text-center">
-          <strong>Tabela de Referência</strong>
-        </mat-card-content>
-        <mat-card-content class="text-center">
-          Menor que 18.5: Magreza
-          <br> Entre 18.5 e 24.9: Peso Ideal
-          <br> Entre 25 e 29.9: Sobrepeso
-          <br> Entre 30 e 34.9: Obesidade grau I
-          <br> Entre 35 e 39.9: Obesidade grau II (Severa)
-          <br> A partir de 40: Obesidade grau III (Mórbida)
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-    <div class="col-md-4 calcmobile">
-      <form [formGroup]="formImc" class="container" id="calculadoraIMC" (ngSubmit)="mostrarCalculoImc()">
-        <mat-card class="text-center" *ngIf="!calcularImc">
+<div class="background">
+  <div class="up">
+    <div class="card-group">
+      <div class="col-md-8">
+        <mat-card>
+          <br>
+          <mat-card-title class="text-center">Índice de Massa Corporal (IMC)</mat-card-title>
           <br>
 
-          <mat-card-title>Calculadora IMC</mat-card-title>
-          <br>
-          <br>
-          <div class="calculadoraIMC">
-            <mat-form-field appearance="outline">
-              <mat-label>Massa (em Kg): </mat-label>
-              <input matInput formControlName="massaImc" name="massaImc" mask="00||00.0||000.0" type="text"
-                placeholder="(ex: 55.5)" name="peso_input" maxlength="6" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <br>
-          <div class="calculadoraIMC">
-            <mat-form-field appearance="outline">
-              <mat-label>Altura (em m): </mat-label>
-              <input matInput formControlName="alturaImc" name="alturaImc" type="text" placeholder="(ex: 1.65)"
-                id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <br>
-          <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IMC</button>
-          <br>
-          <br>
+          <mat-card-content class="text-justify">
+            O Índice de Massa Corporal, também conhecido como IMC, é um parâmetro criado pela
+            Organização Mundial de Saúde, e ajuda a determinar se a pessoa está com o peso ideal,
+            baseada na altura que possui.
+          </mat-card-content>
+          <mat-card-content class="text-justify">
+            O cálculo é realizado da seguinte maneira: Divide-se a massa da pessoa (em quilogramas),
+            pela sua altura (em metros) elevado ao quadrado.
+          </mat-card-content>
+          <mat-card-content class="text-center">
+            <strong>Tabela de Referência</strong>
+          </mat-card-content>
+          <mat-card-content class="text-center">
+            Menor que 18.5: Magreza
+            <br> Entre 18.5 e 24.9: Peso Ideal
+            <br> Entre 25 e 29.9: Sobrepeso
+            <br> Entre 30 e 34.9: Obesidade grau I
+            <br> Entre 35 e 39.9: Obesidade grau II (Severa)
+            <br> A partir de 40: Obesidade grau III (Mórbida)
+          </mat-card-content>
         </mat-card>
+      </div>
 
-        <mat-card class="text-center" *ngIf="calcularImc">
-          <br>
-          <mat-card-title>Calculadora IMC</mat-card-title>
-          <br>
-          <br>
-          <br>
-          <span class="res-calculo">{{resultadoImc}}</span>
-          <br>
-          <br>
-          <br>
-          <br>
-          <span class="{{tabelaImc}} res-tabela">{{imcRes[tabelaImc]}}</span>
-          <br>
-          <br>
-          <br>
-          <br>
-          <button type="button" class="btn btn-primary-outline btn-{{tabelaImc}}" (click)="resetarImc()">Calcular
-            novamente</button>
-          <br>
-          <br>
-        </mat-card>
+      <div class="col-md-4 calcmobile">
+        <form [formGroup]="formImc" class="container" id="calculadoraIMC" (ngSubmit)="mostrarCalculoImc()">
+          <mat-card class="text-center" *ngIf="!calcularImc">
+            <br>
 
-      </form>
+            <mat-card-title>Calculadora IMC</mat-card-title>
+            <br>
+            <br>
+            <div class="calculadoraIMC">
+              <mat-form-field appearance="outline">
+                <mat-label>Massa (em Kg): </mat-label>
+                <input matInput formControlName="massaImc" name="massaImc" mask="00||00.0||000.0" type="text"
+                  placeholder="(ex: 55.5)" name="peso_input" maxlength="6" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <br>
+            <div class="calculadoraIMC">
+              <mat-form-field appearance="outline">
+                <mat-label>Altura (em m): </mat-label>
+                <input matInput formControlName="alturaImc" name="alturaImc" type="text" placeholder="(ex: 1.65)"
+                  id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IMC</button>
+            <br>
+            <br>
+          </mat-card>
+
+          <mat-card class="text-center" *ngIf="calcularImc">
+            <br>
+            <mat-card-title>Calculadora IMC</mat-card-title>
+            <br>
+            <br>
+            <br>
+            <span class="res-calculo">{{resultadoImc}}</span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <span class="{{tabelaImc}} res-tabela">{{imcRes[tabelaImc]}}</span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="button" class="btn btn-primary-outline btn-{{tabelaImc}}" (click)="resetarImc()">Calcular
+              novamente</button>
+            <br>
+            <br>
+          </mat-card>
+
+        </form>
+      </div>
     </div>
-  </div>
-  <br>
+    <br>
 
 
-  <div class="card-group">
-    <div class="col-md-8 ">
-      <mat-card>
-        <br>
-        <mat-card-title class="text-center">Índice de Adiposidade Corporal (IAC)</mat-card-title>
-        <br>
-        <br>
-        <mat-card-content class="text-justify">
-          O Índice de Adiposidade Corporal, também conhecido como IAC, é um parâmetro criado para
-          determinar a porcentagem de gordura corporal. É um índice mais recente do que o IMC, e portanto,
-          mais preciso.
-        </mat-card-content>
-        <mat-card-content class="text-justify">
-          O cálculo é realizado da seguinte maneira: Divide-se a medida da circunferência do quadril
-          (em centimetros), pela altura (em metros) multiplicada pela raiz quadrada dela, subtraindo
-          18 ao final.
-        </mat-card-content>
-        <br>
-        <mat-card-content class="text-center">
-          <strong>Tabela de Referência</strong>
+    <div class="card-group">
+      <div class="col-md-8 ">
+        <mat-card>
+          <br>
+          <mat-card-title class="text-center">Índice de Adiposidade Corporal (IAC)</mat-card-title>
           <br>
           <br>
-          <strong>Homens:</strong> De 8 até 19.9: Normal | De 20 até 24.9: Sobrepeso | A partir de 25: Obesidade
+          <mat-card-content class="text-justify">
+            O Índice de Adiposidade Corporal, também conhecido como IAC, é um parâmetro criado para
+            determinar a porcentagem de gordura corporal. É um índice mais recente do que o IMC, e portanto,
+            mais preciso.
+          </mat-card-content>
+          <mat-card-content class="text-justify">
+            O cálculo é realizado da seguinte maneira: Divide-se a medida da circunferência do quadril
+            (em centimetros), pela altura (em metros) multiplicada pela raiz quadrada dela, subtraindo
+            18 ao final.
+          </mat-card-content>
           <br>
-          <br>
-          <strong>Mulheres:</strong> De 21 até 31.9: Normal | De 32 até 37.9: Sobrepeso | A partir de 38: Obesidade
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-    <div class="col-md-4 calcmobile">
-      <form [formGroup]="formIac" class="container" id="calculadoraIAC" (ngSubmit)="mostrarCalculoIac()">
-        <mat-card class="text-center" *ngIf="!calcularIac">
-          <br>
-          <mat-card-title>Calculadora IAC</mat-card-title>
-          <br>
-          <mat-radio-group aria-label="Selecione uma opção" formControlName="generoIac">
-            <mat-radio-button value='h'>Homem</mat-radio-button>
-            <mat-radio-button value="m">Mulher</mat-radio-button>
-          </mat-radio-group>
-          <br>
-          <div class="calculadoraIAC">
-            <mat-form-field appearance="outline">
-              <mat-label>Circunf. do Quadril (em cm):</mat-label>
-              <input matInput formControlName="circunfIac" name="circunfIac" type="text" placeholder="(ex: 92)"
-                id="quadril_input" mask="0||00||000" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <div class="calculadoraIAC">
-            <mat-form-field appearance="outline">
-              <mat-label>Altura (em m): </mat-label>
-              <input matInput formControlName="alturaIac" name="alturaIac" type="text" placeholder="(ex: 1.65)"
-                id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
-            </mat-form-field>
-          </div>
-          <mat-error *ngIf="!iacCompleto">Preencha todas as opções</mat-error>
-          <mat-error *ngIf="!iacReal">Utilize dados reais!</mat-error>
-          <br>
-          <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IAC</button>
-          <br>
-          <br>
+          <mat-card-content class="text-center">
+            <strong>Tabela de Referência</strong>
+            <br>
+            <br>
+            <strong>Homens:</strong> De 8 até 19.9: Normal | De 20 até 24.9: Sobrepeso | A partir de 25: Obesidade
+            <br>
+            <br>
+            <strong>Mulheres:</strong> De 21 até 31.9: Normal | De 32 até 37.9: Sobrepeso | A partir de 38: Obesidade
+          </mat-card-content>
         </mat-card>
-        <mat-card class="text-center" *ngIf="calcularIac">
-          <br>
-          <mat-card-title>Calculadora IAC</mat-card-title>
-          <br>
-          <br>
-          <br>
-          <span class='res-calculo-iac'>{{resultadoIac}}% de gordura</span>
-          <br>
-          <br>
-          <br>
-          <br>
-          <span class="{{tabelaIac}} res-tabela">{{iacRes[tabelaIac]}}</span>
-          <br>
-          <br>
-          <br>
-          <br>
-          <button type="button" class="btn btn-primary-outline btn-{{tabelaIac}}" (click)="resetarIac()">Calcular
-            novamente</button>
-          <br>
-          <br>
-        </mat-card>
-      </form>
-    </div>
+      </div>
 
+      <div class="col-md-4 calcmobile">
+        <form [formGroup]="formIac" class="container" id="calculadoraIAC" (ngSubmit)="mostrarCalculoIac()">
+          <mat-card class="text-center" *ngIf="!calcularIac">
+            <br>
+            <mat-card-title>Calculadora IAC</mat-card-title>
+            <br>
+            <mat-radio-group aria-label="Selecione uma opção" formControlName="generoIac">
+              <mat-radio-button value='h'>Homem</mat-radio-button>
+              <mat-radio-button value="m">Mulher</mat-radio-button>
+            </mat-radio-group>
+            <br>
+            <div class="calculadoraIAC">
+              <mat-form-field appearance="outline">
+                <mat-label>Circunf. do Quadril (em cm):</mat-label>
+                <input matInput formControlName="circunfIac" name="circunfIac" type="text" placeholder="(ex: 92)"
+                  id="quadril_input" mask="0||00||000" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <div class="calculadoraIAC">
+              <mat-form-field appearance="outline">
+                <mat-label>Altura (em m): </mat-label>
+                <input matInput formControlName="alturaIac" name="alturaIac" type="text" placeholder="(ex: 1.65)"
+                  id="altura_input" maxlength="6" mask="0.00||0.0||0" autocomplete="off">
+              </mat-form-field>
+            </div>
+            <mat-error *ngIf="!iacCompleto">Preencha todas as opções</mat-error>
+            <mat-error *ngIf="!iacReal">Utilize dados reais!</mat-error>
+            <br>
+            <button type="submit" class="btn btn-success-outline btnCalcular">Calcular IAC</button>
+            <br>
+            <br>
+          </mat-card>
+          <mat-card class="text-center" *ngIf="calcularIac">
+            <br>
+            <mat-card-title>Calculadora IAC</mat-card-title>
+            <br>
+            <br>
+            <br>
+            <span class='res-calculo-iac'>{{resultadoIac}}% de gordura</span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <span class="{{tabelaIac}} res-tabela">{{iacRes[tabelaIac]}}</span>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="button" class="btn btn-primary-outline btn-{{tabelaIac}}" (click)="resetarIac()">Calcular
+              novamente</button>
+            <br>
+            <br>
+          </mat-card>
+        </form>
+      </div>
+
+    </div>
   </div>
 </div>

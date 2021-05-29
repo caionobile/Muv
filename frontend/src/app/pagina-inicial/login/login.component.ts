@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   mostrarToastLoginFalha(){
     this.toastr.error('Email e/ou senha inválidos', 'Erro de Autenticação', {
-      timeOut: 3500,
+      timeOut: 1800,
       progressBar: true,
       progressAnimation: "increasing",
       positionClass : "toast-top-center"

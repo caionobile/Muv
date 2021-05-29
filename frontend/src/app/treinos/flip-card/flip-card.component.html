@@ -12,8 +12,8 @@
       <flip-card-back select="flip-card-back" [exercicios]='treino.exercicios'></flip-card-back>
       <div class="back-button">
         <a (click)="toggle()"> ◄ Voltar</a>
-        <button *ngIf="treino.assignTo === idUsuario" type="button" class="btn btn-outline-primary" (click)="alterar()">Alterar</button>
-        <button *ngIf="treino.assignTo === idUsuario" type="button" class="btn btn-outline-danger" (click)="excluir()">Excluir</button>
+        <button *ngIf="treino.assignTo === idUsuario" type="button" class="btn btn-primary" (click)="alterar()">Alterar</button>
+        <button *ngIf="treino.assignTo === idUsuario" type="button" class="btn btn-danger" (click)="excluir()">Excluir</button>
       </div>
     </div>
   </div>

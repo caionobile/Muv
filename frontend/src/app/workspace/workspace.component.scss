@@ -37,6 +37,7 @@ mat-card {
   height: 89.9vh;
   display: flex;
   align-items: flex-start;
+  background: #DBDBDB;
   @media (max-width: 420px){
     display: block;
   }
@@ -60,18 +61,21 @@ mat-card {
   min-width: 250px;
   overflow: auto;
   padding: 0px 15px 0px 15px;
-  background-color: rgba(128, 128, 128, 0.466);
+  /* background-color: rgba(128, 128, 128, 0.466); */
+  background-color: rgba(128, 128, 128, 0.329);
   @media (max-width: 420px){
     display: inline-block;
     width: 100%;
     height: 50%;
     .lista{
       height: 60%;
+
     }
     form{
       display: inline-flex;
       width: 100%;
       height: 30%;
+
       .btn-treino{
         padding: 0;
         padding-left: 10px;
@@ -80,12 +84,17 @@ mat-card {
   }
 }
 
+#mat-form-nome{
+  background: rgb(233, 233, 233);
+}
+
 .lista-exercicios {
   min-height: 100%;
   height: 100%;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid rgba(128, 128, 128, 0.466);
+  border: 1px solid rgba(90, 90, 90, 0.61);
+  background: rgb(233, 233, 233);
   overflow: auto;
 }
 
@@ -99,7 +108,8 @@ mat-card {
   text-align: center;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
     0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-  background-color: rgba(255, 16, 16, 0.836);
+  /* background-color: rgba(255, 16, 16, 0.836); */
+  background-color: #5e5eff56;
 }
 
 .form-control {

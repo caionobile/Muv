@@ -84,7 +84,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatRadioModule,
     NgsgModule,
     ToastrModule.forRoot({
-      timeOut: 3500,
+      timeOut: 1800,
       progressBar: true,
       progressAnimation: "increasing",
       preventDuplicates: true
