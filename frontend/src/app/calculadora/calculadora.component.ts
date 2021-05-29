@@ -74,7 +74,6 @@ export class CalculadoraComponent implements OnInit {
     }
     const altura = this.maskAltura(this.formImc.value.alturaImc);
     const massa = this.maskMassa(this.formImc.value.massaImc);
-    console.log(altura, massa);
     this.resultadoImc = this.calculoImc(massa, altura);
     this.tabelaImc = this.checkImc(this.resultadoImc);
     this.calcularImc = true;

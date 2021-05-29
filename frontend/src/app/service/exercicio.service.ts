@@ -22,9 +22,7 @@ export class ExercicioService {
     }
     this.httpClient
       .post('http://localhost:3000/api/exercicios',exercicio)
-      .subscribe((resposta) => {
-        console.log(resposta);
-      });
+      .subscribe();
   }
 
   alterarExercicio(idExercicio: string, nomeExercicio:string,intensidade:number,descricao:string,series:number,repeticao:number, assignTo:string) {
@@ -38,9 +36,7 @@ export class ExercicioService {
     }
     this.httpClient
       .put(`http://localhost:3000/api/exercicios/${idExercicio}`,exercicio)
-      .subscribe((resposta) => {
-        console.log(resposta);
-      });
+      .subscribe();
   }
 
   getExercicios(idUsuario): void {
