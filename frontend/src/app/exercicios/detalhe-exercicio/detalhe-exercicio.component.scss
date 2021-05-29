@@ -4,5 +4,7 @@ toast-top-center {
 }
 
 .footer-buttons {
+  display: flex;
   margin: 5px;
+  justify-content: center;
 }
