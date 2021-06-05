@@ -58,7 +58,7 @@ router.delete("/:id", (req, res, next) => {
   try {
     Treino.deleteOne({ _id: req.params.id }).then((resultado) => {
       res.status(200).json({
-        mensagem: "Usuário removido",
+        mensagem: "Treino removido",
       });
     });
   } catch {

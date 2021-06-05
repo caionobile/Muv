@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UsuarioService } from './auth/usuario.service';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagina-inicial',
@@ -9,16 +10,19 @@ import { CadastroComponent } from './cadastro/cadastro.component';
   styleUrls: ['./pagina-inicial.component.scss']
 })
 export class PaginaInicialComponent implements OnInit {
-s
+
   email: any;
 
   constructor(
     private dialog: MatDialog,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.usuarioService.removerDadosCliente();
+    if(this.usuarioService.autenticarAutomaticamente()){
+      this.router.navigate(['/muv'])
+    }else{ this.usuarioService.removerDadosCliente()}
   }
 
   openCadastro() {

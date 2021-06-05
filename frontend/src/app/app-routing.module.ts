@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: "muv",
     component: BarsComponent,
-    //canActivate:[AuthGuard],
+    canActivate:[AuthGuard],
     children:
     [
       {
