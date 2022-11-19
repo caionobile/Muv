@@ -40,6 +40,8 @@ import { CloseModalComponent } from './bars/close-modal/close-modal.component';
 import { LoginComponent } from './pagina-inicial/login/login.component';
 import { CadastroComponent } from './pagina-inicial/cadastro/cadastro.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CatalogoComponent } from './catalogo/catalogo.component';
+import { ImgCatalogoComponent } from './catalogo/img-catalogo/img-catalogo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,9 @@ import { ToastrModule } from 'ngx-toastr';
     NavbarPaginaInicialComponent,
     CloseModalComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    CatalogoComponent,
+    ImgCatalogoComponent
   ],
   imports: [
     BrowserModule,

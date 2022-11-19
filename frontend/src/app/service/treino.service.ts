@@ -22,6 +22,7 @@ export class TreinoService {
             return {
               id: treino._id,
               nome: treino.nome,
+              img: treino.img,
               posicao: treino.posicao,
               exercicios: treino.exercicios,
               assignTo: treino.assignTo

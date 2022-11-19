@@ -8,7 +8,6 @@ router.get("/usuario/:id", async (req, res) => {
     const treino = await Treino.find({assignTo: {'$in': [req.params.id,"60a9542eb4cf3204e4c8d364"]}})
       .populate(["exercicios"])
       .sort({ posicao: 1 });
-
     return res.send({ treino });
   } catch {
     return res.status(400).send({ error: "Erro ao carregar treinos" });
@@ -19,7 +18,6 @@ router.get("/:id", (req, res, next) => {
   try {
     const treino = new Treino.findById(req.params.id)
     .populate(["usuario",  "exercicios"]);
-
     return res.send({ treino });
   } catch {
     return res.status(400).send({ error: "Erro ao carregar treino" });

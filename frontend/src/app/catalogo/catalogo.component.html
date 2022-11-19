@@ -1,0 +1,16 @@
+<div>
+  <div class="container">
+
+      <div class="area-front">
+        <mat-card
+          (click)="abrirImagem(item[1])"
+          *ngFor="let item of catalogo"
+          style="margin-bottom: 30px; padding-top: 30px; padding-bottom: 30px;background-color: rgb(134, 134, 255); width: 500px;margin-left: 30%"
+        >
+          <a >{{item[0]}}</a>
+        </mat-card>
+      </div>
+
+
+  </div>
+</div>

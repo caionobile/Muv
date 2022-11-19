@@ -6,7 +6,7 @@ import { WorkspaceComponent } from './workspace/workspace.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { AuthGuard } from './pagina-inicial/auth/auth.guard';
 import { BarsComponent } from './bars/bars.component';
-
+import { CatalogoComponent } from './catalogo/catalogo.component';
 
 const routes: Routes = [
   {
@@ -40,6 +40,10 @@ const routes: Routes = [
       {
         path: "calculadora",
         component: CalculadoraComponent
+      },
+      {
+         path: "catalogo",
+         component: CatalogoComponent
       },
     ]
   },
