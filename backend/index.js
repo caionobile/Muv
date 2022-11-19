@@ -24,14 +24,21 @@ mongoose
   });
 
 //configura a porta do servidor e coloca em execução
-const porta = 3000;
+/* const porta = 3000;
 app.set('port', porta);
 const server = http.createServer(app);
-server.listen(porta);
+server.listen(porta); */
+
+app.listen(3000);
+app.use(express.static('public'))
 
 app.use('/api/exercicios', exercicioRoutes);
 app.use('/api/treinos', treinoRoutes);
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/email', emailRoutes);
+
+app.get('/', (req, res) => {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+})
 
 module.exports = app;
