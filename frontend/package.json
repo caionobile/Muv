@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:server": "nodemon server.js",
-    "build-vercel": "ng build --openssl-legacy-provider"
+    "build-vercel": "NODE_OPTIONS=--openssl-legacy-provider ng build"
   },
   "private": true,
   "dependencies": {
