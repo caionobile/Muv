@@ -14,7 +14,7 @@ export class TreinoService {
   getTreinos(idUsuario): void {
       this.httpClient
       .get<{ treino: any }>(
-        `http://localhost:3000/api/treinos/usuario/${idUsuario}`
+        `https://muv-bice.vercel.app/api/treinos/usuario/${idUsuario}`
       )
       .pipe(
         map((dados) => {
@@ -42,7 +42,7 @@ export class TreinoService {
 
   atualizarPosicaoDeTreinos(treinos: Treino[]) {
     this.httpClient
-      .put(`http://localhost:3000/api/treinos/`, treinos)
+      .put(`https://muv-bice.vercel.app/api/treinos/`, treinos)
       .subscribe((res) => {
         // const copia = [...this.clientes];
         // const indice = copia.findIndex((cli) => cli.id === id);
@@ -61,17 +61,17 @@ export class TreinoService {
 
   criarTreino(treino: any){
     this.httpClient
-      .post(`http://localhost:3000/api/treinos/`, treino)
+      .post(`https://muv-bice.vercel.app/api/treinos/`, treino)
       .subscribe()
   }
 
   atualizarTreino(id: string, treino: any){
     this.httpClient
-      .put(`http://localhost:3000/api/treinos/${id}`, treino)
+      .put(`https://muv-bice.vercel.app/api/treinos/${id}`, treino)
       .subscribe()
   }
 
   removerTreino(id: string){
-    this.httpClient.delete(`http://localhost:3000/api/treinos/${id}`).subscribe()
+    this.httpClient.delete(`https://muv-bice.vercel.app/api/treinos/${id}`).subscribe()
   }
 }

@@ -20,6 +20,6 @@ export class EmailService {
       mensagem: mensagem,
     };
 
-    this.httpClient.post('http://localhost:3000/api/email', email).subscribe();
+    this.httpClient.post('https://muv-bice.vercel.app/api/email', email).subscribe();
   }
 }

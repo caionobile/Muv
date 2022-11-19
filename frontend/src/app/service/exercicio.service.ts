@@ -21,7 +21,7 @@ export class ExercicioService {
       assignTo: assignTo
     }
     this.httpClient
-      .post('http://localhost:3000/api/exercicios',exercicio)
+      .post('https://muv-bice.vercel.app/api/exercicios',exercicio)
       .subscribe();
   }
 
@@ -35,14 +35,14 @@ export class ExercicioService {
       assignTo: assignTo
     }
     this.httpClient
-      .put(`http://localhost:3000/api/exercicios/${idExercicio}`,exercicio)
+      .put(`https://muv-bice.vercel.app/api/exercicios/${idExercicio}`,exercicio)
       .subscribe();
   }
 
   getExercicios(idUsuario): void {
     this.httpClient
       .get<{ mensagem: string; exercicios: any }>(
-        `http://localhost:3000/api/exercicios/usuario/${idUsuario}`
+        `https://muv-bice.vercel.app/api/exercicios/usuario/${idUsuario}`
       )
       .pipe(
         map((dados) => {
@@ -70,6 +70,6 @@ export class ExercicioService {
   }
 
   removerExercicio(id: string) {
-    this.httpClient.delete(`http://localhost:3000/api/exercicios/${id}`).subscribe()
+    this.httpClient.delete(`https://muv-bice.vercel.app/api/exercicios/${id}`).subscribe()
   }
 }

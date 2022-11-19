@@ -73,7 +73,7 @@ private obterDadosAutentificao(){
       senha: senha,
     };
     this.httpClient
-      .post('http://localhost:3000/api/usuarios/signup', authData)
+      .post('https://muv-bice.vercel.app/api/usuarios/signup', authData)
       .pipe(
         catchError(() => {
           this.erroCadastro = true;
@@ -113,7 +113,7 @@ private obterDadosAutentificao(){
     };
     this.httpClient
       .post<{ id: string; nome: string; email: string; token: string ; expiresIn:number}>(
-        'http://localhost:3000/api/usuarios/login',
+        'https://muv-bice.vercel.app/api/usuarios/login',
         authDatal
       )
       .pipe(
